@@ -1,0 +1,582 @@
+[
+  {
+    "id": "ECO_001",
+    "category": "economic",
+    "title": "The Medici Ledger",
+    "description": "A courier arrives bearing sealed documents from the Medici bank in Rome. Their Florence branch teeters on insolvency after a series of bad loans to minor nobility. You are offered a chance to acquire their debts at a fraction of their face value — a move that could make you the creditor of half the Tuscan aristocracy.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Buy the debts and become creditor to the Tuscan nobility.",
+        "statChanges": { "influence": 12, "militaryPower": 0, "wealth": -10, "churchStanding": -3 },
+        "narration": "Gold changes hands, and with it, loyalty. Half the minor lords of Tuscany now owe you their estates. But the Medici remember who profited from their misfortune, and the Church frowns upon usury conducted so brazenly."
+      },
+      {
+        "id": "b",
+        "text": "Offer to partner with the Medici to restructure the debts together.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": 3 },
+        "narration": "The Medici accept your offer with cold gratitude. You share the profits but also their goodwill. The Pope's bankers speak well of your charitable spirit — though your purse is lighter for the arrangement."
+      },
+      {
+        "id": "c",
+        "text": "Leak word of the Medici insolvency to their rivals.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 8, "churchStanding": -8 },
+        "narration": "Panic spreads through the banking houses of Florence. As the Medici scramble, you quietly profit from the chaos in currency markets. But when the dust settles, men remember who whispered first. The Cardinal of Florence marks your name."
+      },
+      {
+        "id": "d",
+        "text": "Decline involvement — the Medici's troubles are not yours.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": 2, "churchStanding": 2 },
+        "narration": "You keep your gold and your distance. A prudent choice, some say. Others whisper that you lacked the nerve. The Medici recover without you, and you are neither their friend nor their enemy — merely irrelevant to them."
+      }
+    ]
+  },
+  {
+    "id": "ECO_002",
+    "category": "economic",
+    "title": "Silk and Subterfuge",
+    "description": "The Florentine silk guild, the Arte della Seta, approaches you with a proposition. They seek a patron to fund an expedition to acquire new dyeing techniques from Constantinople. The silks produced would rival those of Venice, but the Venetian Senate has spies everywhere, and they will not tolerate competition lightly.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Fund the expedition openly and challenge Venetian silk dominance.",
+        "statChanges": { "influence": 8, "militaryPower": -5, "wealth": 5, "churchStanding": 0 },
+        "narration": "Your silks dazzle the courts of Europe. Florence celebrates your name in the piazzas. But Venice retaliates — their galleys harass your trade ships, and whispers reach you of Venetian agents hiring condottieri to make a point."
+      },
+      {
+        "id": "b",
+        "text": "Fund the expedition secretly through intermediaries.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 8, "churchStanding": -4 },
+        "narration": "The techniques arrive without fanfare. Your workshops produce exquisite silks sold under false guild marks. The profits are magnificent, but maintaining the deception requires bribing customs officials and silencing loose tongues — work unbecoming of a man who claims virtue."
+      },
+      {
+        "id": "c",
+        "text": "Sell the guild's plans to Venice in exchange for trade concessions.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": 10, "churchStanding": -5 },
+        "narration": "Venetian gold fills your coffers, and their Doge grants you favorable tariffs on eastern spices. But when the guild discovers your betrayal, Florentine craftsmen refuse your commissions. You are rich, and utterly despised at home."
+      }
+    ]
+  },
+  {
+    "id": "ECO_003",
+    "category": "economic",
+    "title": "The Papal Tithe",
+    "description": "Pope Julius has declared a new tithe to fund the construction of St. Peter's Basilica. As a prominent figure, you are expected to contribute generously. The papal legate watches you with sharp eyes, calculating your wealth against your piety. Meanwhile, your own treasury could use every florin for the coming season.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Contribute extravagantly — triple what is expected.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -12, "churchStanding": 15 },
+        "narration": "The Pope himself mentions your generosity in a letter to his cardinals. Doors in Rome swing open for you. But your steward blanches at the accounts — granaries are half-empty, and the mercenaries' pay is overdue."
+      },
+      {
+        "id": "b",
+        "text": "Pay the expected amount, no more.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -5, "churchStanding": 3 },
+        "narration": "A dutiful contribution, neither memorable nor insulting. The legate nods and moves on. You remain in the Church's good graces, though you have purchased no special favor. A forgettable act of compliance."
+      },
+      {
+        "id": "c",
+        "text": "Offer to collect the tithe from your region in exchange for a percentage.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 10, "churchStanding": 5 },
+        "narration": "The legate is delighted — collection is tedious work. You squeeze every village and monastery in your territory, skimming handsomely. The peasants curse your name, and local lords resent your intrusion into their affairs. But Rome is pleased, and your vaults grow heavy."
+      },
+      {
+        "id": "d",
+        "text": "Plead poverty and request an exemption.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": 3, "churchStanding": -10 },
+        "narration": "The legate's quill scratches a note beside your name. Word reaches Rome that you are either destitute or faithless — neither reputation serves you. The cardinals' doors close one by one, and a Franciscan preacher singles you out in his sermon."
+      }
+    ]
+  },
+  {
+    "id": "ECO_004",
+    "category": "economic",
+    "title": "Venetian Galley Auction",
+    "description": "The Republic of Venice holds its annual auction of galley routes — the right to operate trade convoys to specific ports in the Levant. A route to Alexandria has opened, promising access to the spice trade. But the bidding will be fierce, and the Ottomans have been raiding Venetian shipping with increasing boldness.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Bid aggressively for the Alexandria route at any cost.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -8, "churchStanding": -3 },
+        "narration": "You win the route, outbidding three patrician families. The spices flow and the profits are real — but Ottoman corsairs take one of your galleys near Crete. The loss stings. Worse, trading so openly with Muslim lands draws murmurs from the clergy."
+      },
+      {
+        "id": "b",
+        "text": "Form a consortium with other merchants to share the cost and risk.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 5, "churchStanding": 0 },
+        "narration": "Safety in numbers — the consortium wins the route and splits the profits four ways. The returns are modest but steady. Your partners, however, prove difficult. Disputes over cargo allocation consume your winter."
+      },
+      {
+        "id": "c",
+        "text": "Skip the auction and invest in overland trade routes through the Balkans instead.",
+        "statChanges": { "influence": -3, "militaryPower": 3, "wealth": 5, "churchStanding": 5 },
+        "narration": "While others fight over galleys, you establish contacts with Hungarian and Serbian traders. The routes are slower but safer. The Church approves — you trade with Christians, not infidels. Your rivals in Venice mock your timidity, but your caravans arrive unmolested."
+      }
+    ]
+  },
+  {
+    "id": "ECO_005",
+    "category": "economic",
+    "title": "The Debased Ducat",
+    "description": "Your mint master confides that a neighboring state has been secretly debasing its coinage — mixing copper into silver ducats. Their cheaper currency is flooding your markets, undercutting your merchants. Your own treasury holds thousands of honest ducats that now buy less than they should.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Debase your own coinage to match, fighting fire with fire.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": 10, "churchStanding": -5 },
+        "narration": "Your mints work through the night. The short-term gains are intoxicating — you pay debts with lighter coin and pocket the difference. But merchants begin to weigh your ducats at market, and foreign bankers demand premiums. Your name becomes synonymous with dishonest currency."
+      },
+      {
+        "id": "b",
+        "text": "Expose the neighbor's debasement publicly and demand restitution.",
+        "statChanges": { "influence": 10, "militaryPower": -3, "wealth": -5, "churchStanding": 5 },
+        "narration": "You present evidence before an assembly of Italian states. The offending prince is humiliated, and your reputation as a man of honest commerce soars. But the prince remembers, and his condottieri begin patrolling closer to your borders."
+      },
+      {
+        "id": "c",
+        "text": "Quietly buy up the debased coins at face value and melt them for their remaining silver.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": 8, "churchStanding": -3 },
+        "narration": "A clever scheme. Your agents purchase the bad coinage in bulk, and your foundries extract what silver remains. The profit margin is thin but reliable. When the scheme is eventually discovered, men call you shrewd — and some call you a cheat."
+      },
+      {
+        "id": "d",
+        "text": "Ban the foreign currency from your markets entirely.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -8, "churchStanding": 3 },
+        "narration": "Your decree is bold and principled. Merchants applaud your protection of honest trade. But the ban disrupts commerce for months — foreign traders avoid your territory, and your own exports suffer as retaliation follows."
+      }
+    ]
+  },
+  {
+    "id": "ECO_006",
+    "category": "economic",
+    "title": "The Wool Guild's Revolt",
+    "description": "The Ciompi — the lowest wool workers of Florence — are organizing again. They demand higher wages and representation in the guild councils. The Arte della Lana, the great wool guild, begs you to intervene. Cloth production has halted. The warehouses sit full of raw English wool with no one to card or spin it.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Side with the guild masters and crush the workers' revolt by force.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 8, "churchStanding": -8 },
+        "narration": "Your men-at-arms clear the streets. Production resumes within the week. The guild masters reward you handsomely, but the workers' blood stains the cobblestones. A Dominican friar preaches against you from the pulpit, comparing you to Pharaoh."
+      },
+      {
+        "id": "b",
+        "text": "Mediate a compromise — modest wage increases in exchange for peace.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "Both sides grumble, which means you have done your work well. The looms turn again, and the friar speaks of your wisdom. But the guild masters feel you have weakened their authority, and they remember it when contracts are awarded."
+      },
+      {
+        "id": "c",
+        "text": "Secretly fund the workers to prolong the crisis, then buy up wool stocks at depressed prices.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 12, "churchStanding": -5 },
+        "narration": "Chaos is profitable — for you. As the strike drags on, desperate merchants sell their wool reserves at a loss. You buy everything. When the crisis finally ends, you control the supply and name your price. But a dying worker's wife curses your name in the piazza, and the story spreads."
+      }
+    ]
+  },
+  {
+    "id": "ECO_007",
+    "category": "economic",
+    "title": "Spice from the Cape",
+    "description": "Stunning news from Lisbon: Portuguese navigators have rounded the Cape of Africa and reached the spice markets of India directly. The Venetian monopoly on eastern spices, maintained for centuries through Alexandria, now faces an existential threat. Venetian spice prices have already begun to fall.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Invest heavily in Portuguese trading ventures before others realize the shift.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 12, "churchStanding": -3 },
+        "narration": "Your agents in Lisbon secure shares in the next fleet to Calicut. The returns are extraordinary — pepper at a tenth of the Venetian price. But your Italian allies view your Portuguese investments as a betrayal. You have bet against your own people, and they know it."
+      },
+      {
+        "id": "b",
+        "text": "Rally the Italian states to petition the Pope to restrict Portuguese trade as a threat to Christendom's balance.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -5, "churchStanding": 8 },
+        "narration": "The Pope listens sympathetically — Venice is the Church's bulwark against the Ottoman. A papal brief discourages Christian princes from undermining Venetian commerce. It slows the Portuguese but cannot stop the tide. You have bought time, not victory, at the cost of your treasury."
+      },
+      {
+        "id": "c",
+        "text": "Dump your existing spice holdings immediately before prices collapse further.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": 5, "churchStanding": 0 },
+        "narration": "You sell at a loss, but less of a loss than those who wait. The Venetian merchants who bought your stock at yesterday's prices find themselves ruined by next season. Your foresight is noted — as is your willingness to let others drown."
+      },
+      {
+        "id": "d",
+        "text": "Pivot your trade operations toward manufactured goods — Florentine textiles for Portuguese gold.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 5, "churchStanding": -3 },
+        "narration": "While others mourn the spice routes, you adapt. Florentine silks and woolens find eager buyers in Lisbon, paid for in African gold. The transition is costly and slow, but you emerge positioned for the new century. The old guard calls you a traitor to tradition."
+      }
+    ]
+  },
+  {
+    "id": "ECO_008",
+    "category": "economic",
+    "title": "The Alum Monopoly",
+    "description": "Deposits of alum — essential for dyeing cloth — have been discovered at Tolfa in the Papal States. The Pope declares a monopoly and offers exclusive distribution rights. Alum has long been imported from Ottoman lands at great expense. Whoever controls the Tolfa supply controls the entire European textile industry's costs.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Bid for the exclusive distribution contract, offering the Pope a generous cut.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -8, "churchStanding": 10 },
+        "narration": "The Pope awards you the contract. Every dyer from Bruges to Naples must buy through you. The Church adores its faithful servant. But the initial investment is staggering, and the Florentine guilds resent paying monopoly prices to one of their own."
+      },
+      {
+        "id": "b",
+        "text": "Continue importing cheaper Ottoman alum in defiance of the papal monopoly.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 8, "churchStanding": -12 },
+        "narration": "Your dyers rejoice at the lower prices, and your textiles undercut every competitor. But the Pope issues a bull threatening excommunication for anyone trading in 'infidel alum.' Your name appears on a list in the Vatican that no man wants to be on."
+      },
+      {
+        "id": "c",
+        "text": "Propose a joint venture with the Medici bank to finance the distribution.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": 3, "churchStanding": 5 },
+        "narration": "The Medici bring their banking network; you bring your trade connections. Together you dominate the alum market. But the partnership means sharing every decision — and the Medici have a habit of becoming the senior partner in every arrangement."
+      }
+    ]
+  },
+  {
+    "id": "ECO_009",
+    "category": "economic",
+    "title": "The Condottiere's Invoice",
+    "description": "Your hired captain, a condottiere of some renown, presents his quarterly invoice — and it is double what was agreed. He claims his men fought harder than expected and deserve hazard pay. His company of 800 lances currently camps outside your city walls. Refusing payment while armed men idle at your gates is a delicate matter.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay the inflated invoice in full to maintain the captain's loyalty.",
+        "statChanges": { "influence": -3, "militaryPower": 8, "wealth": -12, "churchStanding": 0 },
+        "narration": "The captain bows and calls you the most generous lord in Italy. His men cheer. Your treasury groans. Word spreads among other condottieri that you pay well — too well. Every mercenary captain in Italy will now expect the same treatment."
+      },
+      {
+        "id": "b",
+        "text": "Pay the original amount and dare him to breach the contract.",
+        "statChanges": { "influence": 5, "militaryPower": -8, "wealth": -3, "churchStanding": 0 },
+        "narration": "The captain accepts the original sum with a thin smile. He breaks camp the next morning — and takes his services to your rival in Urbino. Your reputation for firmness is established, but so is your vulnerability. The walls feel thinner without 800 lances behind them."
+      },
+      {
+        "id": "c",
+        "text": "Offer him land and a minor title instead of additional gold.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -3, "churchStanding": -5 },
+        "narration": "The captain is delighted — he has always craved respectability. He settles his men on the granted estates and swears undying loyalty. But the local nobility are outraged that a common soldier now holds land among them. The bishop mutters about wolves in the fold."
+      },
+      {
+        "id": "d",
+        "text": "Invite the captain to a banquet and have him quietly arrested for extortion.",
+        "statChanges": { "influence": 8, "militaryPower": -10, "wealth": 5, "churchStanding": -3 },
+        "narration": "Wine flows, then chains. The captain is imprisoned before his men know what has happened. His company scatters without leadership, and you keep the gold. A masterful stroke — but every condottiere in Italy now knows you cannot be trusted. Hiring mercenaries will cost you dearly henceforth."
+      }
+    ]
+  },
+  {
+    "id": "ECO_010",
+    "category": "economic",
+    "title": "The Fugger Connection",
+    "description": "Jakob Fugger, the wealthiest banker in Europe, sends an emissary proposing a financial alliance. The Fugger bank controls silver mines in Tyrol and copper in Hungary. An alliance would give you access to northern European capital markets — but it would also mean entangling yourself with the politics of the Holy Roman Empire.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the alliance and open a joint banking operation in Rome.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 8, "churchStanding": -5 },
+        "narration": "Fugger silver flows into your vaults, and your network extends from Florence to Augsburg. The joint bank in Rome handles papal finances with ruthless efficiency. But Italian bankers call you a German puppet, and the Church grows uneasy at so much temporal wealth concentrated in so few hands."
+      },
+      {
+        "id": "b",
+        "text": "Decline politely — Italian gold should stay in Italian hands.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "Your refusal earns you admiration among the Italian banking houses. The Pope himself commends your patriotism. But without Fugger capital, your competitors who did accept his offers begin to outpace you. Pride is expensive."
+      },
+      {
+        "id": "c",
+        "text": "Accept but secretly funnel Fugger intelligence to the Venetian Senate.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 10, "churchStanding": -8 },
+        "narration": "You play both sides with exquisite skill. Fugger's secrets flow to Venice; Venetian gratitude flows to you. The profits are immense, the risk absolute. One intercepted letter would mean your ruin — and Fugger employs the best codebreakers in Christendom."
+      }
+    ]
+  },
+  {
+    "id": "ECO_011",
+    "category": "economic",
+    "title": "The Salt Tax",
+    "description": "Your territories include salt flats that supply half the region. The current tax on salt is modest, but your advisors calculate that tripling it would fill your war chest in a single season. Salt is a necessity — the people have no choice but to pay. But salt taxes have sparked revolts before, and the memory of the Pazzi conspiracy reminds you that even the powerful can be dragged through the streets.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Triple the salt tax immediately to fill the treasury.",
+        "statChanges": { "influence": -10, "militaryPower": 3, "wealth": 15, "churchStanding": -5 },
+        "narration": "Gold pours in — enough to hire two companies of mercenaries. But the countryside seethes. Peasants mix ash into their food rather than buy your salt. A monastery shelters tax resisters, and the abbot preaches that you squeeze the poor like a pagan emperor."
+      },
+      {
+        "id": "b",
+        "text": "Raise the tax modestly and invest the surplus in public works.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 3, "churchStanding": 3 },
+        "narration": "A new fountain and a repaired bridge earn you the people's gratitude. The tax increase passes without protest. But your war chest remains thin, and when the neighboring duke hires fresh condottieri, you have nothing to match him with."
+      },
+      {
+        "id": "c",
+        "text": "Keep the tax low but grant salt monopoly rights to a loyal merchant family in exchange for a private loan.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": 8, "churchStanding": -3 },
+        "narration": "The merchant family handles the dirty work of collection while you maintain clean hands. The loan arrives quietly. But the monopolists prove rapacious, and the people blame you for choosing them. You have privatized the hatred, but it still finds your door."
+      }
+    ]
+  },
+  {
+    "id": "ECO_012",
+    "category": "economic",
+    "title": "The Ottoman Embargo",
+    "description": "Sultan Bayezid II has imposed an embargo on all trade with Italian states in retaliation for Venetian raids on Ottoman shipping. Your warehouses hold goods destined for Constantinople — silks, glassware, and armor components. The embargo may last months, or it may last years. Your capital is locked in cargo that rots or rusts.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Smuggle goods through Ragusan intermediaries, bribing Ottoman port officials.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 10, "churchStanding": -10 },
+        "narration": "The Ragusans take their cut, the officials take theirs, and what remains is still profitable. Your goods reach Constantinople under false bills of lading. But word reaches the Vatican that you arm the infidel — selling armor components to the Sultan's domain is not easily forgiven."
+      },
+      {
+        "id": "b",
+        "text": "Redirect the goods to North African markets through Genoese contacts.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 3, "churchStanding": -5 },
+        "narration": "Tunis and Algiers prove willing buyers, though they pay less than Constantinople would. The Genoese take a commission that borders on extortion. The Church notes your commerce with the Barbary Coast but considers it a lesser sin than trading directly with the Turk."
+      },
+      {
+        "id": "c",
+        "text": "Lobby Venice to negotiate an end to the embargo, offering to fund a diplomatic mission.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -8, "churchStanding": 5 },
+        "narration": "Your embassy to the Doge is received with interest — Venice too suffers from the embargo. A joint mission departs for Constantinople bearing gifts and proposals. Months pass before trade resumes, and the cost nearly breaks you. But when the galleys sail again, you are remembered as the man who reopened the East."
+      },
+      {
+        "id": "d",
+        "text": "Sell the stranded goods at a loss domestically and cut your losses.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": -5, "churchStanding": 3 },
+        "narration": "The markets absorb your silks and glassware at painful discounts. Italian buyers rejoice at the bargains; your accountants weep. You emerge lighter in purse but free of rotting cargo. Your competitors who held on fare worse when the embargo drags into a second year."
+      }
+    ]
+  },
+  {
+    "id": "ECO_013",
+    "category": "economic",
+    "title": "The Dowry Gambit",
+    "description": "A marriage alliance is proposed between your house and the daughter of a wealthy Genoese shipping magnate. The dowry offered is extraordinary — three galleys, a warehouse in Genoa, and 40,000 florins. But the bride's family demands that you break your existing betrothal to a minor Roman noblewoman whose uncle sits in the College of Cardinals.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the Genoese match — the dowry is too rich to refuse.",
+        "statChanges": { "influence": 5, "militaryPower": 3, "wealth": 12, "churchStanding": -12 },
+        "narration": "Three galleys and a fortune in gold transform your commercial power overnight. Genoa opens its arms. But the jilted Roman family is apoplectic — the Cardinal uncle ensures your name is spoken with venom in every Vatican corridor. An annulment of any future marriage now becomes nearly impossible."
+      },
+      {
+        "id": "b",
+        "text": "Honor the Roman betrothal — a cardinal's favor outweighs Genoese gold.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "The Cardinal is deeply pleased. Your loyalty to his niece opens doors that gold cannot buy — benefices, papal contracts, whispered intelligence from the consistory. But you watch the Genoese galleys sail under another man's flag and wonder what might have been."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate to marry a younger son to the Genoese girl while keeping the Roman betrothal.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": 5, "churchStanding": -3 },
+        "narration": "A Solomon's compromise. The Genoese accept a reduced dowry for the younger son, and the Roman match proceeds. Both families are partially satisfied, which means neither is truly content. You gain something from both but the full trust of neither."
+      }
+    ]
+  },
+  {
+    "id": "ECO_014",
+    "category": "economic",
+    "title": "Counterfeit Letters of Credit",
+    "description": "Your agents intercept a cache of forged letters of credit bearing the seal of the Bardi banking house. Someone is using counterfeit paper to extract gold from banks across Tuscany. You could expose the scheme — or you could use the knowledge. The forger is skilled enough that his work has fooled experienced bankers for months.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Expose the counterfeiting ring publicly and present the evidence to the Signoria.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -3, "churchStanding": 8 },
+        "narration": "The Signoria praises your vigilance. The Bardi family owes you an immeasurable debt — their reputation was at stake. You become the guardian of Florentine commercial honor. But the forger escapes justice, and you suspect he now works for someone who would like to see you silenced."
+      },
+      {
+        "id": "b",
+        "text": "Blackmail the forger into working exclusively for you.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 12, "churchStanding": -10 },
+        "narration": "The forger is a frightened man, easily bent. His skill with seals and inks becomes your private weapon — letters of recommendation, false debts, phantom accounts. The wealth accumulates invisibly. But you now harbor a criminal whose capture would unravel everything you have built."
+      },
+      {
+        "id": "c",
+        "text": "Quietly inform the Bardi through a private intermediary and request a favor in return.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 5, "churchStanding": 3 },
+        "narration": "The Bardi handle the matter discreetly — no scandal, no public inquiry. In gratitude, they offer you preferential lending rates and a seat at their next investment syndicate. A gentleman's arrangement. But you wonder if the favor you are owed is worth less than the justice you withheld."
+      }
+    ]
+  },
+  {
+    "id": "ECO_015",
+    "category": "economic",
+    "title": "The New World Speculation",
+    "description": "Rumors swirl through the counting houses of Seville and Genoa: a navigator in Spanish service claims to have found lands across the western ocean. Most dismiss it as fantasy, but Genoese bankers are quietly buying shares in future expeditions. The Spanish crown offers foreign investors a chance to participate — at considerable risk and considerable potential reward.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Invest a substantial sum in the Spanish expeditions to the New World.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -8, "churchStanding": 3 },
+        "narration": "Your gold sails west into the unknown. For months, nothing. Then word arrives of gold, strange crops, and vast territories. Your investment may take years to mature, but you have planted a seed in new soil. Italian merchants mock your gullibility — for now."
+      },
+      {
+        "id": "b",
+        "text": "Dismiss the rumors and double down on proven Mediterranean trade routes.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 5, "churchStanding": 0 },
+        "narration": "The Mediterranean is what you know, and it rewards you reliably. Your trade network strengthens while others chase fantasies. But as Spanish ships return laden with curiosities and gold dust, a quiet doubt takes root. The world may be larger than your maps suggest."
+      },
+      {
+        "id": "c",
+        "text": "Send your own exploratory ship under a private flag to investigate independently.",
+        "statChanges": { "influence": 8, "militaryPower": -3, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your caravel departs from Cadiz under a captain of dubious sobriety but genuine skill. Spain protests — the Pope has granted them dominion over western discoveries. Your unauthorized expedition angers both the Spanish crown and the Vatican. But the captain returns with maps, samples, and stories that could change everything."
+      },
+      {
+        "id": "d",
+        "text": "Invest in the Genoese banks financing the expeditions rather than the expeditions themselves.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 3, "churchStanding": -3 },
+        "narration": "Let others brave the ocean — you will profit from their ambition. Your stake in the Genoese banking houses gives you a cut of every expedition's financing. The returns are modest but the risk is lower. Some call it wisdom; others call it the cowardice of the counting house."
+      }
+    ]
+  },
+  {
+    "id": "ECO_016",
+    "category": "economic",
+    "title": "The Guild Master's Bribe",
+    "description": "The master of the bankers' guild offers you a seat on the guild council — in exchange for using your influence to block a proposed law that would cap interest rates. The law is popular with the people and supported by Franciscan preachers who rail against usury. The guild seat would give you control over who may lend money in Florence.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the seat and block the interest rate law.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": 10, "churchStanding": -12 },
+        "narration": "You take your place among the guild masters, and the law dies quietly in committee. The bankers celebrate; the Franciscans denounce you by name from every pulpit in the city. Your wealth swells from favorable lending, but confessors refuse to hear you, and the common people spit when your litter passes."
+      },
+      {
+        "id": "b",
+        "text": "Decline the seat and publicly support the interest rate cap.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -8, "churchStanding": 12 },
+        "narration": "The Franciscans hail you as a defender of the poor. The Pope sends a letter of commendation. But the guild masters retaliate — your loans are called in early, your credit lines severed. Doing God's work, it seems, is not free."
+      },
+      {
+        "id": "c",
+        "text": "Take the seat but negotiate a compromise — moderate rate caps that still allow profit.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 3, "churchStanding": 3 },
+        "narration": "A middle path that pleases no one entirely but offends no one mortally. The bankers grumble; the friars shrug. You sit in the guild council with the authority to shape policy, respected if not loved. The art of the possible, some call it. Others call it the art of the lukewarm."
+      }
+    ]
+  },
+  {
+    "id": "ECO_017",
+    "category": "economic",
+    "title": "Plague and Profit",
+    "description": "Plague has struck the Lombardy plains. Milan's workshops stand empty, its trade routes abandoned. Milanese cloth, metalwork, and arms production has collapsed. Your own territories remain — for now — untouched. Your merchants could fill the void left by Milan's paralysis, but trading near plague zones risks bringing the contagion home.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Aggressively expand into Milan's abandoned markets before competitors do.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 12, "churchStanding": -8 },
+        "narration": "Your caravans roll north while others hesitate. The profits are obscene — desperate buyers pay triple. But plague travels with commerce. Within months, your own port quarter reports cases. The bishop accuses you of importing death for gold, and the people agree."
+      },
+      {
+        "id": "b",
+        "text": "Close your borders to Lombardy and quarantine all travelers from the north.",
+        "statChanges": { "influence": 3, "militaryPower": -3, "wealth": -8, "churchStanding": 8 },
+        "narration": "Your territory becomes an island of health in a sick peninsula. The Church praises your wisdom and charity. But sealed borders mean sealed trade — your merchants rage as contracts expire and shipments rot at closed gates. Safety has a price measured in florins."
+      },
+      {
+        "id": "c",
+        "text": "Send grain and medicine to Milan as humanitarian aid, positioning yourself as a savior.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -10, "churchStanding": 10 },
+        "narration": "Milan's surviving lords weep with gratitude. The Pope declares you a champion of Christian charity. Your name rings from pulpits across Italy. But your granaries are depleted, your medicine stores exhausted, and when winter comes, your own people may go hungry."
+      },
+      {
+        "id": "d",
+        "text": "Hire displaced Milanese craftsmen at reduced wages to boost your own production.",
+        "statChanges": { "influence": -3, "militaryPower": 3, "wealth": 8, "churchStanding": -5 },
+        "narration": "Skilled armorers, weavers, and goldsmiths flock to your workshops, grateful for any employment. Your production capacity doubles overnight. But your own craftsmen resent the competition, and the newcomers bring not just skills but possibly contagion. The guild masters demand quarantine measures you cannot afford."
+      }
+    ]
+  },
+  {
+    "id": "ECO_018",
+    "category": "economic",
+    "title": "The Monte delle Doti",
+    "description": "Florence's dowry fund — the Monte delle Doti — is failing. Families deposit gold at a daughter's birth and expect a substantial return when she marries. But decades of mismanagement have left the fund insolvent. Hundreds of families face ruin if their daughters cannot marry with proper dowries. The Signoria quietly asks if you can help restructure the fund.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Bail out the fund with your own money in exchange for control of its investments.",
+        "statChanges": { "influence": 12, "militaryPower": 0, "wealth": -12, "churchStanding": 5 },
+        "narration": "Hundreds of families owe their daughters' marriages to your generosity. The gratitude is real and deep — you can call upon it for a generation. But the fund's debts are staggering, and managing other people's dowries is a burden that will consume your stewards for years. Every delayed payment is now your personal failure."
+      },
+      {
+        "id": "b",
+        "text": "Propose merging the fund into the public debt system, diluting the losses across all taxpayers.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 0, "churchStanding": -3 },
+        "narration": "A clever financial maneuver — the losses disappear into the general accounts. Taxpayers bear the burden unknowingly. The Signoria approves, the depositors are relieved, and you emerge as a financial architect. But when a sharp-eyed notary uncovers the shell game, whispers of fraud begin."
+      },
+      {
+        "id": "c",
+        "text": "Let the fund fail and buy up the forfeited dowry deposits at a discount.",
+        "statChanges": { "influence": -12, "militaryPower": 0, "wealth": 15, "churchStanding": -10 },
+        "narration": "The fund collapses. Families weep. Daughters face spinsterhood or unsuitable matches. And you — you purchase the wreckage for pennies on the florin, converting despair into assets. Florence has never hated anyone more. The Archbishop refuses to dine with you, and mothers curse your name as they tell their daughters the dowry is gone."
+      }
+    ]
+  },
+  {
+    "id": "ECO_019",
+    "category": "economic",
+    "title": "The Arsenal's Demand",
+    "description": "Venice's great Arsenal — the largest industrial complex in Europe — needs timber. Vast quantities of oak and pine for galley construction. Your territories include forests that could supply the Arsenal for years. The Venetian offer is generous, but stripping your forests would leave your lands vulnerable to erosion and your people without fuel and building material.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the Venetian contract and begin clear-cutting your forests.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 12, "churchStanding": 0 },
+        "narration": "Venetian gold arrives in satisfying quantities. Your lumberjacks work day and night. But within two seasons, mudslides ravage your hillside villages, and your people burn scrub brush for warmth. You have sold the land itself, and the land remembers."
+      },
+      {
+        "id": "b",
+        "text": "Negotiate a sustainable harvest — limited quantities at a premium price.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 5, "churchStanding": 3 },
+        "narration": "The Venetians grumble at the higher price and lower volume but accept — good timber is scarce. Your forests thin gradually rather than vanish. A balanced approach that earns you modest wealth and a reputation for prudence. Neither fortune nor fame, but something more durable: stability."
+      },
+      {
+        "id": "c",
+        "text": "Refuse Venice and sell the timber to the Ottoman navy instead, at double the price.",
+        "statChanges": { "influence": -8, "militaryPower": 5, "wealth": 10, "churchStanding": -15 },
+        "narration": "Ottoman gold is heavier and more plentiful. Your timber builds warships that will menace Venetian trade routes — a delicious irony. But when a papal nuncio discovers Italian oak in Sultan's shipyards, the consequences are swift. You are denounced as a traitor to Christendom. Excommunication is discussed."
+      },
+      {
+        "id": "d",
+        "text": "Decline all offers and establish your own shipyard to build galleys for sale.",
+        "statChanges": { "influence": 8, "militaryPower": 5, "wealth": -10, "churchStanding": -3 },
+        "narration": "An audacious move — you will compete with the Arsenal itself. The initial investment is crushing, and your first galleys are crude compared to Venetian craftsmanship. But you now possess something rare: the capacity to build warships. Venice does not appreciate the competition, and their ambassador delivers a thinly veiled threat."
+      }
+    ]
+  },
+  {
+    "id": "ECO_020",
+    "category": "economic",
+    "title": "The Indulgence Market",
+    "description": "A papal agent arrives offering you an exclusive franchise to sell indulgences in your territory. The faithful pay gold to reduce their time in purgatory — and the Church splits the proceeds with its franchisees. The Dominican order protests that the sale cheapens salvation, but the Pope needs funds for his wars in the Romagna. The profits are enormous, the moral cost incalculable.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the franchise and sell indulgences aggressively throughout your lands.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 15, "churchStanding": 5 },
+        "narration": "Your agents fan out through villages and towns, selling salvation by the sheet. The gold flows like a river. The Pope is delighted with your efficiency. But the Dominicans preach against you, the common people feel swindled, and a German monk named Luther is writing something that will make your franchise worthless within a generation."
+      },
+      {
+        "id": "b",
+        "text": "Decline the franchise — the selling of God's grace is beneath your dignity.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -3, "churchStanding": -5 },
+        "narration": "The papal agent departs with a cold smile. You have insulted the Pope's fundraising by implication. The Dominicans praise your piety; the papal court marks you as difficult. Among the learned, your reputation rises — but Rome has a long memory for those who refuse its offers."
+      },
+      {
+        "id": "c",
+        "text": "Accept but donate half the proceeds to build a hospital, making it palatable.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 5, "churchStanding": 8 },
+        "narration": "The hospital rises stone by stone, funded by purchased salvation. The people see healing, not hypocrisy. The Pope commends your charity, and even the Dominicans soften — medicine for the sick covers many sins. But you know the truth: you are selling heaven and calling it charity."
+      },
+      {
+        "id": "d",
+        "text": "Accept the franchise but sell only to the wealthy, sparing the poor from exploitation.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 8, "churchStanding": -3 },
+        "narration": "Your agents visit only palazzi and merchant houses, offering premium indulgences to those who can afford them. The poor are grateful to be spared; the rich grumble at the targeted taxation. The Pope receives less than expected and sends a pointed letter about quotas. You have found a middle ground that satisfies your conscience, if not your partners."
+      }
+    ]
+  }
+]

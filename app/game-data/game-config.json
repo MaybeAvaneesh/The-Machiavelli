@@ -1,0 +1,85 @@
+{
+  "game": {
+    "name": "The Machiavelli",
+    "subtitle": "Power. Treachery. Survival.",
+    "setting": "Renaissance Italy, 1450–1550",
+    "totalRounds": 10,
+    "yearsPerRound": 10
+  },
+  "stats": {
+    "influence": {
+      "label": "Influence",
+      "icon": "crown",
+      "description": "Political sway over city-states, councils, and noble families",
+      "ceilingDeath": "You became too powerful. A coalition of rivals conspired against you — your body was found in the Arno at dawn.",
+      "floorExile": "Your name carries no weight. The council voted unanimously for your exile — you left Florence with nothing but the clothes on your back."
+    },
+    "militaryPower": {
+      "label": "Military power",
+      "icon": "sword",
+      "description": "Command of armies, condottieri, and fortifications",
+      "ceilingDeath": "Your armies grew too large. Venice, Milan, and the Pope formed a league against you. Outnumbered ten to one, your final battle lasted three hours.",
+      "floorExile": "Without a single soldier to your name, you were defenseless. A minor lord's mercenaries seized your lands while you slept. You fled in the night."
+    },
+    "wealth": {
+      "label": "Wealth",
+      "icon": "coin",
+      "description": "Banking capital, trade income, and patronage funds",
+      "ceilingDeath": "Your fortune drew every schemer in Italy. They came not with swords but with smiles — and poison. Your heirs found your ledgers doctored and your vaults empty.",
+      "floorExile": "Bankrupt and abandoned by every ally who once feasted at your table. Your creditors divided your estates. You died in a Roman boarding house, unrecognized."
+    },
+    "churchStanding": {
+      "label": "Church standing",
+      "icon": "cross",
+      "description": "Favor with the papacy and clergy",
+      "ceilingDeath": "The Pope declared you a living saint — which made you a threat to every cardinal who wasn't. They arranged a quiet audience with an apothecary's special wine.",
+      "floorExile": "Excommunicated. The bell tolled, the book closed, the candle was snuffed. No Christian prince would shelter you. You wandered the edges of Christendom, a ghost."
+    }
+  },
+  "dangerZones": {
+    "ceiling": 90,
+    "floor": 10,
+    "warningHigh": { "min": 86, "max": 89 },
+    "warningLow": { "min": 11, "max": 14 },
+    "safeRange": { "min": 15, "max": 85 }
+  },
+  "luckEngine": {
+    "type": "2d6",
+    "minRoll": 2,
+    "maxRoll": 12,
+    "bands": [
+      { "range": [2, 4], "label": "Negligible", "statMultiplier": 0.25, "description": "Fortune barely stirs" },
+      { "range": [5, 7], "label": "Mild", "statMultiplier": 0.5, "description": "A gentle nudge from Fortuna" },
+      { "range": [8, 10], "label": "Moderate", "statMultiplier": 1.0, "description": "Fortune takes notice" },
+      { "range": [11, 12], "label": "Dramatic", "statMultiplier": 1.5, "description": "Fortuna spins her wheel with force" }
+    ],
+    "hiddenFromPlayer": true
+  },
+  "scenarioPool": {
+    "totalScenarios": 100,
+    "categories": {
+      "political": { "count": 30, "file": "scenarios-political.json" },
+      "military": { "count": 20, "file": "scenarios-military.json" },
+      "economic": { "count": 20, "file": "scenarios-economic.json" },
+      "religious": { "count": 15, "file": "scenarios-religious.json" },
+      "crisis": { "count": 15, "file": "scenarios-crisis.json" }
+    },
+    "selectionRules": {
+      "perGame": 10,
+      "guaranteedCrisis": { "min": 1, "max": 3 },
+      "noDuplicatesPerGame": true
+    }
+  },
+  "roundFlow": [
+    "drawScenario",
+    "presentChoices",
+    "playerChoice",
+    "rollLuck",
+    "applyStatChanges",
+    "applyPerksAndDownsides",
+    "applyPerRoundDecay",
+    "checkDeathTriggers",
+    "generateNarration",
+    "advanceRound"
+  ]
+}

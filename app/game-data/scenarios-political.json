@@ -1,0 +1,860 @@
+[
+  {
+    "id": "POL_001",
+    "category": "political",
+    "title": "The Pazzi Conspiracy's Shadow",
+    "description": "You receive word that a rival family, emboldened by papal backing, plots to assassinate the leading family of your city during High Mass. The conspirators have approached you, seeking your support — or at least your silence. The Pope himself has blessed the endeavor, and the King of Naples stands ready to march if the plot succeeds.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Join the conspiracy and position yourself to seize power in the aftermath.",
+        "statChanges": { "influence": 15, "militaryPower": 5, "wealth": -5, "churchStanding": 10 },
+        "narration": "You cast your lot with the plotters. Blood is spilled on the cathedral floor, and in the chaos that follows, you emerge as a key figure in the new order. But the people's fury at the sacrilege is terrible, and your name is whispered alongside the murderers."
+      },
+      {
+        "id": "b",
+        "text": "Warn the target family and earn their eternal gratitude.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "Your warning saves the family, and their gratitude is genuine — for now. But the Pope is incandescent with rage at the plot's failure, and your role in thwarting his designs marks you as an enemy of the Holy See. Papal interdicts are powerful weapons."
+      },
+      {
+        "id": "c",
+        "text": "Remain silent and let events unfold, keeping your hands clean.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 5, "churchStanding": 0 },
+        "narration": "You watch from the sidelines as blood and chaos sweep through the city. Neither side trusts you afterward — the conspirators see a coward, the survivors see a man who could have warned them. But your coffers remain untouched, and no one can prove your knowledge."
+      },
+      {
+        "id": "d",
+        "text": "Secretly inform both sides, playing them against each other.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": 10, "churchStanding": -5 },
+        "narration": "You feed intelligence to both factions, positioning yourself as indispensable to whoever prevails. The scheme works — barely. Both sides suspect treachery but cannot prove it, and you profit handsomely from the confusion. Your guards, however, are stretched thin watching for retribution."
+      }
+    ]
+  },
+  {
+    "id": "POL_002",
+    "category": "political",
+    "title": "The French Descend",
+    "description": "Charles VIII of France has crossed the Alps with 25,000 men, claiming the throne of Naples. Italian states collapse before him like wheat before a scythe. Your city lies in his path, and envoys arrive demanding free passage, provisions, and a declaration of alliance against Naples and the Pope.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Open your gates and ally with the French king.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -10, "churchStanding": -5 },
+        "narration": "The French march through your streets, their artillery a terrifying novelty. Charles is pleased and grants you his protection, but his soldiers help themselves to your granaries and your citizens' purses. The Pope adds your name to his list of traitors to Christendom."
+      },
+      {
+        "id": "b",
+        "text": "Refuse passage and prepare for siege.",
+        "statChanges": { "influence": 10, "militaryPower": -15, "wealth": -5, "churchStanding": 10 },
+        "narration": "Your defiance earns admiration across Italy and the Pope's blessing. But French siege guns reduce your outer walls in days, and the cost of mercenaries to defend the breaches is staggering. You hold, but your military strength is shattered."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate a costly neutrality — pay tribute but refuse alliance.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -15, "churchStanding": 5 },
+        "narration": "Gold buys what swords cannot. Charles accepts your tribute and moves on, his appetite for Italian wealth temporarily sated. Your treasury groans under the extraction, but your walls stand and your people live. The Pope notes, with approval, that you did not kneel."
+      }
+    ]
+  },
+  {
+    "id": "POL_003",
+    "category": "political",
+    "title": "The Council of Ten",
+    "description": "You have been appointed to your republic's most feared governing body — the secret council that oversees state security. Your first case: a popular senator is accused of treasonous correspondence with Milan. The evidence is compelling but was obtained by torturing his servant. The public adores the senator.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Condemn the senator publicly and display the evidence.",
+        "statChanges": { "influence": 10, "militaryPower": 5, "wealth": 0, "churchStanding": -5 },
+        "narration": "The senator is dragged from his palazzo and executed between the columns of the piazzetta. The people riot for three days, but the message is clear: treason will not be tolerated. The Church quietly objects to the use of torture, but your grip on power tightens."
+      },
+      {
+        "id": "b",
+        "text": "Arrange for the senator to quietly disappear — an accident at sea.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "A fishing boat overturns in the lagoon. A tragic accident, everyone agrees — though no one believes it. The treason is silenced without spectacle, but whispers of your ruthlessness spread. The bishop refuses to say Mass for the drowned man's soul, a pointed accusation."
+      },
+      {
+        "id": "c",
+        "text": "Suppress the evidence and use the knowledge to control the senator.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": 10, "churchStanding": 5 },
+        "narration": "You pocket the letters and visit the senator privately. His gratitude — and his terror — make him your creature. He votes as you direct, channels funds your way, and publicly sings your praises. But you now harbor a proven traitor, and if the truth emerges, you fall with him."
+      },
+      {
+        "id": "d",
+        "text": "Present the case to the full Senate, letting republican process decide.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 0, "churchStanding": 10 },
+        "narration": "Your colleagues on the council are furious — you have broken the cardinal rule of secrecy. The Senate acquits the senator on procedural grounds, and the crowd cheers justice. But you have made powerful enemies among those who guard the republic's shadows."
+      }
+    ]
+  },
+  {
+    "id": "POL_004",
+    "category": "political",
+    "title": "The Borgia Marriage",
+    "description": "Pope Alexander VI proposes a marriage alliance between your house and the Borgia family. His daughter Lucrezia, recently widowed under suspicious circumstances, would wed your eldest son. The match would bring enormous papal favor but tie your fortunes to the most hated family in Italy.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the match eagerly and celebrate the alliance.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": 10, "churchStanding": 15 },
+        "narration": "The wedding is magnificent, and papal gold flows into your coffers. Alexander is generous to his new kin. But every court in Italy now views you as a Borgia creature, and Cesare's growing power casts a shadow over your autonomy. When the Borgia star falls — and it will — you may fall with it."
+      },
+      {
+        "id": "b",
+        "text": "Politely decline, citing a prior betrothal arrangement.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "The Pope's smile does not reach his eyes. He accepts your excuse with a grace that terrifies you. Within months, papal tax collectors arrive with new assessments, and your bishop suddenly discovers irregularities in your family's benefices. The Borgia do not forget slights."
+      },
+      {
+        "id": "c",
+        "text": "Counter-propose a lesser match — your niece instead of your son.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 5, "churchStanding": 5 },
+        "narration": "Alexander considers and, after weeks of negotiation, accepts. The lesser match preserves your heir's freedom while maintaining a connection to papal power. But the Borgia know they were given second best, and Lucrezia's new husband — a minor lordling — may not survive long."
+      }
+    ]
+  },
+  {
+    "id": "POL_005",
+    "category": "political",
+    "title": "The Bonfire of Vanities",
+    "description": "A fanatical Dominican friar has seized control of your city's politics, preaching apocalyptic sermons that draw thousands. He demands a purge of luxury, gambling, and usury. The mob follows him. The merchant class begs you to act. The Pope wants him silenced but lacks the will to move openly.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Support the friar publicly and ride the wave of popular fervor.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -15, "churchStanding": 10 },
+        "narration": "You stand beside the friar as silks and paintings burn in the piazza. The people roar approval, and your name is associated with righteousness. But the bankers flee to rival cities, taking their capital with them, and the friar's zeal knows no bounds — soon he may turn his gaze upon you."
+      },
+      {
+        "id": "b",
+        "text": "Organize the merchant class against the friar in secret.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": 10, "churchStanding": -10 },
+        "narration": "Gold and fear are powerful motivators. The merchants arm their apprentices, and you begin to erode the friar's support among the artisan guilds. But word leaks, and the friar denounces you from the pulpit as a servant of Mammon. The crowd's mood turns ugly."
+      },
+      {
+        "id": "c",
+        "text": "Offer to mediate between the friar and the Pope, positioning yourself as indispensable.",
+        "statChanges": { "influence": 15, "militaryPower": 0, "wealth": -5, "churchStanding": -5 },
+        "narration": "Both sides accept your mediation — neither trusts you, but both need a go-between. You shuttle between Rome and the priory, accumulating secrets and obligations. The arrangement cannot last, but while it does, you are the most important man in the city."
+      },
+      {
+        "id": "d",
+        "text": "Secretly supply evidence of heresy to the papal inquisitors.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 5, "churchStanding": 15 },
+        "narration": "Your anonymous testimony is exactly what Rome needs. The Inquisition moves with terrible efficiency, and the friar burns in the same piazza where he burned vanities. The Pope is grateful, but the people mourn their prophet, and your hidden role gnaws at your conscience — and your safety."
+      }
+    ]
+  },
+  {
+    "id": "POL_006",
+    "category": "political",
+    "title": "The Condottiere's Price",
+    "description": "Your hired captain-general, a celebrated condottiere, has won a decisive victory against your rivals. Now he demands a lordship, a permanent command, and a seat on your governing council. His army is encamped outside your walls, and his veterans are loyal to him alone. Refusal risks the very army that protects you.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Grant all his demands and bind him to your state with honors.",
+        "statChanges": { "influence": -10, "militaryPower": 15, "wealth": -10, "churchStanding": 0 },
+        "narration": "The condottiere rides through your gates in triumph, a lord in all but blood. Your military strength is formidable, but the council chafes under the soldier's blunt manner, and your treasury strains to pay his growing retinue. You have bought a sword that may one day turn in your hand."
+      },
+      {
+        "id": "b",
+        "text": "Invite him to a banquet of celebration and have him arrested — or worse.",
+        "statChanges": { "influence": 5, "militaryPower": -15, "wealth": 5, "churchStanding": -10 },
+        "narration": "The condottiere arrives in his finest armor and leaves in chains — those who resist leave in coffins. His army, leaderless, scatters or sells their swords elsewhere. You have removed the threat, but every mercenary captain in Italy now knows your hospitality can be fatal. Hiring soldiers will cost double."
+      },
+      {
+        "id": "c",
+        "text": "Offer a compromise: wealth and a country estate, but no political power.",
+        "statChanges": { "influence": 0, "militaryPower": -5, "wealth": -10, "churchStanding": 5 },
+        "narration": "The condottiere accepts, grudgingly. He retires to his new villa but maintains his connections among the soldiery. He is contained but not tamed — a wolf given a kennel. The Church approves your moderation, and your council breathes easier, but the wolf may yet slip its leash."
+      }
+    ]
+  },
+  {
+    "id": "POL_007",
+    "category": "political",
+    "title": "The Papal Conclave",
+    "description": "The Pope is dead, and the Sacred College gathers to elect his successor. Your family's cardinal is a candidate, but two other factions — one backed by Spain, one by France — hold more votes. Bribery, threats, and secret promises fill the corridors of the Vatican. A papacy would transform your family's fortunes forever.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pour your fortune into bribing cardinals for your candidate.",
+        "statChanges": { "influence": 15, "militaryPower": 0, "wealth": -15, "churchStanding": 10 },
+        "narration": "Gold changes hands in velvet pouches. One by one, cardinals discover their conscience aligns with your candidate. The white smoke rises, and your man sits upon the throne of St. Peter. Your influence is now limitless — but your coffers echo emptily, and those you bribed will expect continuing payment."
+      },
+      {
+        "id": "b",
+        "text": "Ally with the Spanish faction in exchange for territorial concessions.",
+        "statChanges": { "influence": 5, "militaryPower": 10, "wealth": -5, "churchStanding": 5 },
+        "narration": "You withdraw your candidate and throw your votes to Spain's choice. The new Pope is grateful to his kingmakers, and Spanish troops guarantee your borders. But you have ceded lands that took generations to acquire, and your family's cardinal seethes at being sacrificed for realpolitik."
+      },
+      {
+        "id": "c",
+        "text": "Back the French candidate to check Spanish power in Italy.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "The French candidate wins, and Paris rewards your support with trade concessions worth a fortune. But the new Pope proves weak and erratic, and the Spanish faction — furious at your betrayal — begins plotting against your interests. You have chosen a side in a war that will consume Italy."
+      },
+      {
+        "id": "d",
+        "text": "Propose a compromise candidate — an elderly, pliable cardinal no one fears.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 0, "churchStanding": -5 },
+        "narration": "Your compromise breaks the deadlock. The doddering old cardinal ascends to the papacy, and both great powers owe you a debt. But the new Pope, underestimated by all, proves to have a mind of his own and a grudge against those who thought him a puppet."
+      }
+    ]
+  },
+  {
+    "id": "POL_008",
+    "category": "political",
+    "title": "The Venetian Interdict",
+    "description": "Venice has defied the Pope by taxing Church properties and trying clergymen in secular courts. The Holy Father has placed the entire republic under interdict — no sacraments, no masses, no Christian burial. As a Venetian patrician, you must decide where your loyalty lies: with the republic that gave you power, or the Church that commands your soul.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Stand with the republic and defy the papal interdict.",
+        "statChanges": { "influence": 10, "militaryPower": 5, "wealth": 5, "churchStanding": -15 },
+        "narration": "You rise in the Senate and declare that Venice bows to no earthly power in matters of state. The republic rallies behind its patricians, and trade continues uninterrupted. But your soul, the priests whisper, is damned, and your family's chaplain flees to Rome rather than serve an excommunicate."
+      },
+      {
+        "id": "b",
+        "text": "Secretly negotiate with Rome while publicly supporting Venice.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "You play both sides with a diplomat's skill, passing messages between the Doge and the papal nuncio. The interdict is eventually lifted through your back-channel work, but both sides suspect your double-dealing. Trust, once broken, mends poorly."
+      },
+      {
+        "id": "c",
+        "text": "Break with Venice and publicly submit to papal authority.",
+        "statChanges": { "influence": -15, "militaryPower": -5, "wealth": -10, "churchStanding": 15 },
+        "narration": "You kneel before the papal legate and beg absolution. Rome is delighted; Venice is not. Your properties in the republic are seized, your name struck from the Golden Book. You are a man without a country — but the Pope calls you his most faithful son and promises rewards that may or may not materialize."
+      }
+    ]
+  },
+  {
+    "id": "POL_009",
+    "category": "political",
+    "title": "The Sforza Succession",
+    "description": "The Duke of Milan has died without a clear heir, and three claimants tear at the duchy like dogs over a carcass. Your city-state borders Milan, and whichever faction wins will shape your security for a generation. Each claimant's envoys sit in your antechamber, waiting for your answer.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Support the legitimate heir, a weak but legally unassailable youth.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 0, "churchStanding": 10 },
+        "narration": "You champion the law, and the Pope blesses your principled stand. But the boy-duke is controlled by his mother's faction, who have no intention of sharing power with outsiders. Your military commitments to his cause drain your garrisons, and the other claimants mark you as an enemy."
+      },
+      {
+        "id": "b",
+        "text": "Back the strongest military claimant — a ruthless uncle.",
+        "statChanges": { "influence": 5, "militaryPower": 10, "wealth": -10, "churchStanding": -5 },
+        "narration": "The uncle's condottieri crush the opposition, and Milan stabilizes under his iron hand. He rewards your support with a military alliance but demands crushing loans to pay his armies. The Church disapproves of his usurpation, and your association taints you by extension."
+      },
+      {
+        "id": "c",
+        "text": "Remain neutral and fortify your borders against spillover.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": -5, "churchStanding": 0 },
+        "narration": "You build walls while Milan burns. Refugees flood your territory, straining your resources but providing cheap labor. When the dust settles, whoever wins Milan remembers that you offered no help — and neutrality in Italy is merely delayed hostility."
+      },
+      {
+        "id": "d",
+        "text": "Secretly support all three claimants to prolong Milan's weakness.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -15, "churchStanding": -5 },
+        "narration": "You fund all three factions, ensuring none can achieve decisive victory. Milan bleeds, and your relative power grows as your neighbor weakens. But the cost is enormous, and when your agents are eventually caught — as they always are — the fury of the victor will be terrible."
+      }
+    ]
+  },
+  {
+    "id": "POL_010",
+    "category": "political",
+    "title": "The Guelph Revival",
+    "description": "Old factional divisions thought buried for decades have resurfaced in your city. A charismatic nobleman revives the Guelph banner, rallying papal loyalists against your Ghibelline-leaning government. Street brawls erupt nightly, and the guilds are splitting along ancient fault lines. The Pope watches with undisguised interest.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Crush the Guelph revival with force before it spreads.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 0, "churchStanding": -15 },
+        "narration": "Your soldiers clear the streets with clubs and crossbows. The Guelph leader flees to Rome, where the Pope receives him as a martyr. Order is restored, but at the cost of papal enmity and the simmering hatred of half your citizens. The exiles will return — they always do."
+      },
+      {
+        "id": "b",
+        "text": "Co-opt the movement by appointing moderate Guelphs to key positions.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "You invite the reasonable Guelphs to the table, splitting the movement between moderates who accept your overtures and radicals who denounce them as sellouts. The Pope approves your conciliatory gesture, but your own Ghibelline allies feel betrayed. You stand in the center, trusted by neither side."
+      },
+      {
+        "id": "c",
+        "text": "Exploit the chaos to expand your personal authority over both factions.",
+        "statChanges": { "influence": 15, "militaryPower": 5, "wealth": -10, "churchStanding": -5 },
+        "narration": "You present yourself as the only man who can hold the city together, demanding emergency powers from the council. Both factions reluctantly agree — the alternative is civil war. You are now lord in all but name, but the cost of maintaining order and buying loyalty devours your wealth."
+      }
+    ]
+  },
+  {
+    "id": "POL_011",
+    "category": "political",
+    "title": "The League of Venice",
+    "description": "The Italian states have formed a Holy League to expel the French from the peninsula. You are invited to join, but the League's members — Venice, Milan, the Pope, Spain, the Emperor — are natural rivals who will surely turn on each other once the common enemy retreats. Your contribution would be expected in gold and soldiers.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Join the League with full military commitment.",
+        "statChanges": { "influence": 10, "militaryPower": -10, "wealth": -10, "churchStanding": 10 },
+        "narration": "Your banners fly alongside the great powers of Europe at the Battle of Fornovo. The French retreat, but the victory is pyrrhic — your best troops lie dead in Lombard mud, and the allies immediately begin squabbling over the spoils. The Pope, at least, remembers your sacrifice."
+      },
+      {
+        "id": "b",
+        "text": "Join in name only, contributing minimal forces.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "You send a token force and flowery promises. The League accepts your membership but assigns you no share of the conquered territories. When the dust settles, you are a marginal member of a fractious alliance — present enough to share the risks, absent enough to share none of the rewards."
+      },
+      {
+        "id": "c",
+        "text": "Refuse the League and maintain your French alliance.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": 10, "churchStanding": -15 },
+        "narration": "You gamble that French power in Italy will endure. For now, it pays — French trade privileges fill your warehouses. But the Pope excommunicates all who aid the invader, and your Italian neighbors regard you as a traitor to the peninsula. If the French leave, you will stand alone."
+      }
+    ]
+  },
+  {
+    "id": "POL_012",
+    "category": "political",
+    "title": "The Florentine Exile",
+    "description": "You have been exiled from your city after a change in government. You sit in a rented villa in Bologna, plotting your return. Your agents report that the new regime is unstable, the people restless, and your former allies await a signal. But exile has depleted your resources, and every month diminishes your relevance.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Petition a foreign power to restore you by force.",
+        "statChanges": { "influence": 10, "militaryPower": 10, "wealth": -15, "churchStanding": -5 },
+        "narration": "Spanish tercios march on your behalf, and your city's gates open without a fight — no one wishes to face professional soldiers. You ride home in triumph, but as a foreign puppet. The price of Spanish aid will be paid for generations, and your people see a tyrant returned on foreign bayonets."
+      },
+      {
+        "id": "b",
+        "text": "Fund an internal conspiracy among your remaining allies.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Gold crosses the border in the false bottoms of wine casks. Your agents recruit disaffected nobles and bribe key gatekeepers. The plot unfolds — imperfectly. Some conspirators are caught and hanged, but enough succeed to throw the government into crisis. Your return is possible, though not yet certain."
+      },
+      {
+        "id": "c",
+        "text": "Accept exile gracefully and rebuild your fortune in a new city.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": 10, "churchStanding": 5 },
+        "narration": "You turn your back on your birthplace and invest your remaining capital in Venetian trade. The money grows, and you build a comfortable life. But at night you dream of the towers of home, and your children grow up as foreigners. Power, once surrendered, is almost impossible to reclaim."
+      },
+      {
+        "id": "d",
+        "text": "Seek papal intervention, offering to make your city a model of Church obedience.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": 15 },
+        "narration": "The Pope sees opportunity in your desperation. He presses your case through diplomatic channels, and the current government, fearing interdict, agrees to negotiate your return. But the terms bind you to Rome's agenda, and your city's cherished independence becomes a polite fiction."
+      }
+    ]
+  },
+  {
+    "id": "POL_013",
+    "category": "political",
+    "title": "The Spanish Viceroy",
+    "description": "Spain has conquered the Kingdom of Naples and installed a viceroy who demands your submission. His army is overwhelming, his king's treasury bottomless. Resistance seems futile, but submission means becoming a vassal of a foreign crown. Other Italian lords watch to see what you will do — your choice may set a precedent.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Submit and seek appointment as a Spanish client-ruler.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": 10, "churchStanding": 5 },
+        "narration": "You kneel before the viceroy and receive your lands back as a Spanish fief. The humiliation is profound, but your position is secure — for now. Spanish gold and soldiers guarantee your borders, and the Pope approves of your pragmatism. But Italian patriots curse your name in taverns across the peninsula."
+      },
+      {
+        "id": "b",
+        "text": "Resist openly and rally other Italian states to your cause.",
+        "statChanges": { "influence": 15, "militaryPower": -10, "wealth": -10, "churchStanding": 0 },
+        "narration": "Your stand inspires admiration but little concrete help. Other Italian states send encouraging letters and no troops. The Spanish advance, methodical and relentless, grinds down your defenses. You become a symbol of Italian liberty — a glorious, impoverished, militarily shattered symbol."
+      },
+      {
+        "id": "c",
+        "text": "Play for time with endless diplomatic negotiations while secretly arming.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your ambassadors spin elaborate proposals while your agents buy weapons and hire mercenaries. The Spanish viceroy suspects your game but cannot prove it, and the delay frustrates Madrid. You buy months, perhaps a year — but the reckoning is merely postponed, and your treasury bleeds."
+      }
+    ]
+  },
+  {
+    "id": "POL_014",
+    "category": "political",
+    "title": "The Assassin's Report",
+    "description": "Your spymaster brings troubling news: a rival lord has hired an assassin to eliminate you. The killer is already in your city, identity unknown. Your spymaster offers three courses of action, each with its own risks. Meanwhile, you must continue to appear in public — a lord who hides is a lord who has already lost.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Triple your guard and conduct a violent sweep of suspect foreigners.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Your soldiers tear through inns and boarding houses, arresting dozens of foreigners. The assassin is likely among them — or has already fled. The disruption to trade is severe, foreign merchants protest, and your reputation for hospitality is ruined. But you are alive."
+      },
+      {
+        "id": "b",
+        "text": "Send your own assassin to kill the rival lord first.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "Your blade reaches the rival lord at dinner. He dies choking on his wine, and the assassin he hired, now unpaid, melts away. The Church thunders against the sin of murder, and every lord in Italy strengthens their food-tasters. But the immediate threat is ended."
+      },
+      {
+        "id": "c",
+        "text": "Spread disinformation about your movements using a body double.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -5, "churchStanding": -5 },
+        "narration": "A loyal servant of similar build wears your clothes and rides your horse through the streets while you conduct business in secret. The assassin strikes — and kills the wrong man. The deception works, but the death of your double weighs on you, and the whisper that you are a coward who hides behind servants spreads."
+      },
+      {
+        "id": "d",
+        "text": "Publicly accuse your rival and challenge him before the court of princes.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": 0, "churchStanding": 10 },
+        "narration": "You denounce your rival in an open letter copied to every court in Italy. The accusation, backed by your spymaster's evidence, is damning. The rival denies everything but recalls his assassin — striking now would confirm the charge. But you have made a mortal enemy who will never forgive the public humiliation."
+      }
+    ]
+  },
+  {
+    "id": "POL_015",
+    "category": "political",
+    "title": "The Grain Famine",
+    "description": "A failed harvest has left your city starving. Grain prices triple in a week, and bread riots erupt in the poorer quarters. Your granaries hold emergency reserves — enough for the city or enough to sell at enormous profit to neighboring states who are also short. The mob is at the gates of your palazzo.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Open the granaries and distribute grain freely to the people.",
+        "statChanges": { "influence": 15, "militaryPower": 0, "wealth": -15, "churchStanding": 10 },
+        "narration": "The people weep with gratitude as bread is distributed from your stores. You are hailed as the father of the city, and the Church praises your Christian charity. But your reserves are gone, your planned military campaign impossible without funds, and if the next harvest also fails, you will have nothing left."
+      },
+      {
+        "id": "b",
+        "text": "Sell the grain at market rates and use the profits for mercenaries.",
+        "statChanges": { "influence": -15, "militaryPower": 10, "wealth": 10, "churchStanding": -10 },
+        "narration": "You sell at prices that make you rich and the poor desperate. The mercenaries you hire with the profits suppress the inevitable riots, but the brutality required shocks even hardened soldiers. The bishop denounces you from the pulpit as a usurer and oppressor."
+      },
+      {
+        "id": "c",
+        "text": "Ration the grain strictly and impose martial law until the crisis passes.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -5, "churchStanding": 0 },
+        "narration": "Soldiers guard every bakery, and ration cards are issued to every household. The system is fair but harsh — black markets flourish, and your soldiers are stretched thin policing breadlines. You preserve order and your reserves, but satisfaction is nowhere to be found."
+      }
+    ]
+  },
+  {
+    "id": "POL_016",
+    "category": "political",
+    "title": "The Emperor's Demand",
+    "description": "The Holy Roman Emperor has reasserted his ancient claim of suzerainty over northern Italy. His herald arrives demanding feudal homage, an annual tribute, and the right to quarter imperial troops in your territory. Behind the herald stands the shadow of the largest army in Christendom. Other Italian lords are quietly paying.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay homage and become an imperial vassal.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": -10, "churchStanding": -5 },
+        "narration": "You bend the knee and receive your lands back as an imperial fief. The Emperor's protection is real — Landsknechts garrison your borders. But the tribute is crushing, your independence a legal fiction, and the Pope glares at this expansion of imperial power into his sphere."
+      },
+      {
+        "id": "b",
+        "text": "Refuse and seek a counter-alliance with France.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 5, "churchStanding": 5 },
+        "narration": "You reject the imperial demand and send envoys racing to Paris. The French king, always eager to check the Emperor, offers alliance and trade privileges. But French friendship is fickle, and you have placed yourself between two grinding millstones — Empire and France — that will crush Italy between them."
+      },
+      {
+        "id": "c",
+        "text": "Offer a one-time payment to buy off the claim without accepting vassalage.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -15, "churchStanding": 0 },
+        "narration": "Gold is the universal solvent. The Emperor accepts your enormous payment and moves on to pressure less resourceful neighbors. But the precedent is set — he will return next year, and the price will be higher. You have purchased time, nothing more."
+      },
+      {
+        "id": "d",
+        "text": "Appeal to the Pope to declare Italian liberties under Church protection.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 0, "churchStanding": 10 },
+        "narration": "The Pope, no friend of imperial overreach, issues a bull affirming Italian autonomy under papal guardianship. The Emperor is checked — for now. But you have traded one overlord for another, and the Pope's protection comes with its own demands: tithes, crusade contributions, and doctrinal obedience."
+      }
+    ]
+  },
+  {
+    "id": "POL_017",
+    "category": "political",
+    "title": "The Doge's Succession",
+    "description": "The ancient Doge of your republic is dying, and the Great Council must elect his successor. Two candidates dominate: a war hero who promises expansion into the terraferma, and a merchant prince who advocates peace and trade. Your vote — and your faction's votes — will determine the outcome. Both candidates have made you promises.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Support the war hero and claim a military governorship.",
+        "statChanges": { "influence": 5, "militaryPower": 10, "wealth": -5, "churchStanding": -5 },
+        "narration": "The war hero ascends to the ducal throne and immediately begins planning campaigns against your neighbors. You receive command of the western frontier — glory and danger in equal measure. The treasury strains, the Church warns against fratricidal war among Christians, but the drums of war drown out all objections."
+      },
+      {
+        "id": "b",
+        "text": "Back the merchant prince and secure lucrative trade monopolies.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": 15, "churchStanding": 5 },
+        "narration": "The merchant prince wins, and your warehouses fill with Eastern luxuries under favorable new trade agreements. Peace reigns, and the Church blesses the new era of prosperity. But your military decays through neglect, and neighboring states, sensing weakness, begin to test your borders."
+      },
+      {
+        "id": "c",
+        "text": "Abstain and extract concessions from both candidates.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 5, "churchStanding": -5 },
+        "narration": "Your deliberate abstention drives both candidates to desperation. The promises they make to secure your faction's votes are extraordinary — and largely unenforceable once one of them takes power. You gain reputation as a kingmaker, but the winner remembers that you hesitated when loyalty was needed."
+      }
+    ]
+  },
+  {
+    "id": "POL_018",
+    "category": "political",
+    "title": "The Treaty of Lodi's Collapse",
+    "description": "The decades-long peace between the five great powers of Italy is crumbling. Milan provokes Florence, Venice eyes Ferrara, Naples threatens Rome. You have benefited enormously from the peace — your trade routes depend on it. But the old order is dying, and those who cling to it may be swept away with it.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Desperately attempt to mediate and preserve the peace.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -10, "churchStanding": 5 },
+        "narration": "You host a congress of ambassadors, spending lavishly on feasts and gifts. The negotiations drag on for months, producing beautiful documents that no one intends to honor. The peace holds for another year — perhaps two — but the cracks are too deep, and your efforts have exhausted your resources."
+      },
+      {
+        "id": "b",
+        "text": "Prepare for war — the peace is dead, and only the strong will survive.",
+        "statChanges": { "influence": -5, "militaryPower": 15, "wealth": -10, "churchStanding": -5 },
+        "narration": "You hire condottieri, stockpile weapons, and fortify your borders. Your neighbors notice and accelerate their own preparations. The arms race becomes a self-fulfilling prophecy — war is now inevitable, and you have helped make it so. But when the storm breaks, you will be ready."
+      },
+      {
+        "id": "c",
+        "text": "Secretly ally with the strongest power and position yourself on the winning side.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": 5, "churchStanding": -10 },
+        "narration": "You send secret envoys to Venice, the strongest of the five powers, offering alliance. The Serenissima accepts, and you gain a powerful protector. But the other Italian states learn of your defection, and the Pope denounces those who hasten the destruction of Christian peace. You have chosen survival over honor."
+      }
+    ]
+  },
+  {
+    "id": "POL_019",
+    "category": "political",
+    "title": "The Mercenary Betrayal",
+    "description": "Your condottiere captain has switched sides mid-campaign, taking his entire company over to your enemy in exchange for a lordship. Your army, now halved, faces annihilation. The battle is tomorrow, and there is no time to hire replacements. Every option before you is terrible.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Charge into battle with what remains — die with honor if you must.",
+        "statChanges": { "influence": 10, "militaryPower": -15, "wealth": 0, "churchStanding": 5 },
+        "narration": "Your desperate charge catches the enemy off-guard — they expected you to flee. The battle is a bloodbath, and you lose, but your valor becomes the stuff of legend. The shattered remnants of your army limp home, and even your enemies speak your name with grudging respect. The Church prays for your fallen."
+      },
+      {
+        "id": "b",
+        "text": "Retreat immediately and save what forces you can.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": 5, "churchStanding": 0 },
+        "narration": "You sound the retreat under cover of darkness, abandoning your baggage train to slow the pursuit. Half your remaining force makes it home. The humiliation is complete — ballads mock your flight — but your soldiers live to fight another day, and your war chest, at least, is intact."
+      },
+      {
+        "id": "c",
+        "text": "Send an enormous bribe to the traitor captain to switch back.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -15, "churchStanding": -5 },
+        "narration": "A man who can be bought once can be bought twice. Your gold reaches the condottiere's tent at midnight, and by dawn his company has rejoined your lines. The enemy, betrayed in turn, retreats in confusion. But you have paid a fortune for a man whose loyalty lasts only until the next purse arrives."
+      }
+    ]
+  },
+  {
+    "id": "POL_020",
+    "category": "political",
+    "title": "The Guild Uprising",
+    "description": "The lesser guilds of your city — wool carders, dyers, bakers — have risen in revolt, demanding representation on the governing council. They have seized the Palazzo della Signoria and hold the city's grain stores. The major guilds and patrician families look to you for leadership. The rebels have numbers; you have arms and legitimacy.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Storm the palazzo and crush the revolt by force.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "Blood runs in the piazza as your men-at-arms clear the palazzo room by room. The revolt is broken, its leaders hanged from the windows. Order is restored, and the patricians reward you handsomely. But the bishop weeps for the dead, and the lower classes nurse a hatred that will erupt again."
+      },
+      {
+        "id": "b",
+        "text": "Negotiate concessions — grant limited representation to defuse the crisis.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "You meet the guild leaders at the cathedral, under the bishop's mediation. The lesser guilds gain two seats on the council — a symbolic victory that satisfies the moderates. The patricians grumble that you have shown weakness, and the radicals among the guilds see this as merely the first step."
+      },
+      {
+        "id": "c",
+        "text": "Side with the guilds and use their support to seize power for yourself.",
+        "statChanges": { "influence": 15, "militaryPower": 5, "wealth": -10, "churchStanding": -5 },
+        "narration": "You emerge on the palazzo balcony beside the guild leaders and declare a new government — with yourself at its head, champion of the people. The crowd roars. The patricians flee to their country estates, taking their wealth with them. You have the people's love, but the bankers' gold has left the city."
+      }
+    ]
+  },
+  {
+    "id": "POL_021",
+    "category": "political",
+    "title": "The Poisoned Chalice",
+    "description": "You are appointed governor of a newly conquered territory — a poisoned honor. The locals despise you, the previous governor was murdered, and the court rivals who arranged your appointment expect you to fail. Your predecessor's body was found in a ditch. The local barons have already refused to pay taxes.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Rule with an iron fist — make an example of the most defiant baron.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": 5, "churchStanding": -15 },
+        "narration": "You execute the most rebellious baron and display his head on the city gate. Tax revenue resumes immediately. The Church is horrified by your brutality, but the other barons fall into sullen obedience. You will be feared here — but fear is a foundation that crumbles when the master looks away."
+      },
+      {
+        "id": "b",
+        "text": "Win over the locals with generous governance and reduced taxes.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -15, "churchStanding": 5 },
+        "narration": "You slash taxes, invest in roads and bridges, and host feasts for the local nobility. The people warm to you slowly, and the barons begin to cooperate. But your own court sees a governor spending lavishly while sending no revenue home. Whispers of incompetence — or treason — reach your prince's ear."
+      },
+      {
+        "id": "c",
+        "text": "Divide the local barons against each other and rule through their rivalries.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 0, "churchStanding": -5 },
+        "narration": "You identify the feuds among the local barons and exploit them masterfully, playing one against another until none can unite against you. Your position is secure, but the territory remains a cauldron of faction. If you are ever recalled, it will explode within a week."
+      },
+      {
+        "id": "d",
+        "text": "Request reassignment — this posting is a death sentence.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": 0, "churchStanding": 0 },
+        "narration": "Your letter requesting recall is read aloud at court to general amusement. Your rivals have achieved their goal — you are publicly humiliated, your courage questioned. A replacement is sent, and you return to a diminished position at court. But you are alive, which is more than your predecessor can claim."
+      }
+    ]
+  },
+  {
+    "id": "POL_022",
+    "category": "political",
+    "title": "The War of Ferrara",
+    "description": "Venice has attacked Ferrara, and the Pope has called on all Italian states to check Venetian expansion. Your city-state must choose sides in a war that will reshape the balance of power in northern Italy. Venice offers trade concessions; the Pope threatens excommunication. The Este of Ferrara are your distant kin by marriage.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Join the papal coalition against Venice.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -5, "churchStanding": 15 },
+        "narration": "Your troops join the papal army, and the war drags on through marshland and siege. Venice proves a tenacious foe, and your casualties mount. The Pope is pleased by your devotion, but the trade routes through Venetian territory are now closed to you, and your merchants suffer."
+      },
+      {
+        "id": "b",
+        "text": "Side with Venice and seize the opportunity for territorial expansion.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": 10, "churchStanding": -15 },
+        "narration": "You ally with the Lion of St. Mark and join the assault on Ferrara. Venetian gold flows into your coffers, and you carve out new territories in the chaos. But the papal excommunication falls like a hammer — no sacraments, no forgiveness, no Christian burial for your soldiers who die in the field."
+      },
+      {
+        "id": "c",
+        "text": "Offer to mediate the conflict for a substantial diplomatic fee.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 5, "churchStanding": -5 },
+        "narration": "Both sides are exhausted enough to accept your mediation — for a price. You host peace talks and extract territorial concessions from both parties, enriching yourself at the expense of both. Neither side forgives you for profiting from their blood, but the peace, however fragile, holds."
+      }
+    ]
+  },
+  {
+    "id": "POL_023",
+    "category": "political",
+    "title": "The Borgian Storm",
+    "description": "Cesare Borgia's army is cutting a bloody swath through the Romagna, deposing petty lords one by one with papal blessing. Your small lordship lies in his path. Cesare's reputation is terrifying — those who resist are massacred; those who submit are absorbed. His father the Pope provides spiritual legitimacy for every conquest. There are no good options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Submit immediately and offer your services as Cesare's vassal.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": 5, "churchStanding": 5 },
+        "narration": "You ride to Cesare's camp and kneel before the duke. He accepts your submission with cold courtesy and leaves your lordship intact — diminished, but intact. You are now a cog in the Borgia machine, your sovereignty a polite fiction. But the lords who resisted are dead or fled, and you are alive."
+      },
+      {
+        "id": "b",
+        "text": "Flee to Venice with your treasury and family before the army arrives.",
+        "statChanges": { "influence": -15, "militaryPower": -10, "wealth": 10, "churchStanding": 0 },
+        "narration": "You load your gold onto mules at midnight and ride for the Venetian border. Your people wake to find their lord has abandoned them. In Venice, you are received politely but without enthusiasm — one more dispossessed lordling begging for help. Your wealth buys comfort, but your name is associated with cowardice."
+      },
+      {
+        "id": "c",
+        "text": "Fortify your castle and prepare to resist to the last.",
+        "statChanges": { "influence": 15, "militaryPower": -15, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your resistance is heroic and doomed. Cesare's siege guns reduce your castle walls in three days. You negotiate surrender only when your garrison is down to a handful. Cesare, impressed by your courage, spares your life — but strips you of everything. You walk out of your ancestral home with only the clothes on your back."
+      },
+      {
+        "id": "d",
+        "text": "Attempt to assassinate Cesare at a diplomatic meeting.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "Your assassin strikes — and fails. Cesare, who survived the attempt with a shallow wound, is more impressed than angry. He sends your assassin back in pieces, along with a message: submit by sunrise or be destroyed. The Pope excommunicates you by name, and your last allies melt away."
+      }
+    ]
+  },
+  {
+    "id": "POL_024",
+    "category": "political",
+    "title": "The Salt Tax Rebellion",
+    "description": "Your treasury demands new revenue, and your advisors propose a tax on salt — essential, inescapable, and universally hated. The peasants of your territory are already restive after a poor harvest, and the last lord who imposed a salt tax was dragged through the streets behind a horse. But without new revenue, you cannot pay your soldiers.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Impose the salt tax and use the army to enforce collection.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": 15, "churchStanding": -5 },
+        "narration": "The tax collectors ride out with armed escorts, and the salt tax fills your coffers. Villages that resist are made examples of. Your soldiers are paid, your walls repaired, your armory restocked. But the countryside seethes with hatred, and the bishop preaches against the oppression of the poor."
+      },
+      {
+        "id": "b",
+        "text": "Tax the merchants and bankers instead — they can afford it.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 5, "churchStanding": 5 },
+        "narration": "The merchant class howls but pays — they have too much invested to flee. The people cheer as the wealthy bear the burden. But the bankers begin moving their operations to rival cities, and the merchants raise prices to compensate. The economy contracts slowly, like a garment washed too often."
+      },
+      {
+        "id": "c",
+        "text": "Debase the coinage secretly to stretch your existing funds.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 10, "churchStanding": -10 },
+        "narration": "Your mint begins mixing copper into silver coins. For months, no one notices, and your debts are paid in degraded currency. But merchants eventually weigh the coins, foreign traders refuse them, and when the deception is discovered, your credit collapses. The Church condemns the fraud from every pulpit."
+      }
+    ]
+  },
+  {
+    "id": "POL_025",
+    "category": "political",
+    "title": "The Cardinal's Ultimatum",
+    "description": "A powerful cardinal-legate arrives in your city with a papal demand: you must surrender a prominent heretic scholar whom you have been sheltering. The scholar's writings have attracted thinkers and prestige to your court, and expelling him would diminish your reputation as a patron of learning. But defying the Inquisition invites catastrophe.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Surrender the scholar to the Inquisition immediately.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 5, "churchStanding": 15 },
+        "narration": "The scholar is dragged from your library in chains, his manuscripts confiscated. The cardinal-legate is satisfied, and papal favor returns in the form of lucrative benefices. But every humanist in Italy marks you as a betrayer of learning, and the brightest minds at your court quietly begin seeking other patrons."
+      },
+      {
+        "id": "b",
+        "text": "Refuse and challenge the papal authority to intervene in your territory.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "You invoke your territorial sovereignty and bar the Inquisition from your domains. Scholars across Italy celebrate your courage, and your court becomes a beacon of free thought. But the papal interdict descends like a shroud — your people cannot receive sacraments, and the faithful blame you for their spiritual exile."
+      },
+      {
+        "id": "c",
+        "text": "Help the scholar escape to a Protestant territory while publicly claiming ignorance.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -10, "churchStanding": -5 },
+        "narration": "By night, the scholar rides north with your gold and a forged passport. By day, you profess shock at his disappearance and cooperate fully with the search. The cardinal-legate is suspicious but cannot prove your involvement. The scholar sends grateful letters from Basel — letters you burn immediately."
+      }
+    ]
+  },
+  {
+    "id": "POL_026",
+    "category": "political",
+    "title": "The Disputed Inheritance",
+    "description": "Your lord and patron has died, and you discover that his will names you regent for his infant heir — but a rival branch of the family produces a second will, naming their candidate instead. Both documents bear the dead lord's seal. The army is split, the treasury locked, and two factions glare at each other across the council chamber.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Seize the treasury and the infant heir, establishing facts on the ground.",
+        "statChanges": { "influence": 10, "militaryPower": 5, "wealth": 5, "churchStanding": -10 },
+        "narration": "Speed wins what law cannot settle. You occupy the treasury, take the heir into your household, and dare the rival faction to challenge you by force. They lack the soldiers to try. But the bishop condemns your seizure as lawless, and the rival faction appeals to every court in Italy for justice."
+      },
+      {
+        "id": "b",
+        "text": "Propose arbitration by the Pope to settle the dispute legitimately.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "You appeal to Rome, and the Pope agrees to arbitrate — for a substantial fee. The process takes months, during which both factions spend lavishly on bribes and legal scholars. The papal decision, when it finally comes, favors you — but the rival faction refuses to accept it, and you have spent a fortune."
+      },
+      {
+        "id": "c",
+        "text": "Forge a compromise: share the regency with the rival faction.",
+        "statChanges": { "influence": 0, "militaryPower": -5, "wealth": 0, "churchStanding": 5 },
+        "narration": "You propose joint governance, and the rival faction, wary of civil war, accepts. The arrangement is a daily misery — every decision requires negotiation, every appointment a battle. But the territory holds together, the heir grows safely, and no blood is spilled. For now."
+      },
+      {
+        "id": "d",
+        "text": "Expose the rival will as a forgery — fabricate evidence if necessary.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "Your scribes produce compelling evidence that the rival will is forged — whether it actually is becomes irrelevant. The rival faction's claim crumbles, and you assume the regency unchallenged. But the forgery weighs on those who know the truth, and blackmail is the currency of secrets."
+      }
+    ]
+  },
+  {
+    "id": "POL_027",
+    "category": "political",
+    "title": "The Ottoman Shadow",
+    "description": "Ottoman corsairs have raided your coastal territories, carrying off hundreds into slavery. The Sultan's fleet grows bolder each year, and your navy is inadequate to defend the coastline. The Pope calls for a crusade, but no one wants to pay for it. Your people demand protection you cannot provide.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Negotiate a secret trade agreement with the Ottomans.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 15, "churchStanding": -15 },
+        "narration": "Your envoy reaches Constantinople, and the Sultan agrees to spare your coasts in exchange for favorable trade terms and naval intelligence about Christian shipping. The raids stop, and Ottoman luxury goods fill your markets. But if your dealing with the infidel is discovered, every Christian prince will turn against you."
+      },
+      {
+        "id": "b",
+        "text": "Build a war fleet and patrol your coastline aggressively.",
+        "statChanges": { "influence": 10, "militaryPower": 10, "wealth": -15, "churchStanding": 10 },
+        "narration": "Shipyards work day and night, and a new fleet takes to the water. The raids diminish, and you capture several corsair galleys to great acclaim. The Pope lauds your crusading spirit. But the cost is staggering — every galley requires hundreds of oarsmen and constant maintenance. Your treasury hemorrhages."
+      },
+      {
+        "id": "c",
+        "text": "Appeal to the major Christian powers for a joint naval defense.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -5, "churchStanding": 10 },
+        "narration": "You host a naval conference that produces soaring rhetoric and modest commitments. A small combined squadron patrols sporadically, but the major powers are distracted by their own rivalries. The raids continue, though less frequently. You have shown initiative, but the fundamental problem — Ottoman naval supremacy — remains unsolved."
+      }
+    ]
+  },
+  {
+    "id": "POL_028",
+    "category": "political",
+    "title": "The Sack Approaches",
+    "description": "An unpaid imperial army — 34,000 Landsknechts and Spanish veterans — marches south through Italy, leaderless and starving, seeking plunder. No city can withstand them, and their path leads through your territory toward Rome. The Pope begs for help. The Emperor claims he cannot control his own troops. Destruction approaches like a plague.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay the army to bypass your territory — redirect them toward a rival.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -15, "churchStanding": -10 },
+        "narration": "You empty your treasury to bribe the army's captains, suggesting a richer target nearby. The horde changes course, and your lands are spared — but another city burns. The blood of the innocent is on your hands, and God, the priests say, will remember what you did."
+      },
+      {
+        "id": "b",
+        "text": "Open your gates and provide provisions, hoping to be spared as a host.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "The army enters your city with the discipline of locusts. They eat your granaries bare, drink your cellars dry, and several buildings burn despite your hospitality. But the worst atrocities are avoided, and when the horde moves on, your city still stands. Others will not be so fortunate."
+      },
+      {
+        "id": "c",
+        "text": "Fortify your city and pray your walls hold.",
+        "statChanges": { "influence": 10, "militaryPower": -10, "wealth": -5, "churchStanding": 10 },
+        "narration": "You seal the gates and man the walls. The army, lacking siege equipment, probes your defenses for two days before moving on to softer targets. Your courage is praised, and the Pope sends his blessing. But the effort has exhausted your garrison, and the repair costs are enormous."
+      },
+      {
+        "id": "d",
+        "text": "March your forces to Rome's defense — the Eternal City must not fall.",
+        "statChanges": { "influence": 15, "militaryPower": -15, "wealth": -5, "churchStanding": 15 },
+        "narration": "You lead your soldiers south in a desperate forced march. You arrive too late — or too few — and the sack of Rome proceeds with a savagery that stuns Christendom. But you fought, and the Pope, cowering in Castel Sant'Angelo, will never forget who came to his aid when all others abandoned him."
+      }
+    ]
+  },
+  {
+    "id": "POL_029",
+    "category": "political",
+    "title": "The Printing Press Crisis",
+    "description": "A printer in your city has published a pamphlet savagely mocking the Pope, the Emperor, and the King of France — all by name, with obscene woodcut illustrations. The pamphlet has spread across Italy before you can suppress it. Furious ambassadors from all three powers demand the printer's head. The printer claims he serves truth and liberty.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Execute the printer publicly and burn every copy you can find.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 0, "churchStanding": 10 },
+        "narration": "The printer dies on the scaffold, and bonfires consume his pamphlets. The ambassadors are satisfied, and the Pope sends a letter of commendation. But the execution creates a martyr, and hidden copies of the pamphlet become the most sought-after reading material in Italy. Suppression breeds fascination."
+      },
+      {
+        "id": "b",
+        "text": "Imprison the printer but refuse to execute him — clemency within limits.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -5 },
+        "narration": "You demonstrate justice tempered with mercy, and the humanist community applauds your moderation. But the ambassadors are unsatisfied — imprisonment is not the blood price they demanded. Relations cool, and the printer continues to write from his cell, his words smuggled out by sympathetic guards."
+      },
+      {
+        "id": "c",
+        "text": "Claim you cannot find the printer and that he has fled your jurisdiction.",
+        "statChanges": { "influence": 0, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "You hide the printer in a monastery basement while announcing a fruitless search. The ambassadors suspect the truth but cannot prove it. Meanwhile, the printer produces more works under your secret protection, and your city gains a reputation as a haven for dangerous ideas — attracting both brilliance and trouble."
+      }
+    ]
+  },
+  {
+    "id": "POL_030",
+    "category": "political",
+    "title": "The Final Gambit",
+    "description": "Your rivals have formed a coalition to destroy you. Three neighboring lords, backed by a foreign power and blessed by a hostile Pope, prepare to march. Your allies have been bought off or intimidated. You stand alone, outnumbered and outspent. This may be your last decision as a free lord. Every option risks everything.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Launch a preemptive strike against the weakest coalition member.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -5, "churchStanding": -10 },
+        "narration": "You strike before the coalition can assemble, catching the weakest lord unprepared. His territory falls in days, and the coalition's confidence is shaken. But your army is now exposed deep in hostile territory, and the remaining enemies close in from three sides. You have bought time, but the noose tightens."
+      },
+      {
+        "id": "b",
+        "text": "Offer to abdicate in favor of a coalition-approved successor to save your family.",
+        "statChanges": { "influence": -15, "militaryPower": -5, "wealth": 10, "churchStanding": 5 },
+        "narration": "You surrender your lordship with what dignity you can muster, negotiating safe passage and the preservation of your family's private wealth. The coalition accepts — destroying you was always more expensive than accepting your submission. You retreat to a quiet estate, alive and wealthy, but stripped of all power. The game, for you, is over."
+      },
+      {
+        "id": "c",
+        "text": "Appeal directly to the foreign power's rival, offering yourself as their proxy.",
+        "statChanges": { "influence": 10, "militaryPower": 10, "wealth": -10, "churchStanding": -10 },
+        "narration": "You send a desperate embassy to the enemy of your enemy. They respond with troops and gold, turning your local conflict into a proxy war between great powers. The coalition hesitates, and the balance shifts. But you have sold your independence to a foreign master, and Italy bleeds a little more."
+      },
+      {
+        "id": "d",
+        "text": "Scatter your treasury among the coalition members' captains as bribes.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -15, "churchStanding": -5 },
+        "narration": "Gold pours from your coffers into the pockets of mercenary captains, garrison commanders, and disloyal servants. The coalition's army melts away as soldiers refuse to fight for lords who pay less than you bribe. The coalition collapses — not defeated but dissolved. You survive, penniless but unbroken."
+      }
+    ]
+  }
+]

@@ -1,0 +1,564 @@
+[
+  {
+    "id": "MIL_001",
+    "category": "military",
+    "title": "The Condottiere's Price",
+    "description": "A famed condottiere, freshly dismissed from Venetian service, arrives at your gates with three thousand seasoned mercenaries. He offers his company's swords — but his price is ruinous, and his loyalty is famously negotiable. Your rivals are already courting him.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Hire him at his full asking price and bind him with a generous contract.",
+        "statChanges": { "influence": 5, "militaryPower": 15, "wealth": -15, "churchStanding": 0 },
+        "narration": "The condottiere's banners fly beside yours, and your enemies take notice. Your treasury groans under the weight of his demands, but for now, you command the most feared company in Lombardy. How long bought loyalty lasts remains to be seen."
+      },
+      {
+        "id": "b",
+        "text": "Offer him half the sum and a promise of plunder rights in the next campaign.",
+        "statChanges": { "influence": 0, "militaryPower": 10, "wealth": -8, "churchStanding": -5 },
+        "narration": "He accepts grudgingly, but his men grow hungry for the promised spoils. Word spreads that your campaigns may bring sacking and pillage — the Church registers its disapproval. You have bought swords, but they will demand to be fed with blood."
+      },
+      {
+        "id": "c",
+        "text": "Refuse him and instead invest in training your own citizen militia.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -5, "churchStanding": 5 },
+        "narration": "The condottiere rides off to serve your rival in Milan. Your fledgling militia drills in the piazza, earning the clergy's praise for civic virtue but the mockery of seasoned captains. You are weaker today, though perhaps stronger tomorrow."
+      },
+      {
+        "id": "d",
+        "text": "Invite him to a private banquet and have him quietly arrested on fabricated charges.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "The condottiere is seized mid-toast, his captains scattered in the confusion. You seize his war chest and disperse his leaderless company. It is efficient, brutal, and deeply unchristian. Your name is now whispered with fear — and revulsion."
+      }
+    ]
+  },
+  {
+    "id": "MIL_002",
+    "category": "military",
+    "title": "The French Descend",
+    "description": "Charles VIII of France has crossed the Alps with thirty thousand men and artillery that can shatter castle walls in hours. The great powers of Italy scramble to respond. You must decide where your state stands before the iron tide reaches your borders.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Open your gates and welcome the French king as a liberator.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": -5, "churchStanding": -5 },
+        "narration": "The French march through your streets without bloodshed. You are spared destruction, but your neighbors see you as a collaborator and a coward. French officers commandeer your best quarters and help themselves to your stores. You survive — as a vassal."
+      },
+      {
+        "id": "b",
+        "text": "Join the League of Venice to resist the French invasion.",
+        "statChanges": { "influence": 10, "militaryPower": -10, "wealth": -10, "churchStanding": 10 },
+        "narration": "You pledge your forces to the Holy League alongside Venice, Milan, and the Pope. The cost in men and gold is staggering, and the French artillery is terrifying. But you stand with Italy and the Church, and your name is spoken with respect in the councils of the League."
+      },
+      {
+        "id": "c",
+        "text": "Declare neutrality and fortify your borders while others bleed.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": -5 },
+        "narration": "You bolt your gates and watch the storm pass around you. Both sides despise your cowardice. Your walls hold, your army is intact, but you have made yourself irrelevant. When the peace is carved, you will not be at the table."
+      }
+    ]
+  },
+  {
+    "id": "MIL_003",
+    "category": "military",
+    "title": "Fornovo's Aftermath",
+    "description": "The Battle of Fornovo has ended in bloody confusion. The French claim victory, the League claims the same. Thousands lie dead in the Taro valley, and the retreating French have left behind plunder, prisoners, and a shattered reputation for Italian arms. You must decide how to press your advantage — or conceal your losses.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Claim a glorious victory and parade captured French banners through your city.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": 5, "churchStanding": 5 },
+        "narration": "The people cheer as tattered fleurs-de-lis are dragged through the streets. The Church celebrates the defeat of the foreign invader. But your captains know the truth — your cavalry broke, your infantry fled, and the French escaped with their king. The lie will hold, for now."
+      },
+      {
+        "id": "b",
+        "text": "Quietly negotiate the ransom of captured French nobles for maximum profit.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 15, "churchStanding": -10 },
+        "narration": "French gold flows into your coffers as noble prisoners are exchanged at princely rates. Your allies are furious — they bled at Fornovo while you profit from the aftermath. The Pope calls it unseemly commerce with the enemies of Christendom. But your vaults are full."
+      },
+      {
+        "id": "c",
+        "text": "Use the chaos to seize a disputed border fortress from a weakened neighbor.",
+        "statChanges": { "influence": -10, "militaryPower": 10, "wealth": -5, "churchStanding": -5 },
+        "narration": "While all eyes are on the French retreat, your troops march on the fortress of a neighboring lord too bloodied to resist. The fortress falls in a day. Your rivals cry treachery, but the fortress is yours, and its cannons now point outward. The strong take what they can."
+      }
+    ]
+  },
+  {
+    "id": "MIL_004",
+    "category": "military",
+    "title": "The Siege of the Citadel",
+    "description": "Your forces have surrounded a rebel citadel that refuses to submit. The garrison is small but the walls are thick, and your artillery is making slow progress. Winter approaches, and disease creeps through your camp. Every day the siege continues costs you men and money.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Offer generous terms of surrender — amnesty for the garrison and their families.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 0, "churchStanding": 10 },
+        "narration": "The garrison accepts after three days of deliberation. You enter the citadel without further blood. The Church praises your mercy. But your captains grumble — mercy, they say, only invites the next rebellion. And the rebels keep their weapons."
+      },
+      {
+        "id": "b",
+        "text": "Intensify the bombardment and prepare for a costly direct assault.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your cannons thunder day and night until a breach is forced. The assault is savage — your men pour through the gap and the garrison is put to the sword. The citadel is yours, but a third of your assault force lies dead in the rubble. Victory, at a price that makes your stomach turn."
+      },
+      {
+        "id": "c",
+        "text": "Poison the citadel's water supply and wait for thirst to do your work.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "Within a week, the garrison staggers to surrender, hollow-eyed and retching. The citadel falls without a sword drawn. But the word spreads — you poisoned a well, killing soldiers and civilians alike. Even your own men look at you differently. The Pope sends a letter of condemnation."
+      },
+      {
+        "id": "d",
+        "text": "Abandon the siege and withdraw before winter traps your army.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": 5, "churchStanding": 0 },
+        "narration": "Your army retreats in good order, preserving its strength for spring. The rebels jeer from the walls. Your rivals note that you lacked the stomach to finish what you started. But your soldiers are alive, your treasury intact, and the citadel will still be there when the snow melts."
+      }
+    ]
+  },
+  {
+    "id": "MIL_005",
+    "category": "military",
+    "title": "Mercenary Betrayal at Midnight",
+    "description": "Your hired Swiss pikemen have been approached by your enemy with a counter-offer of double pay. Your spymaster brings word that their captain plans to switch sides on the eve of battle. You have hours to act before dawn breaks and the armies clash.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Match the enemy's offer and add a bonus for the captain's personal loyalty.",
+        "statChanges": { "influence": 0, "militaryPower": 5, "wealth": -15, "churchStanding": 0 },
+        "narration": "Gold changes hands in the dark, and the Swiss captain swears renewed fealty with a mercenary's easy smile. They fight for you at dawn — for now. But you have set a precedent: your loyalty is purchasable, and next time the price will be higher still."
+      },
+      {
+        "id": "b",
+        "text": "Have the treacherous captain assassinated and promote a loyal subordinate.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": 0, "churchStanding": -10 },
+        "narration": "The captain is found dead in his tent before sunrise. His lieutenant, grateful for the sudden promotion, rallies the company. But the Swiss mutter darkly — they know their captain did not die of fever. Morale is fragile, and the battle has not yet begun."
+      },
+      {
+        "id": "c",
+        "text": "Dismiss the Swiss entirely and reorganize your battle line with local troops.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": 5, "churchStanding": 5 },
+        "narration": "You send the Swiss packing at midnight, their treachery unrewarded. Your line is thinner, your pikemen fewer, but the men who remain are yours. The Church approves — a prince should rely on his own subjects, not foreign swords for hire. Whether virtue will stop a cavalry charge remains untested."
+      }
+    ]
+  },
+  {
+    "id": "MIL_006",
+    "category": "military",
+    "title": "The New Artillery",
+    "description": "A Venetian gunfounder offers to sell you a battery of the newest bronze cannons — weapons that can reduce medieval walls to rubble in days. The cost is enormous, and accepting would signal to your neighbors that you are preparing for war. Refusing means your fortifications may become obsolete overnight.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Buy the full battery and begin training crews immediately.",
+        "statChanges": { "influence": 5, "militaryPower": 15, "wealth": -15, "churchStanding": -5 },
+        "narration": "The great bronze tubes arrive on ox-carts, and your engineers drill day and night. Your neighbors watch with alarm — Florence sends a protest, Naples an envoy. The Church frowns on this arms race. But when you fire a demonstration round that shatters a practice wall, the protests grow quieter."
+      },
+      {
+        "id": "b",
+        "text": "Buy a small number and invest the rest in modernizing your fortifications.",
+        "statChanges": { "influence": 0, "militaryPower": 5, "wealth": -10, "churchStanding": 0 },
+        "narration": "You purchase four cannons and hire engineers to redesign your walls with the new angled bastions that can withstand bombardment. It is the prudent choice — defensive, measured, expensive. You are neither the strongest nor the weakest, but your walls will outlast the next siege."
+      },
+      {
+        "id": "c",
+        "text": "Decline the purchase and secretly sabotage the foundry so no one else can buy them either.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 0, "churchStanding": -10 },
+        "narration": "Your agents set fire to the foundry by night. The gunfounder loses everything and the cannons are never cast. For a season, the balance of power holds. But Venice investigates, and suspicion falls on you. You have made a powerful enemy to preserve a fragile status quo."
+      },
+      {
+        "id": "d",
+        "text": "Decline and instead hire the gunfounder himself, denying his expertise to rivals.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -10, "churchStanding": 0 },
+        "narration": "The gunfounder accepts your patronage and relocates to your city. Venice is furious at the theft of their artisan. You now possess the knowledge to cast your own cannons — eventually. But the Venetian ambassador makes thinly veiled threats, and you have no cannons yet to answer them."
+      }
+    ]
+  },
+  {
+    "id": "MIL_007",
+    "category": "military",
+    "title": "The Borgia's March",
+    "description": "Cesare Borgia's army is cutting through the Romagna like a scythe, toppling petty lords and absorbing their territories with papal blessing. His forces approach your borders. He sends a courteous letter requesting free passage through your lands — a request backed by ten thousand soldiers and his father the Pope.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Grant passage and send gifts to curry Borgia's favor.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "Borgia's troops march through your territory, helping themselves to provisions and leaving ruin in their wake. But the Pope smiles upon your obedience, and Cesare promises future friendship. You are diminished but alive. The lords who refused Borgia are already dead or in exile."
+      },
+      {
+        "id": "b",
+        "text": "Refuse passage and mobilize your defenses along the border.",
+        "statChanges": { "influence": 10, "militaryPower": -10, "wealth": -10, "churchStanding": -15 },
+        "narration": "Your defiance rallies other threatened lords to your cause. But Borgia has the Pope's excommunication ready like a loaded cannon. Your treasury bleeds dry maintaining a war footing. You have chosen honor over survival — the question is whether you can afford both."
+      },
+      {
+        "id": "c",
+        "text": "Offer to join Borgia's campaign as an ally, contributing troops in exchange for guarantees.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 0, "churchStanding": 5 },
+        "narration": "You ride beside Cesare as he takes the next city, your banners flying alongside the papal bull. Your men die for Borgia's ambition, but your territory is untouched and the Pope counts you a friend. You are safe — as long as Borgia finds you useful."
+      }
+    ]
+  },
+  {
+    "id": "MIL_008",
+    "category": "military",
+    "title": "The Sack Approaches",
+    "description": "Imperial troops — unpaid, underfed, and ungovernable — are marching south through Italy, leaving a trail of devastation. Their nominal commander has lost control. The mutinous army seeks plunder, not orders, and your city lies in their path. There is no negotiating with a mob.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Empty the treasury to pay the troops off and redirect them toward a rival city.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -15, "churchStanding": -10 },
+        "narration": "You send cartloads of gold to the imperial captains, along with whispered suggestions about the wealth of a neighboring city. The horde veers away from your gates. Your coffers are hollow, and when your neighbor discovers your role in directing the sack toward them, you will have made an enemy for life."
+      },
+      {
+        "id": "b",
+        "text": "Arm every citizen and prepare to defend the walls to the last.",
+        "statChanges": { "influence": 10, "militaryPower": -15, "wealth": -5, "churchStanding": 5 },
+        "narration": "Blacksmiths work through the night forging weapons. Monks and merchants stand shoulder to shoulder on the walls. The imperial horde tests your defenses and finds them stubborn. They move on to easier prey — but not before a fierce skirmish costs you your best captain and two hundred good men."
+      },
+      {
+        "id": "c",
+        "text": "Evacuate the city's treasures and population to a mountain fortress.",
+        "statChanges": { "influence": -15, "militaryPower": 5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Your people flee with what they can carry, clogging the mountain roads in a pitiful exodus. The imperial troops enter an empty city and burn what they cannot steal. Your people are alive, your army intact in the hills, but your city is a ruin. Rebuilding will take years and gold you may not have."
+      }
+    ]
+  },
+  {
+    "id": "MIL_009",
+    "category": "military",
+    "title": "The Disputed Fortress",
+    "description": "A strategic fortress on the border between your territory and a rival city-state has been claimed by both sides for generations. Its current castellan has died without an heir, and both you and your rival have dispatched troops to secure it. Whoever holds the fortress controls the mountain pass — and the trade route through it.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Race your cavalry to seize the fortress before your rival's troops arrive.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -5, "churchStanding": -5 },
+        "narration": "Your horsemen ride through the night and reach the fortress at dawn, hours before your rival's infantry. The gates are barred, the banner raised — the fortress is yours. But you have acted like a thief in the night, and the Pope warns that such seizures invite divine judgment. Your rival begins assembling a larger force."
+      },
+      {
+        "id": "b",
+        "text": "Propose joint administration of the fortress, splitting the trade revenues.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 5, "churchStanding": 5 },
+        "narration": "Your rival agrees, suspicious but unwilling to fight. The fortress flies two flags, and the trade revenues are divided. It is an elegant solution — and an unstable one. Two garrisons share cramped quarters, each watching the other. The peace holds, but it is the peace of drawn daggers."
+      },
+      {
+        "id": "c",
+        "text": "Appeal to the Pope to arbitrate the dispute in your favor.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -10, "churchStanding": 10 },
+        "narration": "You send lavish gifts to Rome and a team of canon lawyers to argue your case. The Pope deliberates for months, during which your rival occupies the fortress unopposed. When the papal judgment finally arrives, it is ambiguous enough to satisfy no one. But the Church remembers your piety — and your gold."
+      },
+      {
+        "id": "d",
+        "text": "Secretly undermine the fortress walls so it becomes useless to whoever holds it.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -5, "churchStanding": -5 },
+        "narration": "Your sappers work in darkness, weakening the foundations. When your rival's garrison moves in, a wall collapses in the first storm, killing a dozen men. The fortress is worthless now. Your rival blames poor masonry; your spymaster smiles. But you have destroyed a strategic asset you may someday need."
+      }
+    ]
+  },
+  {
+    "id": "MIL_010",
+    "category": "military",
+    "title": "Naval Ambitions",
+    "description": "Ottoman corsairs have been raiding the southern Italian coast with impunity, disrupting your trade and terrifying coastal towns. Venice and Genoa dominate the seas, but neither will protect your shipping lanes without a steep price. You could build your own fleet — or find another way.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Commission a war fleet of galleys to patrol your coastline.",
+        "statChanges": { "influence": 10, "militaryPower": 10, "wealth": -15, "churchStanding": 5 },
+        "narration": "Shipyards ring with hammers as your fleet takes shape. The Church blesses the endeavor — war against the infidel is always righteous. But galleys devour gold: timber, oarsmen, provisions, captains. Your first patrol drives off a corsair raiding party, and the coastal towns rejoice. Your treasury does not."
+      },
+      {
+        "id": "b",
+        "text": "Pay Venice for naval protection under a humiliating mutual defense treaty.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Venetian galleys now patrol your waters, and the corsairs look for easier prey. But the treaty's terms are punishing — Venice controls your port fees and dictates your trade routes. You are safe at sea and shackled on land. The Serene Republic smiles with the satisfaction of a money-lender."
+      },
+      {
+        "id": "c",
+        "text": "Hire the corsairs themselves as privateers, turning pirates into allies.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": 5, "churchStanding": -15 },
+        "narration": "Your agents make contact with the corsair captains, offering letters of marque and safe harbor in exchange for redirecting their raids toward your commercial rivals. It works beautifully — your trade flourishes while your neighbors' ships burn. The Pope is apoplectic. You have allied with the enemies of Christendom for profit."
+      }
+    ]
+  },
+  {
+    "id": "MIL_011",
+    "category": "military",
+    "title": "The Stradiots' Offer",
+    "description": "A band of Albanian stradiots — light cavalry renowned for their ferocity and scouting ability — has deserted Venetian service after a pay dispute. Their captain offers you five hundred horsemen, battle-hardened and desperate. Venice demands you return them. Keeping them means angering the Republic; refusing means losing a rare military asset.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Welcome the stradiots and integrate them into your forces immediately.",
+        "statChanges": { "influence": -10, "militaryPower": 15, "wealth": -5, "churchStanding": 0 },
+        "narration": "The stradiots ride into your service like wolves joining a pack. Their reconnaissance is peerless, their raids devastating. But Venice sends a formal protest backed by the threat of commercial sanctions. You have gained five hundred of the finest light cavalry in Europe — and the enmity of its greatest naval power."
+      },
+      {
+        "id": "b",
+        "text": "Return the stradiots to Venice and negotiate a reward for your loyalty.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 10, "churchStanding": 5 },
+        "narration": "Venice is pleased and rewards your cooperation with favorable trade terms. The stradiot captain spits at your feet as his men are marched back in chains. You have chosen commerce over cavalry — a Venetian calculation. Your coffers grow while your borders remain thinly guarded."
+      },
+      {
+        "id": "c",
+        "text": "Secretly shelter the stradiots while publicly claiming ignorance of their whereabouts.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -10, "churchStanding": -5 },
+        "narration": "The stradiots are hidden in mountain camps, emerging only to train and raid. Venice suspects but cannot prove your involvement. The deception is expensive — hidden troops still need food, pay, and pasture for their horses. You play a dangerous double game, and every Venetian spy in your court is a threat."
+      }
+    ]
+  },
+  {
+    "id": "MIL_012",
+    "category": "military",
+    "title": "The Gunpowder Plot",
+    "description": "Your spymaster has uncovered a conspiracy: a group of disgruntled nobles plan to seize your powder magazine during the feast of San Giovanni, blow open the city gates, and admit an invading force from a rival state. You have the names, the date, and the plan. The feast is in three days.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Arrest the conspirators publicly and execute them as traitors before the city.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "The nobles are dragged from their palazzi in chains and beheaded in the piazza. The city watches in terrified silence. The conspiracy is crushed, the gates secure. But the executed men had families, allies, and debts owed. The Church condemns the executions as hasty — you denied the men confession. Fear reigns, but so does resentment."
+      },
+      {
+        "id": "b",
+        "text": "Let the plot proceed but move the powder and set an ambush at the gates.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": 0, "churchStanding": 0 },
+        "narration": "The conspirators arrive at an empty magazine and are met by your soldiers at the gates. The trap springs, but the fighting is vicious in the narrow streets — the invading force nearly breaches before being driven back. You capture the ringleaders alive, but dozens of your best men are dead. A clean trap became a messy battle."
+      },
+      {
+        "id": "c",
+        "text": "Quietly approach the conspirators and offer them amnesty in exchange for becoming double agents.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -5, "churchStanding": -5 },
+        "narration": "Two of the five nobles accept, feeding false intelligence to your rival while reporting to your spymaster. The invasion force marches into a swamp on bad directions. But three conspirators refused your offer and fled — they are now in your enemy's court, and they know the layout of your defenses."
+      }
+    ]
+  },
+  {
+    "id": "MIL_013",
+    "category": "military",
+    "title": "The Spanish Tercio",
+    "description": "Spain's Gran Capitan, Gonzalo de Cordoba, has arrived in southern Italy with his terrifying tercios — disciplined formations of pike and shot that have revolutionized warfare. He seeks allies among the Italian states for the coming war against France. His friendship means Spanish protection; his enmity means Spanish steel.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Ally with Spain and contribute troops to the anti-French coalition.",
+        "statChanges": { "influence": 10, "militaryPower": 5, "wealth": -10, "churchStanding": 5 },
+        "narration": "Your soldiers march alongside the tercios, learning their devastating tactics. The French are driven from Naples in a campaign of shocking efficiency. But Spanish generals treat Italian allies as subordinates, and your troops are spent on objectives that serve Madrid, not your city. You have traded one foreign master for another."
+      },
+      {
+        "id": "b",
+        "text": "Maintain neutrality and attempt to profit from supplying both sides.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 10, "churchStanding": -5 },
+        "narration": "Your merchants sell grain to the French and powder to the Spanish with admirable impartiality. Gold flows in from both directions. But when the war ends, neither victor will remember your aid fondly — only your treacherous neutrality. You are rich, and friendless."
+      },
+      {
+        "id": "c",
+        "text": "Side with France to resist Spanish domination of the peninsula.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -5, "churchStanding": -10 },
+        "narration": "You cast your lot with France, hoping that a divided Italy at least preserves some independence. The French are grateful but unreliable allies, and the Pope — firmly in the Spanish camp — threatens interdict. Your army bleeds at Cerignola against the tercios' murderous volleys. Freedom, it seems, has a steep price."
+      }
+    ]
+  },
+  {
+    "id": "MIL_014",
+    "category": "military",
+    "title": "The Fortress Architect",
+    "description": "The brilliant military architect who designed Cesena's impregnable trace italienne fortifications is available for hire. His star-shaped bastions with angled walls can withstand the new artillery. But his services require years of construction, mountains of earth, and a fortune in stone. Meanwhile, your current walls are medieval — magnificent, and fatally obsolete.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Hire the architect and begin a complete reconstruction of your city's defenses.",
+        "statChanges": { "influence": 5, "militaryPower": 10, "wealth": -15, "churchStanding": -5 },
+        "narration": "The old walls are torn down and the great earthworks begin. For three years your city is half-naked, its defenses a construction site. The expense is ruinous — churches are taxed, the clergy protest. But when the new bastions rise, low and angled and packed with earth, they can absorb cannonballs like a sponge absorbs water."
+      },
+      {
+        "id": "b",
+        "text": "Hire the architect but only to fortify the citadel, leaving the outer walls as they are.",
+        "statChanges": { "influence": 0, "militaryPower": 5, "wealth": -10, "churchStanding": 0 },
+        "narration": "The citadel is rebuilt to modern standards — a fortress within a fortress. The outer city remains vulnerable, but the inner keep can hold against any bombardment. It is a compromise that satisfies no one fully. The people notice that you have fortified your own retreat before protecting their homes."
+      },
+      {
+        "id": "c",
+        "text": "Reject the architect and instead invest in a larger field army to meet threats before they reach your walls.",
+        "statChanges": { "influence": 5, "militaryPower": 5, "wealth": -10, "churchStanding": 5 },
+        "narration": "You pour your resources into men rather than stone. Your army swells with new companies of pikemen and arquebusiers. The best defense, you declare, is to destroy the enemy in the field. The Church approves of your martial spirit. But if your army is ever defeated in the open, you will fall back on walls that cannot withstand a single day of modern bombardment."
+      }
+    ]
+  },
+  {
+    "id": "MIL_015",
+    "category": "military",
+    "title": "Blood in the Romagna",
+    "description": "Two neighboring lords in the Romagna have erupted into open war, and both demand your intervention on their side. One controls your grain supply; the other guards the road to Rome. Staying neutral risks angering both. Choosing a side means making a permanent enemy of the other. The fighting is already spilling across your borders.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Side with the lord who controls your grain supply — your people must eat.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": 5, "churchStanding": -5 },
+        "narration": "Your troops join the northern lord's forces and help crush his rival in a brutal two-week campaign. The grain flows freely, but the road to Rome is now controlled by a bitter enemy. Papal envoys must take the long route, and the Church notes your interference with displeasure. Pragmatism prevails, but at a diplomatic cost."
+      },
+      {
+        "id": "b",
+        "text": "Side with the lord who guards the road to Rome — papal favor matters more.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -10, "churchStanding": 10 },
+        "narration": "You march south to support the papal-aligned lord. Victory comes, but your grain supply is cut off in retaliation. Prices triple in your markets, and the poor go hungry through winter. The Pope sends his blessing and a cardinal's hat for your youngest son. Your people eat neither blessings nor hats."
+      },
+      {
+        "id": "c",
+        "text": "Intervene militarily against both sides, forcing a peace on your terms.",
+        "statChanges": { "influence": 15, "militaryPower": -15, "wealth": -10, "churchStanding": 0 },
+        "narration": "You march with your full strength and impose a ceasefire at sword-point, dictating terms to both exhausted lords. The peace holds, and your reputation as a power broker soars. But your army is spent, your treasury drained, and you have made two resentful vassals who will rebel the moment they sense weakness."
+      },
+      {
+        "id": "d",
+        "text": "Secretly supply arms to both sides, prolonging the war until they destroy each other.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 10, "churchStanding": -10 },
+        "narration": "Your agents sell weapons and powder to both lords, stoking the flames. The war grinds on for months, devastating the Romagna. When both lords finally collapse from exhaustion, their territories lie open for the taking. But the carnage is staggering, and a Franciscan friar publishes a pamphlet naming you as the true author of the bloodshed."
+      }
+    ]
+  },
+  {
+    "id": "MIL_016",
+    "category": "military",
+    "title": "The Mutiny",
+    "description": "Your soldiers have not been paid in three months. What began as grumbling has become open defiance — your garrison at the northern pass has refused orders and elected their own captain. They demand back pay, plunder rights, and the dismissal of your marshal. If you give in, your authority is broken. If you refuse, you may face your own army.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay the arrears immediately, even if it means borrowing from Florentine bankers at ruinous rates.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -15, "churchStanding": 0 },
+        "narration": "Florentine gold arrives just in time. The soldiers are paid, the mutiny dissolves, and the elected captain quietly disappears. But the bankers' terms are crushing — you have mortgaged next year's revenues to pay for this year's obedience. Your army is loyal again. Your finances are someone else's."
+      },
+      {
+        "id": "b",
+        "text": "March on the mutineers with your loyal household guard and demand unconditional surrender.",
+        "statChanges": { "influence": 10, "militaryPower": -15, "wealth": 0, "churchStanding": -5 },
+        "narration": "You ride to the northern pass with your banner flying and your sword drawn. The confrontation is tense — for a terrible hour, Italian faces Italian across drawn weapons. Most of the garrison submits. A hundred die-hards fight and are cut down. Discipline is restored through blood. But your army is gutted, and the survivors serve you with the obedience of fear, not loyalty."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate — dismiss the marshal as demanded and grant partial back pay.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "You sacrifice your marshal to appease the mob. He accepts his dismissal with the dignity of a man betrayed by his prince. The soldiers receive half their pay and return to duty, satisfied they can dictate terms to their lord. The Church praises your restraint. Your captains wonder who will be sacrificed next."
+      }
+    ]
+  },
+  {
+    "id": "MIL_017",
+    "category": "military",
+    "title": "The River Crossing",
+    "description": "Your rival's army is encamped on the far side of the Adige, blocking your advance into disputed territory. The river is swollen with spring rains, the bridges are held, and your scouts report the enemy outnumbers you. A direct assault across the river would be suicide. But every day you delay, your rival fortifies his position.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Send engineers upstream to build a secret pontoon bridge for a flanking attack.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Your engineers work for three nights in freezing water, constructing a hidden crossing. At dawn, your cavalry surges across and strikes the enemy camp from behind. The rout is spectacular — your rival's army scatters into the hills. But the pontoon cost a fortune, and the river claimed a dozen engineers. Victory is yours, bought with gold and clever men's lives."
+      },
+      {
+        "id": "b",
+        "text": "Challenge the rival commander to settle the dispute by single combat between champions.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 0, "churchStanding": 10 },
+        "narration": "A challenge of honor, in the old fashion. Your champion — a Romagnol knight of terrifying reputation — faces their chosen man on the bridge. The duel is savage and ends with your man victorious but badly wounded. Your rival withdraws, honor technically satisfied, but nothing is truly resolved. The Church approves of the chivalric restraint. Your captains call it a wasted opportunity."
+      },
+      {
+        "id": "c",
+        "text": "Withdraw and ravage the surrounding countryside, denying your rival supplies and forcing him to chase you.",
+        "statChanges": { "influence": -10, "militaryPower": 5, "wealth": 5, "churchStanding": -10 },
+        "narration": "Your troops burn fields, poison wells, and drive off livestock for miles around the enemy camp. The starving countryside turns hostile — to both armies. Your rival is forced to abandon his position and march after you, but the devastation you have wrought turns the local population into permanent enemies. The Church condemns the destruction of Christian lands."
+      }
+    ]
+  },
+  {
+    "id": "MIL_018",
+    "category": "military",
+    "title": "The Prisoner Prince",
+    "description": "After a skirmish near Ravenna, your forces have captured the youngest son of a powerful duke. The boy is barely sixteen, frightened, and worth a king's ransom. His father sends frantic emissaries offering peace, gold, and territorial concessions. But keeping the boy gives you leverage over one of the most dangerous men in Italy.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Demand the maximum ransom and territorial concessions before releasing him.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 15, "churchStanding": -10 },
+        "narration": "The duke pays through gritted teeth — a fortune in gold and two border towns change hands. His son is returned, thin but unharmed. You are richer and stronger, but the duke will never forgive this humiliation. He is a patient man with a long memory, and his other sons are already old enough to lead armies."
+      },
+      {
+        "id": "b",
+        "text": "Return the boy freely as a gesture of magnanimity, asking only for peace.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -5, "churchStanding": 15 },
+        "narration": "The boy is returned with gifts and an escort of honor. The duke weeps with relief and swears eternal friendship. The Pope himself praises your Christian virtue from the pulpit. But your captains are disgusted — you held the winning card and threw it away. And the duke's gratitude, however sincere today, will last exactly as long as it serves his interests."
+      },
+      {
+        "id": "c",
+        "text": "Keep the boy as a permanent hostage to guarantee his father's good behavior.",
+        "statChanges": { "influence": -5, "militaryPower": 10, "wealth": -5, "churchStanding": -10 },
+        "narration": "The boy lives in comfortable captivity in your palazzo — a gilded cage. His father dare not move against you while his son is in your hands. It is effective, brutal politics. But the boy grows older, angrier, and the Church sends increasingly sharp letters about the imprisonment of a Christian prince. You hold a human shield, and everyone knows it."
+      }
+    ]
+  },
+  {
+    "id": "MIL_019",
+    "category": "military",
+    "title": "Fire Over the Adriatic",
+    "description": "Venetian galleys have blockaded your port, strangling your maritime trade in retaliation for a customs dispute. Your merchants are ruined, your warehouses rot with unsold goods, and the Doge refuses all negotiation. Venice's navy is invincible at sea. But Venice has enemies on land, and the blockade stretches their fleet thin.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Appeal to the Ottoman Sultan to pressure Venice's eastern Mediterranean holdings.",
+        "statChanges": { "influence": -15, "militaryPower": 5, "wealth": 5, "churchStanding": -15 },
+        "narration": "Your envoy sails secretly to Constantinople. The Sultan is delighted to harass Venice and dispatches corsairs to raid Venetian islands. Venice is forced to recall ships from the blockade to defend its colonies. Your port reopens — but at a monstrous cost. You have allied with the infidel against a Christian republic. All of Italy recoils, and the Pope threatens excommunication."
+      },
+      {
+        "id": "b",
+        "text": "Launch fire ships against the Venetian blockade under cover of a storm.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -10, "churchStanding": 0 },
+        "narration": "Old hulks packed with pitch and oil are set ablaze and steered toward the Venetian galleys during a gale. Two Venetian ships burn spectacularly; the rest scatter. The blockade breaks for a week — long enough to move your most perishable goods. But Venice is enraged, not defeated. The next blockade will be tighter, and your improvised navy is ashes on the water."
+      },
+      {
+        "id": "c",
+        "text": "Accept Venice's terms, pay the disputed customs, and submit to their trade regulations.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -10, "churchStanding": 5 },
+        "narration": "You swallow your pride and pay. The blockade lifts, trade resumes, and the Doge graciously accepts your submission. The Church approves of peace between Christian states. But Venice now sets your tariff rates, and every merchant in your city knows that when Venice squeezes, you bend. Independence, once surrendered, is not easily reclaimed."
+      },
+      {
+        "id": "d",
+        "text": "Forge an alliance with Milan and Ferrara to threaten Venice by land.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -5, "churchStanding": 0 },
+        "narration": "Your ambassadors ride to Milan and Ferrara with urgent proposals. A land coalition against Venice takes shape — the threat of armies on the terraferma forces Venice to negotiate. The blockade eases. But your new allies expect reciprocal support, and Milan's ambitions may prove more dangerous than Venice's greed. You have traded one threat for a web of obligations."
+      }
+    ]
+  },
+  {
+    "id": "MIL_020",
+    "category": "military",
+    "title": "The Last Stand at the Pass",
+    "description": "A vastly superior French army is pouring through the Alpine passes into northern Italy. You hold the last defensible position — a narrow mountain pass where your small force could delay the advance for days, perhaps weeks. But holding the pass means sacrificing your best troops in a fight they cannot win. Retreating preserves your army but opens all of Lombardy to invasion.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Hold the pass with your elite troops and buy time for the Italian states to unite.",
+        "statChanges": { "influence": 15, "militaryPower": -15, "wealth": -5, "churchStanding": 10 },
+        "narration": "Your finest soldiers dig in among the rocks and hold the pass for eleven days of savage fighting. French cavalry charges break against your pikemen like waves on stone. When the position finally falls, barely a hundred of your men walk out alive. But the delay allowed Venice and the Pope to assemble a coalition. Italy remembers your sacrifice — what remains of your army does not let you forget its cost."
+      },
+      {
+        "id": "b",
+        "text": "Retreat immediately, preserve your forces, and prepare to fight on better ground.",
+        "statChanges": { "influence": -15, "militaryPower": 5, "wealth": 0, "churchStanding": -5 },
+        "narration": "You abandon the pass without a fight. The French pour through unopposed, and Lombardy falls in weeks. Your army is intact but your reputation is in ruins — you are called the prince who opened the gates of Italy. Your soldiers are ready to fight, but no ally trusts you to stand beside them. Survival and shame make poor bedfellows."
+      },
+      {
+        "id": "c",
+        "text": "Send a token force to delay the French while secretly negotiating separate terms with their king.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": 5, "churchStanding": -10 },
+        "narration": "A company of volunteers — men who know they are being sacrificed — holds the pass for three days while your envoys meet with the French king. You secure guarantees for your territory in exchange for neutrality and supply rights. The volunteers die to the last man. You survive, enriched by French payments, despised by Italian patriots, and haunted by the men you sent to die for a negotiating tactic."
+      },
+      {
+        "id": "d",
+        "text": "Collapse the pass with gunpowder, blocking it permanently — for both sides.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your engineers pack the cliff faces with every barrel of powder you possess. The detonation brings down half a mountainside, burying the pass under a thousand tons of rock. The French are stopped cold — but so is all trade through the pass, forever. Merchants weep, the Church mourns the destruction of God's creation, and your powder stores are empty. You have won the battle by destroying the battlefield."
+      }
+    ]
+  }
+]

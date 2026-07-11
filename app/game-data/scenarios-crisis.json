@@ -1,0 +1,434 @@
+[
+  {
+    "id": "CRI_001",
+    "category": "crisis",
+    "title": "The French Deluge",
+    "description": "King Charles VIII of France has crossed the Alps with thirty thousand men and the most fearsome artillery train Europe has ever seen. City after city opens its gates rather than face bombardment. His army marches south toward Naples — and your territory lies directly in its path. The old alliances are crumbling. No one is coming to save you.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Open your gates and offer the French king lavish hospitality, buying survival with submission.",
+        "statChanges": { "influence": -15, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "The French march through your streets with drums beating and banners unfurled. Your people watch in humiliated silence as foreign soldiers help themselves to provisions and quarter in your finest houses. You survive, but every neighboring lord now knows you will bend the knee when steel is drawn."
+      },
+      {
+        "id": "b",
+        "text": "Fortify your walls and prepare to resist, rallying your garrison for a siege.",
+        "statChanges": { "influence": 5, "militaryPower": -20, "wealth": -15, "churchStanding": 0 },
+        "narration": "Your walls hold for eleven days before the French bronze cannons reduce the eastern gatehouse to rubble. The assault that follows is brief and brutal. You negotiate a surrender from a position of ruin — your military strength shattered, your treasury emptied to pay ransoms. But men speak your name with respect for having stood when others knelt."
+      },
+      {
+        "id": "c",
+        "text": "Secretly negotiate with Milan and Venice for a counter-alliance while delaying the French with diplomacy.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "Your envoys ride hard through the night while you feast the French ambassador with false smiles. The League forms — but slowly, and the Pope condemns your duplicity when your letters are intercepted. You have preserved your forces, but your reputation for treachery will follow you like a shadow."
+      },
+      {
+        "id": "d",
+        "text": "Offer your services to Charles as a local guide and ally, gambling on being on the winning side.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -5, "churchStanding": -20 },
+        "narration": "You ride at the French king's side as he enters Naples in triumph. The spoils are considerable and your influence grows — but the Pope has placed your name on a list of traitors to Christendom, and every Italian prince marks you as a collaborator. When the French inevitably withdraw, you will stand alone among enemies with long memories."
+      }
+    ]
+  },
+  {
+    "id": "CRI_002",
+    "category": "crisis",
+    "title": "The Black Tide Returns",
+    "description": "Plague has come again. It arrived with a Genoese merchant ship three weeks ago, and already the death carts cannot keep pace. Your physicians are fleeing. Your laborers are dying. The streets smell of vinegar and burning juniper, but nothing stops the contagion. You must decide how to govern a city that is devouring itself.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Impose a brutal quarantine — seal infected districts, bar the gates, let no one leave.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -10, "churchStanding": 5 },
+        "narration": "You post armed guards at every bridge and gate. Families scream from sealed houses. The plague burns through the quarantined districts like fire through dry wood, but it spreads no further. When it is over, a quarter of your population is dead — but the Church praises your resolve, and the surviving districts owe you their lives, however bitterly they thank you."
+      },
+      {
+        "id": "b",
+        "text": "Flee to your country estate with your household, governing from a safe distance.",
+        "statChanges": { "influence": -20, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "You ride out at dawn with your family, your guard, and three wagons of valuables. Word spreads instantly. The city descends into chaos — looting, mob justice, bodies piling in the streets. When you return months later, your name is a curse. The friars preach against you from every pulpit. You kept your life but may have lost your city."
+      },
+      {
+        "id": "c",
+        "text": "Stay publicly visible, distributing alms and organizing burial details to maintain order.",
+        "statChanges": { "influence": 5, "militaryPower": -10, "wealth": -15, "churchStanding": 5 },
+        "narration": "You walk the streets in a mask of waxed cloth, distributing bread and silver. Three of your captains die. Your treasury hemorrhages coin paying for gravediggers and physicians. But the people see you, and order holds. When the plague finally recedes, you have spent nearly everything — but the survivors will remember who stayed."
+      },
+      {
+        "id": "d",
+        "text": "Blame the Jewish quarter and expel them, redirecting the mob's fury away from your government.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -15, "churchStanding": -10 },
+        "narration": "The mob descends on the Jewish quarter with torches. The bankers and moneylenders who funded half your ventures are driven out or worse. The plague continues unabated, of course, and now your credit lines are destroyed. The Pope sends a letter of cold disapproval — even Rome finds this distasteful. You have solved nothing and lost much."
+      }
+    ]
+  },
+  {
+    "id": "CRI_003",
+    "category": "crisis",
+    "title": "The Sack of Holy Rome",
+    "description": "The unthinkable has happened. Imperial landsknechts, unpaid and mutinous, have sacked Rome itself. The Pope cowers in Castel Sant'Angelo while German and Spanish soldiers desecrate churches, murder priests, and loot treasuries that took centuries to fill. The center of Christendom is in flames. Every power in Italy must now recalculate — the old order is dead.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Offer sanctuary to fleeing cardinals and papal officials, positioning yourself as defender of the Church.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -15, "churchStanding": 10 },
+        "narration": "Cardinals arrive at your gates with nothing but their robes and their terror. You house them, feed them, and protect them — at ruinous expense. But when the Pope finally emerges from his prison, he remembers who sheltered his flock. Your coffers are lighter, and the Emperor's agents note your hospitality with displeasure, but you have bought favor that gold alone cannot purchase."
+      },
+      {
+        "id": "b",
+        "text": "Use the chaos to seize neighboring papal territories while Rome's authority has collapsed.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": 5, "churchStanding": -20 },
+        "narration": "Your soldiers move swiftly into the papal legation while its governor flees south. You annex two towns and a profitable salt monopoly before anyone can object. The expansion is intoxicating — but when order returns, the Church will demand restitution with compound interest, and the stain of profiting from Rome's agony will mark you as a vulture among princes."
+      },
+      {
+        "id": "c",
+        "text": "Send envoys to the Emperor declaring loyalty, aligning with the apparent victor.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
+        "narration": "Your ambassador kneels before Charles V and pledges fealty. The Emperor accepts with the cold courtesy of a man who knows he holds all the cards. You are now an Imperial client — protected, but leashed. The Pope marks you as a traitor to the faith, and your fellow Italian lords regard you as a foreign puppet."
+      }
+    ]
+  },
+  {
+    "id": "CRI_004",
+    "category": "crisis",
+    "title": "The Pazzi Shadow",
+    "description": "Your spymaster bursts into your chambers at midnight with blood on his hands. He has uncovered a conspiracy — a rival family, backed by foreign money and possibly papal agents, plans to murder you during High Mass next Sunday. The assassins are already in the city. You have six days to act, and you do not know how deep the rot goes.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Strike first — arrest the conspirators tonight and execute them publicly at dawn.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -5, "churchStanding": -15 },
+        "narration": "Your soldiers drag men from their beds before cockcrow. By noon, bodies hang from the Palazzo windows. The conspiracy is crushed — but you have executed men on the word of a spymaster, without trial, and two of the dead were connected to the Church. The Pope demands an explanation you cannot safely give. Fear is useful, but it must be rationed."
+      },
+      {
+        "id": "b",
+        "text": "Skip Mass citing illness and quietly strengthen your personal guard while investigating further.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -5, "churchStanding": -5 },
+        "narration": "You feign a fever and barricade yourself in your palazzo. The conspirators, sensing discovery, scatter — some flee the city, others go to ground. You survive, but the plot's backers remain unknown and unpunished. Your absence from Mass is noted. Whispers circulate that you are weak, afraid, hiding behind locked doors. The next conspiracy will come sooner."
+      },
+      {
+        "id": "c",
+        "text": "Attend Mass in full armor beneath your robes, with hidden soldiers in the congregation, and spring the trap.",
+        "statChanges": { "influence": 10, "militaryPower": -10, "wealth": -5, "churchStanding": -10 },
+        "narration": "The assassins draw their daggers during the Elevation of the Host. Your men are faster. The nave becomes a slaughterhouse — three conspirators cut down before the altar, blood pooling on consecrated marble. You survive magnificently, but the desecration of a church in the act of Mass is a scandal that shakes Christendom. Your legend grows, but so does the list of those who want you dead."
+      },
+      {
+        "id": "d",
+        "text": "Send your own assassins to kill the ringleader in his bed tonight — cut off the serpent's head.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "Your man slips through a window and does the work with a stiletto. The ringleader is found dead in the morning, and the conspiracy collapses without its architect. But assassination breeds assassination — you have established a precedent that disputes in your city are settled with midnight knives. Sleep will come harder now, and your enemies will learn from your methods."
+      }
+    ]
+  },
+  {
+    "id": "CRI_005",
+    "category": "crisis",
+    "title": "The Arno in Fury",
+    "description": "Three weeks of relentless rain have swollen the Arno beyond anything in living memory. The river has burst its banks in the night, and floodwater races through the lower city. Warehouses full of wool, grain, and silk are submerged. Bridges crack and groan. People cling to rooftops while the water rises. Your treasury sits in a ground-floor vault that is filling with mud.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Mobilize every able body for rescue operations and open your granaries to feed the displaced.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -20, "churchStanding": 5 },
+        "narration": "You spend without counting. Boats commandeered, granaries opened, soldiers wading chest-deep to pull families from collapsing houses. The death toll is lower than it might have been, and the people weep with gratitude. But when the waters recede, the accounting is devastating — your treasury is nearly empty, your military stores ruined, and the rebuilding will take years."
+      },
+      {
+        "id": "b",
+        "text": "Focus on saving the treasury and military stores — the common people must fend for themselves.",
+        "statChanges": { "influence": -15, "militaryPower": -5, "wealth": -10, "churchStanding": -10 },
+        "narration": "Your soldiers carry strongboxes to higher ground while families drown in the streets below. You save perhaps half your gold and most of your weapons — but the scenes of soldiers stepping over corpses to rescue coin purses will be painted on chapel walls for generations. The friars compose ballads about your cruelty. The flood recedes, but your reputation does not recover."
+      },
+      {
+        "id": "c",
+        "text": "Order the demolition of the poorest riverside district to redirect floodwaters away from the city center.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your engineers breach the walls of the Oltrarno quarter, sacrificing hundreds of homes to channel the flood away from the guildhalls and palazzi. It works — the city center is saved. But the families of the Oltrarno remember, and they will never forgive. You have traded a flood for a feud that will simmer for decades."
+      }
+    ]
+  },
+  {
+    "id": "CRI_006",
+    "category": "crisis",
+    "title": "The Ottoman Sails",
+    "description": "Ottoman raiders have appeared off the coast with a fleet of war galleys. They have already sacked Otranto and are burning their way up the Adriatic. Coastal towns are emptying as terrified peasants flee inland. Your port — the source of a third of your revenue — lies exposed. The Venetian fleet is nowhere to be seen, and the Pope's calls for a crusade ring hollow.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Evacuate the port and pull everything of value inland behind your walls.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -15, "churchStanding": 0 },
+        "narration": "The harbor burns. You watch from the hilltop fortress as Turkish sailors put warehouses and shipyards to the torch. Your merchants weep — years of accumulated goods reduced to ash. But your people survive behind stone walls, and when the raiders sail on seeking easier prey, you still have an army. The port can be rebuilt, though the merchants may take their business to Ancona."
+      },
+      {
+        "id": "b",
+        "text": "Hire Venetian mercenary galleys to defend the port, paying whatever they demand.",
+        "statChanges": { "influence": 0, "militaryPower": -5, "wealth": -20, "churchStanding": 5 },
+        "narration": "The Venetians smell desperation and triple their usual rate. You pay — you have no choice. Their galleys engage the Ottoman fleet in a sharp action off your harbor mouth, driving them off after a brutal exchange of cannon fire. Your port stands, but you have emptied your war chest into Venetian pockets. The Pope sends thanks for defending Christendom, which will not fill your coffers."
+      },
+      {
+        "id": "c",
+        "text": "Send a secret envoy to the Ottoman commander offering tribute in exchange for being spared.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -10, "churchStanding": -20 },
+        "narration": "Your envoy boards the flagship under a white flag and returns with terms: ten thousand ducats and safe passage for Ottoman merchants. You pay. The fleet sails past your harbor untouched. But word leaks — it always leaks — and the accusation of treating with the infidel spreads like wildfire. The Pope threatens excommunication. Your Christian allies recoil. You have your port, but at what cost to your soul and your alliances?"
+      }
+    ]
+  },
+  {
+    "id": "CRI_007",
+    "category": "crisis",
+    "title": "The Bankers' Ruin",
+    "description": "The great banking house that holds your debts and manages your foreign exchange has collapsed overnight. Rumors of fraud, overextended loans to the English crown, and a run on deposits have brought it down. Your letters of credit are worthless. Foreign payments have frozen. Merchants are rioting in the exchange, and your creditors are already circling like wolves.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Seize the assets of the failed bank within your territory and use them to stabilize your own finances.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your soldiers occupy the bank's counting houses and impound everything — ledgers, strongboxes, deeds. You recover perhaps a quarter of what you are owed, enough to stave off immediate ruin. But every banker in Italy watches, and they see a lord who will seize private property when it suits him. Your borrowing costs just doubled, and the Medici send a very cold letter."
+      },
+      {
+        "id": "b",
+        "text": "Impose emergency taxes on the merchant guilds to replace the lost revenue.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": -5, "churchStanding": 0 },
+        "narration": "The guilds howl, but they pay — they have no choice when soldiers stand at the counting tables. The emergency levy fills the immediate gap, but the wool guild is already writing to your rivals offering their looms and their loyalty. You have squeezed the golden goose, and it is plotting its escape."
+      },
+      {
+        "id": "c",
+        "text": "Approach a rival banking family and offer them exclusive trading privileges in exchange for assuming your debts.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -15, "churchStanding": 0 },
+        "narration": "The Strozzi — or is it the Chigi? — arrive with smiles and sharp terms. They will assume your debts, yes, but at sixty cents on the ducat, and they want the salt monopoly, the customs house, and a seat on your council. You sign because you must. The bleeding stops, but a new family now has its fingers around your throat."
+      },
+      {
+        "id": "d",
+        "text": "Default on your debts publicly, declaring the failed bank's claims void, and dare your creditors to collect.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -5, "churchStanding": -15 },
+        "narration": "You stand in the piazza and declare that debts to thieves and frauds are no debts at all. The crowd cheers. Your creditors are apoplectic. The Pope, himself a creditor, issues thundering condemnations. No foreign bank will lend to you for a generation. But your immediate treasury is intact, your people adore you, and there is a certain savage freedom in having nothing left to lose."
+      }
+    ]
+  },
+  {
+    "id": "CRI_008",
+    "category": "crisis",
+    "title": "The Bread Riots",
+    "description": "A failed harvest has emptied the granaries, and the price of bread has tripled in a month. The wool workers — always the first to starve, always the first to fight — have taken to the streets with clubs and torches. They have killed a grain merchant and are marching on the Palazzo. Your guard captain asks whether to use steel. The mob is at the gates, and they are hungry enough to die.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Order the guard to disperse the mob with force — an example must be made.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": 0, "churchStanding": -10 },
+        "narration": "The crossbowmen fire into the crowd. The screaming is terrible. The mob breaks and scatters, leaving dead and dying in the square. Order is restored by nightfall, but the blood on the cobblestones will not wash away. The Bishop refuses to dine with you. The workers retreat to their hovels and sharpen longer knives. You have bought time, not peace."
+      },
+      {
+        "id": "b",
+        "text": "Open your personal granary reserves and distribute bread directly, appearing before the crowd yourself.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -20, "churchStanding": 5 },
+        "narration": "You walk into the mob with your arms spread and wagons of grain behind you. It is the bravest or most foolish thing you have ever done. The crowd hesitates — then weeps. You distribute every sack of grain you own, down to your household stores. The crisis passes, but winter is coming and your granary is empty. You will need to buy grain at famine prices from men who smell your desperation."
+      },
+      {
+        "id": "c",
+        "text": "Arrest the ringleaders and exile them, then impose price controls on bread.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -10, "churchStanding": 0 },
+        "narration": "Your agents seize a dozen agitators before dawn and march them to the border in chains. The price controls calm the streets — but the merchants simply stop selling bread at all, hoarding their grain for when the controls lift. A black market flourishes. You have created an uneasy quiet in which everyone is still hungry and no one trusts you."
+      },
+      {
+        "id": "d",
+        "text": "Blame the grain merchants for hoarding, confiscate their stores, and redistribute everything.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -15, "churchStanding": -5 },
+        "narration": "Your soldiers break down warehouse doors and cart grain into the piazza while the merchants shriek about property rights. The people eat tonight. But the merchant class is now your enemy — they begin moving their operations to Siena and Lucca, taking their trade networks with them. You have fed the wolf at the door by butchering the cow in the barn."
+      }
+    ]
+  },
+  {
+    "id": "CRI_009",
+    "category": "crisis",
+    "title": "The Condottiere's Betrayal",
+    "description": "Your hired captain — the condottiere who commands the bulk of your military forces — has turned his coat. He has been offered a richer contract by your neighbor and is marching his company away with your weapons, your horses, and your battle plans. Worse, his scouts know every weakness in your defenses. You are naked before your enemies.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Offer the condottiere double his new contract to stay — you cannot afford to lose him.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -20, "churchStanding": 0 },
+        "narration": "You send a rider with a chest of gold and a contract that makes you wince. The condottiere accepts — mercenaries always accept more money. But he has learned that betrayal is profitable, and every captain in Italy now knows you can be extorted. Your treasury groans under the weight of a man who sells his sword to the highest bidder and will do so again."
+      },
+      {
+        "id": "b",
+        "text": "Let him go and immediately begin raising a citizen militia from your own population.",
+        "statChanges": { "influence": -5, "militaryPower": -15, "wealth": -10, "churchStanding": 0 },
+        "narration": "The condottiere rides out with a mocking salute. You spend the following weeks arming shopkeepers and farmers, drilling them in the piazza with borrowed pikes. They are terrible soldiers — for now. Your military power is crippled, and any enemy who strikes in the next six months will find you defenseless. But you will never again depend on a hired sword."
+      },
+      {
+        "id": "c",
+        "text": "Send assassins to kill the condottiere before he reaches your enemy's territory.",
+        "statChanges": { "influence": -5, "militaryPower": -10, "wealth": -5, "churchStanding": -5 },
+        "narration": "Your men catch the company at a river crossing. The condottiere dies with a crossbow bolt in his back, and his leaderless company scatters into the countryside — along with your horses, your weapons, and your plans. The immediate threat is gone, but you have no army and a reputation for murdering men under contract. The next condottiere you try to hire will want payment in advance and a food taster."
+      }
+    ]
+  },
+  {
+    "id": "CRI_010",
+    "category": "crisis",
+    "title": "The Papal Interdict",
+    "description": "The Pope has placed your city under interdict. No Mass may be said, no sacraments given, no Christian burial performed within your walls. The cause is political — you defied papal authority over a territorial dispute — but the effect is spiritual terror. Your people believe their babies will die unbaptized and their dead will wander in limbo. The churches are locked. The bells are silent.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Submit completely to papal demands, ceding the disputed territory and paying a massive indemnity.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": -15, "churchStanding": 5 },
+        "narration": "You kneel before the papal legate in the public square, barefoot in the rain, and accept every humiliating term. The interdict is lifted. The bells ring again, and your people weep with relief. But you have surrendered territory, treasure, and dignity. Every prince in Italy knows that the Pope can bring you to heel with a stroke of his pen."
+      },
+      {
+        "id": "b",
+        "text": "Defy the interdict — compel your clergy to continue services and dare the Pope to escalate.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -5, "churchStanding": -20 },
+        "narration": "You order the churches reopened at swordpoint. Some priests comply; others flee. The services continue, but they feel hollow — congregants weep through Masses that may damn rather than save them. The Pope escalates to excommunication, and your name is read from pulpits across Italy as an enemy of God. Your defiance inspires some and horrifies most. You are now playing a game that ends in either total victory or total destruction."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate through back channels, offering the Pope a financial arrangement while publicly standing firm.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -10, "churchStanding": -10 },
+        "narration": "Your agents in Rome distribute bribes with surgical precision. A compromise emerges — you keep the territory but pay an annual 'donation' to the papal treasury and make a public pilgrimage of penance. The interdict is lifted quietly. Both sides claim victory. But the annual payments are a slow bleed, and the Pope has learned that your defiance has a price tag."
+      }
+    ]
+  },
+  {
+    "id": "CRI_011",
+    "category": "crisis",
+    "title": "The Mercenary Scourge",
+    "description": "A disbanded mercenary company — three thousand hardened soldiers with no employer, no pay, and no conscience — has descended on your countryside like a swarm of locusts. They burn farms, sack villages, and hold travelers for ransom. They are too strong to ignore and too numerous to easily destroy. Their captain sends word: pay them to leave, or they will take what they want.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay the danegeld — give them what they demand and pray they move on.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": -15, "churchStanding": 0 },
+        "narration": "You send wagons loaded with silver to their camp. The captain counts every coin, then tips his hat and marches his company toward your neighbor's territory. Your countryside is saved — this time. But you have taught every rootless company in Italy that your lands are a cash cow to be milked whenever times are lean. They will return."
+      },
+      {
+        "id": "b",
+        "text": "Muster your forces and attack the company in the field before they dig in.",
+        "statChanges": { "influence": 5, "militaryPower": -20, "wealth": -5, "churchStanding": 0 },
+        "narration": "The battle is a nightmare. These are professional soldiers fighting for survival, and they fight like cornered wolves. You win — barely — but your army is shattered. Your best captain lies dead in a wheat field. The mercenaries scatter into the hills in small bands that will plague your roads for months. You have your victory, and it tastes like ashes and blood."
+      },
+      {
+        "id": "c",
+        "text": "Hire the company yourself — redirect their violence toward your enemies.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -15, "churchStanding": -5 },
+        "narration": "You meet the captain in his tent and offer him a contract. He grins — this is the outcome he wanted all along. The company marches under your banner now, and your enemies tremble. But you are feeding a beast that will devour you the moment you stop paying. And the villages they burned on the way in have not forgotten whose lands these are supposed to be."
+      }
+    ]
+  },
+  {
+    "id": "CRI_012",
+    "category": "crisis",
+    "title": "The Heresy Tribunal",
+    "description": "Dominican inquisitors have arrived in your city, claiming authority from the Pope to root out heresy. They have already arrested several of your most prominent humanist scholars — men whose work brings prestige and whose patronage brings you influence. The inquisitors demand you surrender more names. Refusing risks being branded a protector of heretics. Complying means destroying your intellectual court.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Cooperate fully with the inquisitors and hand over everyone they name.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": -5, "churchStanding": 10 },
+        "narration": "The autos-da-fe begin in the central piazza. Your scholars recant in sackcloth or burn in silence. The inquisitors praise your piety and move on, leaving a city stripped of its brightest minds. Your academy empties. Poets and philosophers flee to Venice and Ferrara, carrying your reputation with them. The Church is pleased, but you have traded your city's soul for the Pope's approval."
+      },
+      {
+        "id": "b",
+        "text": "Secretly help your scholars escape the city while publicly cooperating with the tribunal.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -10, "churchStanding": -10 },
+        "narration": "Your agents smuggle men out through the river gate at midnight while you dine with the inquisitors and murmur agreement. Most of your scholars escape to Venice. The Dominicans grow suspicious when their cells remain empty, and your double game is whispered about in Rome. You have saved lives but spent credibility — and the scholars may never return."
+      },
+      {
+        "id": "c",
+        "text": "Challenge the inquisitors' jurisdiction — your city charter predates their authority.",
+        "statChanges": { "influence": 5, "militaryPower": -5, "wealth": -5, "churchStanding": -15 },
+        "narration": "You produce ancient charters and cite precedent with the confidence of a jurist. The inquisitors sputter. You expel them from the city — technically within your rights, dramatically dangerous in practice. Your scholars celebrate with wine and sonnets in your honor. But the Pope remembers every slight, and Dominicans never forget. You have drawn a line that will be tested again."
+      }
+    ]
+  },
+  {
+    "id": "CRI_013",
+    "category": "crisis",
+    "title": "The Succession Crisis",
+    "description": "Your heir is dead — killed in a hunting accident that may not have been an accident. You have no legitimate successor, and every faction in the city is already maneuvering to fill the vacuum. Your brother claims blood right. The council of elders claims the right of election. A neighboring lord claims your territory through a marriage pact three generations old. If you do not resolve this now, civil war will resolve it for you.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Name your brother as heir and consolidate family power, regardless of his competence.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": 0, "churchStanding": -5 },
+        "narration": "Your brother accepts with unconvincing grief for his nephew. The council of elders protests but lacks the soldiers to enforce their objections. The neighboring lord withdraws his claim — for now. But your brother is a drunkard and a fool, and everyone knows it. You have postponed the crisis, not resolved it. When you die, the real war begins."
+      },
+      {
+        "id": "b",
+        "text": "Concede the right of election to the council, binding future succession to oligarchic approval.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "The council elders accept their new power with solemn faces and greedy hearts. They elect a compromise candidate — your cousin, a pliable nonentity they can control. Your family's grip on power loosens irreversibly. But the transition is peaceful, the Church approves of ordered succession, and civil war is averted. You have traded dynasty for stability."
+      },
+      {
+        "id": "c",
+        "text": "Legitimize a bastard son and present him to the people as your chosen successor.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -10, "churchStanding": -15 },
+        "narration": "You produce a young man nobody has heard of and declare him your natural son, legitimized by papal brief — which you purchase at enormous cost. The Church complies but with visible distaste. Your brother is furious. The council is skeptical. But the boy is clever and the people, who love a story, embrace the drama. You have a successor, but he will spend his life proving his right to exist."
+      },
+      {
+        "id": "d",
+        "text": "Marry immediately — take a young wife from a powerful family and produce a new heir.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -10, "churchStanding": -5 },
+        "narration": "You wed the daughter of a neighboring warlord in a ceremony of desperate haste. The alliance brings soldiers to your cause and silences the immediate challengers. But you are not young, and an heir may not come — or may come too late. Your new father-in-law's troops now garrison your city, and his influence grows daily. You have traded one crisis for a slower, quieter one."
+      }
+    ]
+  },
+  {
+    "id": "CRI_014",
+    "category": "crisis",
+    "title": "The Sweating Sickness",
+    "description": "A new plague sweeps through your territory — not the Black Death, but something faster and stranger. Men fall ill at breakfast and are dead by supper. It strikes the wealthy harder than the poor, killing merchants and nobles in their fine houses while the slums are oddly spared. Your court physician has fled. Three of your advisors died yesterday. The city teeters on the edge of ungovernable panic.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Close the borders entirely — no one enters, no one leaves, until the sickness passes.",
+        "statChanges": { "influence": -5, "militaryPower": -10, "wealth": -15, "churchStanding": 0 },
+        "narration": "The gates slam shut. Trade halts. Your merchants howl as contracts wither and goods rot in warehouses with no buyers. The sickness burns through the sealed city for two terrible months before fading as mysteriously as it came. When you finally open the gates, your trading partners have found other routes and other suppliers. The living emerge into a poorer, smaller world."
+      },
+      {
+        "id": "b",
+        "text": "Commission physicians and apothecaries to find a cure, pouring money into experimental treatments.",
+        "statChanges": { "influence": 0, "militaryPower": 0, "wealth": -15, "churchStanding": -10 },
+        "narration": "You summon every physician, herbalist, and alchemist you can find and lock them in a palazzo with unlimited funds. Their experiments are desperate — mercury baths, trepanning, tinctures of antimony. Most fail. Some kill faster than the disease. But one apothecary discovers that willow bark tea reduces the fever, and the death rate slowly drops. The Church mutters about interfering with God's will, and your coffers are devastated, but you may have saved hundreds."
+      },
+      {
+        "id": "c",
+        "text": "Declare the sickness a divine punishment and organize mass processions of penance through the streets.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -5, "churchStanding": 5 },
+        "narration": "Barefoot penitents crowd the streets, flagellating themselves and crying for God's mercy. The processions spread the sickness faster than anything else could have. Deaths triple in a week. But the Church praises your devotion, and the people — those who survive — feel that something is being done. When the plague finally passes, they credit the prayers rather than simple time. You have lost soldiers, lost subjects, but kept the faith."
+      }
+    ]
+  },
+  {
+    "id": "CRI_015",
+    "category": "crisis",
+    "title": "The League of Wolves",
+    "description": "Your three nearest neighbors have formed a secret league against you. Your ambassador in Ferrara intercepted the treaty — signed, sealed, and devastating. They plan a coordinated invasion from three directions within the month. Alone, you can hold against one. Against three, you will be dismembered. The hourglass is running, and the wolves are circling.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Appeal to the Emperor or the King of France for protection, accepting vassalage in exchange for survival.",
+        "statChanges": { "influence": -15, "militaryPower": 0, "wealth": -5, "churchStanding": -5 },
+        "narration": "Your fastest rider carries your submission to a foreign monarch. The great power's ambassador delivers a blunt warning to your enemies, and the league dissolves — no petty Italian lord wants to cross the Alps' master. You survive intact but collared. Foreign troops now 'protect' your borders, foreign agents attend your councils, and every decision you make requires a nod from far away. You are alive, but you are no longer free."
+      },
+      {
+        "id": "b",
+        "text": "Strike first at the weakest member of the league before they can coordinate, breaking the alliance by force.",
+        "statChanges": { "influence": 10, "militaryPower": -15, "wealth": -10, "churchStanding": -5 },
+        "narration": "You march at midnight with every soldier you have and fall on the weakest neighbor like a thunderbolt. His castle burns before dawn. The other two members of the league, stunned by your speed, hesitate — and in that hesitation, the alliance fractures. But your army is exhausted, your treasury spent, and you have made one enemy into a blood feud that will last generations. Fortune favored the bold today. Tomorrow is another matter."
+      },
+      {
+        "id": "c",
+        "text": "Offer one member of the league a secret deal — territory from the other two in exchange for switching sides.",
+        "statChanges": { "influence": -5, "militaryPower": -5, "wealth": -10, "churchStanding": -5 },
+        "narration": "Your most silver-tongued envoy rides to the greediest of the three and whispers promises of shared spoils. It works — greed always works. The league of three becomes a war of two against two, and the balance shifts just enough. But the cost is high: territory surrendered, a treacherous ally who may turn again, and a reputation for dividing enemies that ensures no one will ever trust an alliance with you."
+      },
+      {
+        "id": "d",
+        "text": "Fortify everything, recall all forces, and prepare to endure a siege until the league fractures from its own internal rivalries.",
+        "statChanges": { "influence": -10, "militaryPower": -10, "wealth": -15, "churchStanding": 0 },
+        "narration": "You pull every soldier behind your walls and settle in to wait. The siege comes — three armies ring your city, burning your countryside to ash. But sieges are expensive, and allies who share a border always quarrel over the spoils before the walls fall. After three months of mud, disease, and mutual suspicion, the league cracks. They withdraw, cursing each other. Your territory survives — ravaged, impoverished, diminished — but yours."
+      }
+    ]
+  }
+]

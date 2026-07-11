@@ -1,0 +1,477 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Lorenzo de' Medici",
+      "title": "Il Magnifico",
+      "difficulty": "easy",
+      "description": "The golden prince of Florence. Banker, poet, patron of Botticelli and Leonardo. His wealth buys loyalty — but art is expensive, and every florin spent on beauty is one not spent on survival.",
+      "startingStats": {
+        "influence": 70,
+        "militaryPower": 35,
+        "wealth": 75,
+        "churchStanding": 55
+      },
+      "perk": {
+        "name": "Patron of the arts",
+        "description": "Influence loss is halved — cultural prestige cushions political blows",
+        "effect": { "type": "statLossMultiplier", "stat": "influence", "multiplier": 0.5 }
+      },
+      "downside": {
+        "name": "Gilded cage",
+        "description": "Wealth decays -3 per round from lavish spending on art and patronage",
+        "effect": { "type": "perRoundDecay", "stat": "wealth", "amount": -3 }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Cosimo de' Medici",
+      "title": "Pater Patriae",
+      "difficulty": "easy",
+      "description": "The elder Medici who built the dynasty from a counting house. He rules Florence without a title, through loans, favors, and quiet leverage. But a banker without an army is a man holding gold in a room full of swords.",
+      "startingStats": {
+        "influence": 60,
+        "militaryPower": 20,
+        "wealth": 80,
+        "churchStanding": 50
+      },
+      "perk": {
+        "name": "Gold speaks",
+        "description": "Can spend wealth to boost any stat by +10, once per game",
+        "effect": { "type": "activateOnce", "action": "transferWealth", "amount": 10 }
+      },
+      "downside": {
+        "name": "Unarmed banker",
+        "description": "Military gains are halved — no martial tradition",
+        "effect": { "type": "statGainMultiplier", "stat": "militaryPower", "multiplier": 0.5 }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Pope Alexander VI",
+      "title": "Rodrigo Borgia",
+      "difficulty": "easy",
+      "description": "The most infamous pope in history. He bought the papacy, fathered children openly, and wielded the Church like a weapon. The tiara protects him — but the Borgia name poisons everything it touches.",
+      "startingStats": {
+        "influence": 65,
+        "militaryPower": 30,
+        "wealth": 60,
+        "churchStanding": 80
+      },
+      "perk": {
+        "name": "Vicar of Christ",
+        "description": "Church standing cannot drop below 30 — papal immunity",
+        "effect": { "type": "statFloor", "stat": "churchStanding", "minimum": 30 }
+      },
+      "downside": {
+        "name": "Borgia stench",
+        "description": "Influence gains are halved — everyone distrusts a Borgia pope",
+        "effect": { "type": "statGainMultiplier", "stat": "influence", "multiplier": 0.5 }
+      }
+    },
+    {
+      "id": 4,
+      "name": "Francesco Sforza",
+      "title": "Duke of Milan",
+      "difficulty": "easy",
+      "description": "A mercenary who married into power and seized Milan's throne. His sword arm is legendary, but the Church sees him as a godless adventurer, and every year the priests whisper louder.",
+      "startingStats": {
+        "influence": 45,
+        "militaryPower": 75,
+        "wealth": 50,
+        "churchStanding": 40
+      },
+      "perk": {
+        "name": "Condottiere's blade",
+        "description": "Military scenarios give double stat gains",
+        "effect": { "type": "scenarioCategoryMultiplier", "category": "military", "stat": "militaryPower", "multiplier": 2.0 }
+      },
+      "downside": {
+        "name": "Mercenary blood",
+        "description": "Church standing decays -2 per round — seen as a godless sword-for-hire",
+        "effect": { "type": "perRoundDecay", "stat": "churchStanding", "amount": -2 }
+      }
+    },
+    {
+      "id": 5,
+      "name": "Pope Julius II",
+      "title": "The Warrior Pope",
+      "difficulty": "easy",
+      "description": "He commissioned the Sistine Chapel ceiling and personally led armies into battle. A pope in armor, terrifying in his wrath. But his famous temper turns misfortune into catastrophe.",
+      "startingStats": {
+        "influence": 60,
+        "militaryPower": 55,
+        "wealth": 50,
+        "churchStanding": 70
+      },
+      "perk": {
+        "name": "Warrior pope",
+        "description": "Military and church gains don't conflict — unique among popes",
+        "effect": { "type": "removeConflict", "stats": ["militaryPower", "churchStanding"] }
+      },
+      "downside": {
+        "name": "Terribilita",
+        "description": "Luck rolls below 5 hit twice as hard — his temper makes bad luck worse",
+        "effect": { "type": "luckPenaltyMultiplier", "threshold": 5, "multiplier": 2.0 }
+      }
+    },
+    {
+      "id": 6,
+      "name": "Ludovico Sforza",
+      "title": "Il Moro",
+      "difficulty": "easy",
+      "description": "The puppet master of Milan who invited the French into Italy to settle a personal grudge — and accidentally started decades of foreign invasion. A brilliant schemer undone by his own schemes.",
+      "startingStats": {
+        "influence": 65,
+        "militaryPower": 40,
+        "wealth": 65,
+        "churchStanding": 45
+      },
+      "perk": {
+        "name": "Milan's puppeteer",
+        "description": "Political scenarios give +5 bonus influence",
+        "effect": { "type": "scenarioCategoryBonus", "category": "political", "stat": "influence", "amount": 5 }
+      },
+      "downside": {
+        "name": "Invited the French",
+        "description": "Crisis events hit with 1.5x severity — his scheming always backfires",
+        "effect": { "type": "crisisMultiplier", "multiplier": 1.5 }
+      }
+    },
+    {
+      "id": 7,
+      "name": "Pope Leo X",
+      "title": "Giovanni de' Medici",
+      "difficulty": "easy",
+      "description": "A Medici on the papal throne. He famously declared 'Since God has given us the papacy, let us enjoy it.' He merged Medici gold with papal authority — but never held a sword in his life.",
+      "startingStats": {
+        "influence": 55,
+        "militaryPower": 20,
+        "wealth": 70,
+        "churchStanding": 75
+      },
+      "perk": {
+        "name": "Medici pontiff",
+        "description": "Wealth and church boost each other — +3 to the lower when either gains",
+        "effect": { "type": "statSymbiosis", "stats": ["wealth", "churchStanding"], "bonus": 3 }
+      },
+      "downside": {
+        "name": "Indulgence seller",
+        "description": "Military locked at starting value — no martial instinct whatsoever",
+        "effect": { "type": "statLocked", "stat": "militaryPower", "value": 20 }
+      }
+    },
+    {
+      "id": 8,
+      "name": "Cesare Borgia",
+      "title": "Il Valentino",
+      "difficulty": "medium",
+      "description": "Machiavelli's model prince. Cardinal turned general, he carved out a kingdom in the Romagna with brilliance and brutality. But everything depends on his father the Pope — and popes do not live forever.",
+      "startingStats": {
+        "influence": 50,
+        "militaryPower": 65,
+        "wealth": 45,
+        "churchStanding": 35
+      },
+      "perk": {
+        "name": "Il Valentino",
+        "description": "Military gains doubled — brilliant general",
+        "effect": { "type": "statGainMultiplier", "stat": "militaryPower", "multiplier": 2.0 }
+      },
+      "downside": {
+        "name": "Father's shadow",
+        "description": "When church standing drops below 40, all stats decay -2 per round — loses papal backing",
+        "effect": { "type": "conditionalDecay", "triggerStat": "churchStanding", "threshold": 40, "decayAmount": -2, "affectedStats": ["influence", "militaryPower", "wealth", "churchStanding"] }
+      }
+    },
+    {
+      "id": 9,
+      "name": "Filippo Strozzi",
+      "title": "The Rival Banker",
+      "difficulty": "medium",
+      "description": "Head of Florence's second banking dynasty. Richer than most kings, but forever in the Medici's shadow. No matter how much gold he piles up, the ceiling of Florentine power has a Medici seal on it.",
+      "startingStats": {
+        "influence": 40,
+        "militaryPower": 25,
+        "wealth": 70,
+        "churchStanding": 45
+      },
+      "perk": {
+        "name": "Rival fortune",
+        "description": "Economic scenarios give double wealth gains",
+        "effect": { "type": "scenarioCategoryMultiplier", "category": "economic", "stat": "wealth", "multiplier": 2.0 }
+      },
+      "downside": {
+        "name": "Medici's shadow",
+        "description": "Influence capped at 65 — always second to the Medici in Florence",
+        "effect": { "type": "statCeiling", "stat": "influence", "maximum": 65 }
+      }
+    },
+    {
+      "id": 10,
+      "name": "Federico da Montefeltro",
+      "title": "Duke of Urbino",
+      "difficulty": "medium",
+      "description": "The ideal Renaissance man — scholar, art collector, and undefeated general. But Urbino is tiny, and even a perfect duke of a small duchy cannot match the resources of Florence or Milan.",
+      "startingStats": {
+        "influence": 50,
+        "militaryPower": 70,
+        "wealth": 45,
+        "churchStanding": 40
+      },
+      "perk": {
+        "name": "Scholar-soldier",
+        "description": "Negative luck rolls on military scenarios are negated — tactical genius",
+        "effect": { "type": "negateLuck", "condition": "negative", "category": "military" }
+      },
+      "downside": {
+        "name": "Small duchy",
+        "description": "Wealth and influence gains reduced by 25% — Urbino lacks Florence's resources",
+        "effect": { "type": "multiStatGainMultiplier", "stats": ["wealth", "influence"], "multiplier": 0.75 }
+      }
+    },
+    {
+      "id": 11,
+      "name": "Lucrezia Borgia",
+      "title": "Duchess of Ferrara",
+      "difficulty": "medium",
+      "description": "Pawn of her father and brother, married three times for political gain. But she learned from every marriage, every betrayal. She plays the game through alliances others can't see — though the Borgia name follows her like a curse.",
+      "startingStats": {
+        "influence": 55,
+        "militaryPower": 15,
+        "wealth": 50,
+        "churchStanding": 55
+      },
+      "perk": {
+        "name": "Dynastic pawn",
+        "description": "Political scenarios offer a secret 4th choice — marriage alliance",
+        "effect": { "type": "extraChoice", "category": "political", "choiceType": "marriageAlliance" }
+      },
+      "downside": {
+        "name": "Borgia reputation",
+        "description": "Church standing gains halved, and any scandal event doubles its penalty",
+        "effect": { "type": "compoundPenalty", "statGainMultiplier": { "stat": "churchStanding", "multiplier": 0.5 }, "scandalMultiplier": 2.0 }
+      }
+    },
+    {
+      "id": 12,
+      "name": "Bartolomeo Colleoni",
+      "title": "Captain-General of Venice",
+      "difficulty": "medium",
+      "description": "The most feared mercenary commander in Italy, paid a fortune by Venice to never actually fight — his reputation alone kept enemies at bay. But a man defined by war has no friends in peacetime.",
+      "startingStats": {
+        "influence": 35,
+        "militaryPower": 75,
+        "wealth": 55,
+        "churchStanding": 30
+      },
+      "perk": {
+        "name": "Venice's sword",
+        "description": "Military ceiling raised to 95 — tolerated as champion of the Republic",
+        "effect": { "type": "raiseCeiling", "stat": "militaryPower", "maximum": 95 }
+      },
+      "downside": {
+        "name": "Hired blade",
+        "description": "Influence and church standing decay -2 each per round — a mercenary has no true allies",
+        "effect": { "type": "multiPerRoundDecay", "stats": ["influence", "churchStanding"], "amount": -2 }
+      }
+    },
+    {
+      "id": 13,
+      "name": "Pope Sixtus IV",
+      "title": "The Conspirator Pope",
+      "difficulty": "medium",
+      "description": "Builder of the Sistine Chapel and architect of the Pazzi conspiracy. He gave his nephews everything — cardinalships, armies, cities. But nepotism is a tower built on sand, and when ambition outpaces piety, even a pope can fall.",
+      "startingStats": {
+        "influence": 50,
+        "militaryPower": 40,
+        "wealth": 55,
+        "churchStanding": 65
+      },
+      "perk": {
+        "name": "Nepotist supreme",
+        "description": "Can redirect negative stat changes to a different stat, once per 3 rounds",
+        "effect": { "type": "redirectNegative", "cooldown": 3 }
+      },
+      "downside": {
+        "name": "Pazzi conspirator",
+        "description": "If influence ever exceeds church standing, both drop by 10 — political overreach exposes him",
+        "effect": { "type": "conditionalPenalty", "condition": "influence > churchStanding", "penalty": { "influence": -10, "churchStanding": -10 } }
+      }
+    },
+    {
+      "id": 14,
+      "name": "Isabella d'Este",
+      "title": "First Lady of the Renaissance",
+      "difficulty": "medium",
+      "description": "Marchioness of Mantua, diplomat, and the most cultured woman in Europe. Kings sought her counsel, artists begged her patronage. But Mantua is a speck on the map, and charm cannot conjure armies.",
+      "startingStats": {
+        "influence": 55,
+        "militaryPower": 15,
+        "wealth": 55,
+        "churchStanding": 55
+      },
+      "perk": {
+        "name": "First lady of the Renaissance",
+        "description": "Luck rolls of 9+ grant +5 to all stats — cultural magnetism",
+        "effect": { "type": "luckBonus", "threshold": 9, "bonus": 5, "affectedStats": ["influence", "militaryPower", "wealth", "churchStanding"] }
+      },
+      "downside": {
+        "name": "Mantua's limits",
+        "description": "Military locked below 30 — tiny state, no army to command",
+        "effect": { "type": "statCeiling", "stat": "militaryPower", "maximum": 30 }
+      }
+    },
+    {
+      "id": 15,
+      "name": "Niccolo Machiavelli",
+      "title": "The Secretary",
+      "difficulty": "hard",
+      "description": "A bureaucrat who saw everything and understood more than any prince. He wrote the book on power — literally — but never held any himself. The sharpest mind in Italy, trapped in the weakest position.",
+      "startingStats": {
+        "influence": 35,
+        "militaryPower": 15,
+        "wealth": 25,
+        "churchStanding": 30
+      },
+      "perk": {
+        "name": "The advisor",
+        "description": "Sees the luck roll before choosing — information is power",
+        "effect": { "type": "revealLuck", "timing": "beforeChoice" }
+      },
+      "downside": {
+        "name": "No prince of his own",
+        "description": "All stat gains capped at +8 per round — a secretary, not a ruler",
+        "effect": { "type": "gainCap", "maxGainPerRound": 8 }
+      }
+    },
+    {
+      "id": 16,
+      "name": "Girolamo Savonarola",
+      "title": "The Prophet of Florence",
+      "difficulty": "hard",
+      "description": "A Dominican friar who overthrew the Medici with nothing but sermons. He burned the vanities of Florence and terrified a pope. But zealots make enemies of everyone, and fire eventually consumes the one who lit it.",
+      "startingStats": {
+        "influence": 40,
+        "militaryPower": 10,
+        "wealth": 15,
+        "churchStanding": 70
+      },
+      "perk": {
+        "name": "Bonfire of vanities",
+        "description": "Can sacrifice wealth to gain church standing at 2:1 ratio",
+        "effect": { "type": "statConversion", "from": "wealth", "to": "churchStanding", "ratio": 2 }
+      },
+      "downside": {
+        "name": "Fanatic's hubris",
+        "description": "If church standing exceeds 80, influence drops by 5 per round — people fear the zealot",
+        "effect": { "type": "conditionalDecay", "triggerStat": "churchStanding", "threshold": 80, "triggerDirection": "above", "decayStat": "influence", "decayAmount": -5 }
+      }
+    },
+    {
+      "id": 17,
+      "name": "Caterina Sforza",
+      "title": "The Tigress of Forli",
+      "difficulty": "hard",
+      "description": "When assassins killed her husband and seized her children, she stood on the castle walls and dared them to do their worst. She has survived everything Italy has thrown at her — but survival is not the same as victory.",
+      "startingStats": {
+        "influence": 30,
+        "militaryPower": 50,
+        "wealth": 30,
+        "churchStanding": 25
+      },
+      "perk": {
+        "name": "The tigress",
+        "description": "Survives one death/exile trigger per game — historically unkillable defiance",
+        "effect": { "type": "deathSave", "uses": 1 }
+      },
+      "downside": {
+        "name": "Surrounded",
+        "description": "Crisis events always target her, and all negative stat changes are +3 worse",
+        "effect": { "type": "crisisAndPenaltyAmplifier", "crisisTargeting": true, "negativePenaltyIncrease": 3 }
+      }
+    },
+    {
+      "id": 18,
+      "name": "Jacopo de' Pazzi",
+      "title": "Head of the Pazzi",
+      "difficulty": "hard",
+      "description": "The patriarch of Florence's most ambitious also-rans. The Pazzi have the gold but not the glory. One grand conspiracy could change everything — or end everything. There is no middle ground for a man this desperate.",
+      "startingStats": {
+        "influence": 30,
+        "militaryPower": 20,
+        "wealth": 60,
+        "churchStanding": 25
+      },
+      "perk": {
+        "name": "Conspiracy",
+        "description": "Once per game, attempt a coup: luck roll 8+ steals 20 influence; below 8 loses 20",
+        "effect": { "type": "activateOnce", "action": "coup", "successThreshold": 8, "successGain": 20, "failureLoss": 20, "stat": "influence" }
+      },
+      "downside": {
+        "name": "Medici's enemy",
+        "description": "Permanent -3 per round influence decay — marked man in Florence",
+        "effect": { "type": "perRoundDecay", "stat": "influence", "amount": -3 }
+      }
+    },
+    {
+      "id": 19,
+      "name": "Giovanni delle Bande Nere",
+      "title": "The Last Condottiere",
+      "difficulty": "hard",
+      "description": "The last great Italian mercenary captain in an age when foreign armies had made Italian warfare obsolete. He fights brilliantly but the world has moved on, and a sword cannot stop a cannon.",
+      "startingStats": {
+        "influence": 25,
+        "militaryPower": 70,
+        "wealth": 20,
+        "churchStanding": 20
+      },
+      "perk": {
+        "name": "Last condottiere",
+        "description": "Military cannot drop below 40 — born warrior",
+        "effect": { "type": "statFloor", "stat": "militaryPower", "minimum": 40 }
+      },
+      "downside": {
+        "name": "Lives by the sword",
+        "description": "Wealth, influence, and church gains all halved — war is all he knows",
+        "effect": { "type": "multiStatGainMultiplier", "stats": ["wealth", "influence", "churchStanding"], "multiplier": 0.5 }
+      }
+    },
+    {
+      "id": 20,
+      "name": "Piero de' Medici",
+      "title": "The Unfortunate",
+      "difficulty": "hard",
+      "description": "Lorenzo's son, who inherited the Medici name but none of his father's genius. He surrendered Florence's fortresses to the French without a fight and was exiled for his cowardice. The name opens doors — but he closes them behind himself.",
+      "startingStats": {
+        "influence": 40,
+        "militaryPower": 20,
+        "wealth": 55,
+        "churchStanding": 35
+      },
+      "perk": {
+        "name": "Medici name",
+        "description": "Starts with the Medici network: +5 to all stats on round 1",
+        "effect": { "type": "roundOneBonus", "bonus": 5, "affectedStats": ["influence", "militaryPower", "wealth", "churchStanding"] }
+      },
+      "downside": {
+        "name": "The Unfortunate",
+        "description": "Luck rolls of 2-4 trigger double penalties — history's unluckiest man",
+        "effect": { "type": "luckPenaltyMultiplier", "threshold": 4, "multiplier": 2.0 }
+      }
+    }
+  ],
+  "dangerZones": {
+    "ceiling": 90,
+    "floor": 10,
+    "warningHigh": 86,
+    "warningLow": 14,
+    "safeHigh": 85,
+    "safeLow": 15
+  },
+  "deathTriggers": {
+    "ceilingDeath": "Any stat >= 90 triggers assassination or coalition against you",
+    "floorExile": "Any stat <= 10 triggers exile or total collapse",
+    "multiDanger": "2+ stats in warning zones triggers an escalating crisis event"
+  }
+}

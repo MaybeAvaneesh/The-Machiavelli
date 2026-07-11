@@ -1,0 +1,153 @@
+{
+  "awards": [
+    {
+      "id": "il_principe",
+      "name": "Il Principe",
+      "description": "The model prince. You ended with the highest combined stats — a ruler Machiavelli himself would admire.",
+      "condition": { "type": "highestTotal", "threshold": 280 },
+      "rarity": "legendary"
+    },
+    {
+      "id": "the_shadow",
+      "name": "The Shadow",
+      "description": "You survived with influence below 25. Nobody noticed you — and that was the point.",
+      "condition": { "type": "statBelow", "stat": "influence", "threshold": 25, "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "sword_of_italy",
+      "name": "Sword of Italy",
+      "description": "You finished with military power above 80 without triggering assassination. Italy trembles at your name.",
+      "condition": { "type": "statAbove", "stat": "militaryPower", "threshold": 80, "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "gods_banker",
+      "name": "God's Banker",
+      "description": "Both wealth and church standing above 70. You proved that mammon and God can share a ledger.",
+      "condition": { "type": "multiStatAbove", "stats": ["wealth", "churchStanding"], "threshold": 70, "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "the_survivor",
+      "name": "The Survivor",
+      "description": "You won despite having 2 or more stats in the warning zone at some point. Fortune tried to drown you, but you built levees.",
+      "condition": { "type": "survivedDangerZones", "minStatsInDanger": 2, "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "the_balanced",
+      "name": "Machiavelli's Student",
+      "description": "All 4 stats finished within 15 points of each other. Perfect equilibrium — the rarest art in politics.",
+      "condition": { "type": "statSpread", "maxSpread": 15, "mustSurvive": true },
+      "rarity": "legendary"
+    },
+    {
+      "id": "the_fox",
+      "name": "The Fox",
+      "description": "You finished with the highest influence but the lowest military. You ruled by cunning alone.",
+      "condition": { "type": "highestAndLowest", "highest": "influence", "lowest": "militaryPower", "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "the_lion",
+      "name": "The Lion",
+      "description": "You finished with the highest military but the lowest influence. Fear was your only tool — and it worked.",
+      "condition": { "type": "highestAndLowest", "highest": "militaryPower", "lowest": "influence", "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "holy_terror",
+      "name": "Holy Terror",
+      "description": "Church standing and military power both above 70. You are the Warrior Pope reborn.",
+      "condition": { "type": "multiStatAbove", "stats": ["churchStanding", "militaryPower"], "threshold": 70, "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "the_pauper_king",
+      "name": "The Pauper King",
+      "description": "You survived with wealth below 20 but influence above 60. Power without gold — a miracle.",
+      "condition": { "type": "statContrast", "lowStat": "wealth", "lowThreshold": 20, "highStat": "influence", "highThreshold": 60, "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "fortunas_darling",
+      "name": "Fortuna's Darling",
+      "description": "You survived all 10 rounds on a hard difficulty character. Even Fortuna respects audacity.",
+      "condition": { "type": "survivedAllRounds", "difficulty": "hard", "mustSurvive": true },
+      "rarity": "legendary"
+    },
+    {
+      "id": "the_heretic",
+      "name": "The Heretic",
+      "description": "You finished with church standing below 20 but survived anyway. God abandoned you — but you didn't need Him.",
+      "condition": { "type": "statBelow", "stat": "churchStanding", "threshold": 20, "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "merchant_prince",
+      "name": "The Merchant Prince",
+      "description": "You finished with wealth above 80. Every man in Italy owes you money — that is better than love or fear.",
+      "condition": { "type": "statAbove", "stat": "wealth", "threshold": 80, "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "the_excommunicate",
+      "name": "Excommunicate",
+      "description": "Your church standing hit the floor. The Pope cast you out — but you survived to tell the story.",
+      "condition": { "type": "hitFloorAndSurvived", "stat": "churchStanding" },
+      "rarity": "rare"
+    },
+    {
+      "id": "iron_will",
+      "name": "Iron Will",
+      "description": "You survived with no stat above 50. Mediocrity is its own kind of genius when everyone around you is dead.",
+      "condition": { "type": "allStatsBelow", "threshold": 50, "mustSurvive": true },
+      "rarity": "legendary"
+    },
+    {
+      "id": "borgia_run",
+      "name": "The Borgia Way",
+      "description": "You survived as either Cesare, Lucrezia, or Alexander VI. The family name is poison — but you drank it and lived.",
+      "condition": { "type": "survivedAsCharacter", "characterIds": [3, 8, 11], "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "the_advisor_wins",
+      "name": "The Secretary's Revenge",
+      "description": "You survived as Machiavelli. The man who understood power finally held it.",
+      "condition": { "type": "survivedAsCharacter", "characterIds": [15], "mustSurvive": true },
+      "rarity": "legendary"
+    },
+    {
+      "id": "crisis_weatherer",
+      "name": "Unbreakable",
+      "description": "You survived 3 or more crisis events in a single game. Italy threw everything at you.",
+      "condition": { "type": "survivedCrises", "minCrises": 3, "mustSurvive": true },
+      "rarity": "epic"
+    },
+    {
+      "id": "razor_edge",
+      "name": "Razor's Edge",
+      "description": "You finished with any stat between 11 and 14 — one tick from death, alive by a thread.",
+      "condition": { "type": "statInWarningZone", "mustSurvive": true },
+      "rarity": "rare"
+    },
+    {
+      "id": "the_dynasty",
+      "name": "House Medici",
+      "description": "You survived as any Medici character. The family endures — as it always does.",
+      "condition": { "type": "survivedAsCharacter", "characterIds": [1, 2, 7, 20], "mustSurvive": true },
+      "rarity": "epic"
+    }
+  ],
+  "legacyNarrations": {
+    "highInfluence": "Your name echoed through the councils of every city-state. When you spoke, princes listened. History remembers you as the great puppeteer — the one who shaped Italy's destiny through words, alliances, and the quiet redistribution of power.",
+    "highMilitary": "Your armies marched from the Alps to Sicily. Condottieri pledged their swords to your banner, and fortress walls crumbled at news of your approach. History remembers you as Italy's iron fist — the one who understood that all politics flows from the barrel of a cannon.",
+    "highWealth": "Your banking houses stretched from Florence to London. Popes borrowed from your coffers, and kings begged your favor. History remembers you as the one who proved that gold is the true sovereign — crowns are just decorations for the debtor.",
+    "highChurch": "Cardinals sought your blessing before the Pope's. You built cathedrals that scraped heaven and funded monasteries that shaped doctrine for centuries. History remembers you as God's chosen instrument — or at least, the one who convinced everyone you were.",
+    "balanced": "You mastered the rarest art in Renaissance Italy — survival without dominance. While others rose and fell like the tides, you held steady. History remembers you as the pragmatist, the one Machiavelli would have written about if he'd known perfection was possible.",
+    "lowEverything": "By every measure, you should have perished. Your influence was nil, your army nonexistent, your coffers empty, your soul damned. And yet — here you stand. History has no category for you. You simply refused to die.",
+    "cunning": "You never had the strongest army or the deepest coffers. What you had was information, timing, and an instinct for the jugular. History remembers you as the fox — the one who proved that the cleverest player needs neither sword nor gold, only patience."
+  }
+}

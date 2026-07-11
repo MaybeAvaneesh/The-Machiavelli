@@ -1,0 +1,434 @@
+[
+  {
+    "id": "REL_001",
+    "category": "religious",
+    "title": "The Conclave's Whisper",
+    "description": "Pope Innocent VIII lies on his deathbed, and the sacred college stirs with ambition. You receive word that Cardinal Rodrigo Borgia is buying votes outright — mules laden with silver have been seen entering the palaces of wavering cardinals. A sympathetic cardinal offers to swing three votes your way, but only if you pledge to grant him the Bishopric of Valencia and turn a blind eye to Borgia's maneuvers.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Accept the deal and join the conclave's shadow market of favors.",
+        "statChanges": { "influence": 12, "militaryPower": 0, "wealth": -10, "churchStanding": -8 },
+        "narration": "The bargain is struck behind closed doors in the Apostolic Palace. Your cardinal delivers as promised, and suddenly you are a name whispered with reverence in the corridors of power. But the cost is steep — your coffers are thinner, and Rome's reformers mark you as another simoniac wearing piety like a mask."
+      },
+      {
+        "id": "b",
+        "text": "Denounce the simony publicly and call for a pure election guided by the Holy Spirit.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 0, "churchStanding": 15 },
+        "narration": "Your voice rings through the halls of the Vatican with righteous fury. The reformist faction embraces you as a champion of the faith, and your name is praised from pulpits across Tuscany. But Borgia's allies now view you as a sanctimonious obstacle, and doors that were once open to you slam shut with quiet finality."
+      },
+      {
+        "id": "c",
+        "text": "Secretly fund a rival candidate to split Borgia's coalition while keeping your hands clean.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -12, "churchStanding": 3 },
+        "narration": "Through intermediaries and unsigned letters, you funnel gold to Cardinal della Rovere's campaign. The conclave fractures beautifully — Borgia must spend twice what he planned. You emerge looking pious while pulling strings from the shadows, though your treasury groans under the strain of this invisible war."
+      }
+    ]
+  },
+  {
+    "id": "REL_002",
+    "category": "religious",
+    "title": "The Bonfire Prophet",
+    "description": "Fra Girolamo Savonarola thunders from the pulpit of San Marco in Florence, denouncing the corruption of Rome and the vanity of the Medici. His apocalyptic sermons have turned the populace into a frenzy — bonfires of vanities consume artworks, mirrors, and silks in the piazzas. You must decide how to respond as his influence swells like a fever through northern Italy.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Publicly align with Savonarola and ride the wave of popular religious fervor.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -8, "churchStanding": 5 },
+        "narration": "You stand beside the friar as Florence burns its luxuries. The common people adore you for embracing their prophet, and your name is chanted alongside his. But the wealthy merchant families withdraw their support in disgust, and Rome watches you with the cold eyes of men who know that zealots eventually burn themselves."
+      },
+      {
+        "id": "b",
+        "text": "Supply evidence of Savonarola's heresies to the papal court and push for his excommunication.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 5, "churchStanding": -10 },
+        "narration": "Your carefully compiled dossier reaches Alexander VI, who needs little convincing. The bull of excommunication is drafted within weeks. The Florentine mob, however, sees you as a tool of the corrupt papacy, and even some cardinals whisper that silencing a reformer — however mad — reveals where your true loyalties lie: with power, not with God."
+      },
+      {
+        "id": "c",
+        "text": "Ignore the friar entirely and focus on consolidating your position while Florence tears itself apart.",
+        "statChanges": { "influence": -3, "militaryPower": 8, "wealth": 10, "churchStanding": -5 },
+        "narration": "While all eyes fix on Florence's bonfire spectacle, you quietly acquire new lands and strengthen your garrison. Gold flows in from ventures others neglect in their distraction. But your silence is noted — the reformers think you a coward, and the papalists wonder whose side you are truly on."
+      },
+      {
+        "id": "d",
+        "text": "Offer Savonarola sanctuary and private counsel, attempting to moderate his message from within.",
+        "statChanges": { "influence": 7, "militaryPower": -3, "wealth": -5, "churchStanding": 8 },
+        "narration": "The friar accepts your hospitality with suspicious gratitude. For a season, his sermons soften — less hellfire, more scripture. The Church notices your steadying hand and gives quiet approval. But Savonarola's true believers see your moderation as corruption, and your guards must now watch for daggers from fanatics who consider compromise a mortal sin."
+      }
+    ]
+  },
+  {
+    "id": "REL_003",
+    "category": "religious",
+    "title": "The Price of Absolution",
+    "description": "A papal legate arrives at your court bearing a most profitable proposal: the Pope wishes to sell indulgences throughout your territories to fund the construction of the new St. Peter's Basilica. You would receive a generous commission on every sin forgiven. The parchments are already printed — all they need is your seal and the tears of the penitent.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Embrace the indulgence trade wholeheartedly and set up collection stations across your lands.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 15, "churchStanding": -10 },
+        "narration": "Gold pours in like spring rain. Peasants and merchants alike empty their purses for the promise of shortened purgatory. Your treasury swells magnificently, but the Dominican friars in your territory preach against you openly, and pamphlets appear on church doors calling you a merchant of souls. The faithful's trust in you curdles into something bitter."
+      },
+      {
+        "id": "b",
+        "text": "Refuse the indulgence scheme and publicly question the theology behind it.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -8, "churchStanding": 12 },
+        "narration": "Your refusal echoes through the courts of Italy. Reform-minded clergy rally to your banner, and the common people praise your piety. But the papal legate departs with cold fury, and within months, certain lucrative trade privileges you enjoyed through papal favor are quietly revoked. Principle, as always, has its price."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate a larger commission and demand the right to approve which sins are forgiven.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 8, "churchStanding": -12 },
+        "narration": "The legate sputters at your audacity, but Rome needs the revenue badly enough to concede. You now sit in judgment over which penitents receive absolution — a power that makes even bishops uneasy. The gold is excellent, and your political leverage over guilt-ridden nobles is extraordinary, but the Church hierarchy marks you as dangerously presumptuous."
+      }
+    ]
+  },
+  {
+    "id": "REL_004",
+    "category": "religious",
+    "title": "The Heretic's Trial",
+    "description": "The Inquisition has dragged a prominent humanist scholar before your court, accused of denying the real presence of Christ in the Eucharist. His writings on natural philosophy have made him beloved among the educated classes, but his theological musings have attracted the wrong kind of attention. The inquisitor demands you preside over the trial and deliver a verdict.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Condemn the scholar swiftly and hand him over to the ecclesiastical authorities for punishment.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": 5, "churchStanding": 12 },
+        "narration": "The scholar is led away in chains, his protests echoing off the stone walls. The Inquisition commends your piety, and the Church's favor shines upon you like a benediction. But the humanist circles of Florence, Venice, and Padua are horrified — letters of condemnation arrive for weeks, and two promising young artists withdraw from your patronage in protest."
+      },
+      {
+        "id": "b",
+        "text": "Declare the scholar innocent on a technicality and quietly arrange his exile to a friendlier court.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -5, "churchStanding": -10 },
+        "narration": "The scholar escapes under cover of darkness with a purse of your gold and a letter of introduction to the court of Ferrara. The intellectual classes celebrate your wisdom and courage. But the Inquisition files your name alongside the scholar's in their ledgers of suspicion, and the local bishop refuses to celebrate Mass in your chapel for three months."
+      },
+      {
+        "id": "c",
+        "text": "Delay the trial indefinitely with procedural objections, buying time for political winds to shift.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": -3, "churchStanding": -5 },
+        "narration": "You bury the Inquisition in a maze of jurisdictional challenges and demands for additional evidence. The scholar languishes in comfortable house arrest while you wait for Rome's attention to wander elsewhere. It is an elegant solution, though everyone sees through it — and both the reformers and the orthodox grow impatient with your studied ambiguity."
+      },
+      {
+        "id": "d",
+        "text": "Use the trial as leverage — offer to condemn the scholar if the Inquisition supports your territorial claims.",
+        "statChanges": { "influence": 10, "militaryPower": 5, "wealth": 0, "churchStanding": -8 },
+        "narration": "The inquisitor recoils at your brazenness, but pragmatism wins. A man's life becomes a bargaining chip, and you gain official Church backing for your disputed border claims. The scholar burns, your territory expands, and your confessor can barely look you in the eye. In the courts of Italy, they say you have learned to weigh a soul in ducats."
+      }
+    ]
+  },
+  {
+    "id": "REL_005",
+    "category": "religious",
+    "title": "The Relic of San Gennaro",
+    "description": "A Neapolitan merchant offers to sell you what he claims is the authentic finger bone of San Gennaro, complete with a dubious but impressive-looking papal certification. Relics draw pilgrims, and pilgrims bring gold. Your cathedral currently houses nothing more notable than a splinter of the True Cross — which half the churches in Italy also claim to possess.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Purchase the relic at great expense and stage an elaborate procession to install it in your cathedral.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -12, "churchStanding": 5 },
+        "narration": "The procession is magnificent — banners of gold and white, choirs of angels, weeping faithful lining the streets. Pilgrims begin arriving within weeks, and your city buzzes with new commerce. The investment bleeds your treasury dry, but your cathedral becomes a destination. Naples, however, is furious at the theft of their patron saint's remains and begins making diplomatic threats."
+      },
+      {
+        "id": "b",
+        "text": "Reject the relic as likely fraudulent and report the merchant to Church authorities.",
+        "statChanges": { "influence": -3, "militaryPower": 0, "wealth": 0, "churchStanding": 10 },
+        "narration": "The merchant is arrested and his collection of dubious bones confiscated. The Church praises your discernment, and you gain a reputation for incorruptible piety. But your cathedral remains empty of wonders, your city remains off the pilgrim routes, and the merchants in your market square grumble about the commerce that might have been."
+      },
+      {
+        "id": "c",
+        "text": "Commission your own relic — have a local artisan create a convincing forgery with an elaborate provenance.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 8, "churchStanding": -12 },
+        "narration": "Your artisan is a genius of deception. The 'finger bone of Saint Catherine' arrives wrapped in aged linen with forged letters from three dead bishops attesting to its authenticity. Pilgrims flock to your city, and the gold flows beautifully. But your confessor knows the truth, and he drinks more heavily each week. If this fraud is ever discovered, your standing with the Church will not merely fall — it will shatter."
+      }
+    ]
+  },
+  {
+    "id": "REL_006",
+    "category": "religious",
+    "title": "The Bishop's Appointment",
+    "description": "The Bishop of your principal city has died, and the question of his successor has become a battlefield. Rome favors a cardinal's nephew — a lazy, debauched youth whose sole qualification is his bloodline. Your own candidate is a capable administrator who happens to be your cousin. The local clergy support a third man, a genuinely devout Franciscan who would be utterly useless politically.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Support Rome's candidate and curry favor with the papal court.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 8, "churchStanding": 10 },
+        "narration": "The cardinal's nephew takes his seat with all the gravitas of a boy playing dress-up. He is Rome's creature through and through, and the papal court rewards your obedience with trade concessions and favorable dispensations. But the new bishop is a liability — his scandals will inevitably become your scandals, and the local clergy seethes with resentment at this insult to their faith."
+      },
+      {
+        "id": "b",
+        "text": "Install your cousin through bribery and political pressure, defying Rome's preference.",
+        "statChanges": { "influence": 12, "militaryPower": 0, "wealth": -10, "churchStanding": -8 },
+        "narration": "Your cousin dons the mitre after a campaign of persuasion that costs you a fortune in gifts and threats. You now control the diocese — every appointment, every tithe, every dispensation flows through your family. Rome is displeased but not surprised; this is how the game is played. The cost, however, was severe, and whispers of your heavy-handedness reach unfriendly ears."
+      },
+      {
+        "id": "c",
+        "text": "Champion the Franciscan candidate and position yourself as a defender of the Church's spiritual mission.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": -3, "churchStanding": 15 },
+        "narration": "The Franciscan is installed to great popular acclaim. He immediately begins visiting the poor, reforming the diocesan finances, and — to your dismay — actually practicing the Christianity he preaches. Your standing with the devout soars, but you have placed a genuinely incorruptible man in a position where you needed a pliable one. Rome admires your piety while privately questioning your judgment."
+      },
+      {
+        "id": "d",
+        "text": "Delay the appointment indefinitely and collect the diocese's revenues yourself as 'interim administrator.'",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 12, "churchStanding": -15 },
+        "narration": "Months stretch into a year as you cite procedural concerns and canonical technicalities. Meanwhile, the diocese's tithes flow directly into your coffers. It is a brilliant short-term plunder, but the clergy are apoplectic, Rome threatens intervention, and even your allies begin to wonder if you have forgotten that the Church is supposed to be, at least nominally, about God."
+      }
+    ]
+  },
+  {
+    "id": "REL_007",
+    "category": "religious",
+    "title": "Luther's Shadow",
+    "description": "Disturbing reports arrive from the north. A German monk named Martin Luther has nailed ninety-five theses to a church door in Wittenberg, denouncing indulgences and papal authority. His ideas are spreading through the printing presses like wildfire. Already, merchants in your territory are circulating translated copies, and your younger clergy are reading them with dangerous enthusiasm.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Suppress Luther's writings immediately — burn every copy found and punish the distributors.",
+        "statChanges": { "influence": -5, "militaryPower": 5, "wealth": -3, "churchStanding": 12 },
+        "narration": "Your soldiers raid printing houses and bookshops with ruthless efficiency. Stacks of Luther's theses crackle in public bonfires. Rome sends a letter of commendation sealed with the papal ring. But the suppression backfires — forbidden ideas become irresistible. Underground copies multiply faster than you can burn them, and your reputation for tyranny grows among the literate classes."
+      },
+      {
+        "id": "b",
+        "text": "Allow Luther's ideas to circulate freely, using them as leverage against papal overreach in your territory.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 5, "churchStanding": -15 },
+        "narration": "You make no move against the pamphleteers, and the message is unmistakable: you are willing to let heresy breathe if Rome pushes you too far. The papal nuncio arrives within weeks, suddenly eager to renegotiate several unfavorable arrangements. Your political leverage soars, but the Church hierarchy now views you with the kind of suspicion that precedes excommunication."
+      },
+      {
+        "id": "c",
+        "text": "Organize a public theological debate to demonstrate the weakness of Luther's arguments.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": -5, "churchStanding": 5 },
+        "narration": "You summon the finest Dominican theologians to dispute Luther's theses in your great hall. The debate is spirited, learned, and — to your horror — inconclusive. Luther's arguments prove more resilient than expected, and several of your own clergy are visibly swayed. You have demonstrated intellectual openness, but you may have also given heresy a stage it did not previously have."
+      }
+    ]
+  },
+  {
+    "id": "REL_008",
+    "category": "religious",
+    "title": "The Monastery's Fortune",
+    "description": "The Benedictine monastery of Santa Maria della Grazia sits on your richest farmland, its monks growing fat on vintages that should be filling your granaries. The abbot is old and the order's discipline has decayed — the brothers are more familiar with wine than with vespers. A reform-minded bishop suggests dissolving the monastery and redistributing its lands, while the abbot offers you a share of their vintage in exchange for protection.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Dissolve the monastery, seize its lands, and distribute a portion to loyal retainers.",
+        "statChanges": { "influence": 5, "militaryPower": 8, "wealth": 12, "churchStanding": -15 },
+        "narration": "The monks are scattered with a handful of coins and a papal dispensation you forged yourself. Their fertile acres now feed your armies and enrich your vassals. The military and economic gains are substantial, but the act sends shockwaves through every religious house in the region. Abbots begin hiding their treasures, and the Pope adds your name to a growing list of princes who treat the Church as a larder."
+      },
+      {
+        "id": "b",
+        "text": "Reform the monastery by installing a strict new abbot and demanding they tithe to your treasury.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 8, "churchStanding": 5 },
+        "narration": "Your chosen abbot arrives with a rod of iron and a breviary. Within months, the monks are rising for matins again, the vineyards are properly managed, and a steady stream of revenue flows to your coffers as the price of your 'protection.' It is an elegant compromise — the Church sees reform, you see profit. Only the deposed abbot, drinking himself to death in a tavern in Siena, sees the truth."
+      },
+      {
+        "id": "c",
+        "text": "Accept the abbot's bribe and become the monastery's patron, shielding it from all reform.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 5, "churchStanding": -8 },
+        "narration": "The abbot's finest vintages arrive at your table each month, and the arrangement is comfortable for all involved — except the peasants who farm the monastery's lands in conditions approaching serfdom. The reform faction marks you as an enabler of corruption, and your own chaplain delivers increasingly pointed sermons about the parable of the talents."
+      }
+    ]
+  },
+  {
+    "id": "REL_009",
+    "category": "religious",
+    "title": "The Excommunication Gambit",
+    "description": "A letter arrives bearing the papal seal. His Holiness is 'considering' your excommunication over a territorial dispute with the Papal States. The threat is almost certainly a bluff — the Pope needs your military support against the French — but excommunication would cut you off from the sacraments, release your vassals from their oaths, and invite every ambitious neighbor to carve up your lands with the Church's blessing.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Submit immediately to the Pope's demands and cede the disputed territory.",
+        "statChanges": { "influence": -10, "militaryPower": -5, "wealth": -5, "churchStanding": 12 },
+        "narration": "You kneel, symbolically and literally. The disputed lands return to papal control, and the threat evaporates like morning mist. The Church praises your filial obedience, but every prince in Italy notes your capitulation. The Venetians and Milanese circle closer, sensing weakness. You have bought God's favor at the price of earthly respect."
+      },
+      {
+        "id": "b",
+        "text": "Call the bluff — reinforce your borders and remind the Pope he needs your army against France.",
+        "statChanges": { "influence": 12, "militaryPower": -8, "wealth": -5, "churchStanding": -10 },
+        "narration": "Your ambassador delivers the message with exquisite diplomatic menace: excommunicate, and face the French alone. The Pope's hand trembles — not with age, but with fury. The threat is quietly withdrawn, and your reputation as a man who bends to no one, not even the Vicar of Christ, grows fearsome. But the military posturing has cost you dearly, and the Church will remember this humiliation."
+      },
+      {
+        "id": "c",
+        "text": "Negotiate privately, offering generous 'donations' to key cardinals to make the problem disappear.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -12, "churchStanding": 3 },
+        "narration": "Gold speaks the universal language of the sacred college. Cardinals who thundered about your impiety last week now praise your devotion to Mother Church. The excommunication threat dissolves in a flood of florins. You keep your lands and your soul — though your treasury is grievously wounded, and you have confirmed what every cynic already knew: in Rome, salvation has a price list."
+      },
+      {
+        "id": "d",
+        "text": "Threaten to recognize a rival claimant to the papal throne, raising the specter of schism.",
+        "statChanges": { "influence": 15, "militaryPower": 0, "wealth": 0, "churchStanding": -15 },
+        "narration": "The mere whisper of antipope support sends tremors through the Vatican. Rome has not forgotten the Great Schism, and the prospect of a new one terrifies even the most hardened cardinal. The excommunication threat is abandoned with unseemly haste. But you have played the most dangerous card in Italian politics — the Church will never fully trust you again, and some sins are not so easily absolved."
+      }
+    ]
+  },
+  {
+    "id": "REL_010",
+    "category": "religious",
+    "title": "The Cardinal's Hat",
+    "description": "An opportunity arises to place your younger son in the College of Cardinals. He is fourteen years old, barely literate, and far more interested in hunting than in theology. But a cardinal's hat would give your family a voice in every future conclave and access to ecclesiastical revenues that dwarf most secular incomes. The going rate, you are told, is considerable.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pay the enormous bribe and secure the cardinal's hat for your son.",
+        "statChanges": { "influence": 15, "militaryPower": 0, "wealth": -15, "churchStanding": -8 },
+        "narration": "Your son looks faintly ridiculous in his scarlet robes, but the political mathematics are beautiful. Your family now has a permanent seat at the table where popes are made and unmade. The cost has nearly bankrupted you, and reformist voices across Italy point to your boy-cardinal as everything wrong with the Church. But in a generation, this investment will return a hundredfold — if your family survives that long."
+      },
+      {
+        "id": "b",
+        "text": "Refuse to buy the position and instead invest in your son's genuine theological education.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -3, "churchStanding": 10 },
+        "narration": "Your son is dispatched to the University of Bologna with a tutor, a modest allowance, and strict instructions. He will hate you for years. But the Church reformers note your restraint with approval, and in time, your son may earn a cardinal's hat through merit — assuming merit still counts for anything in Rome, which is, admittedly, an open question."
+      },
+      {
+        "id": "c",
+        "text": "Accept the offer but negotiate to place your nephew instead — a genuinely devout young man studying canon law.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -10, "churchStanding": 3 },
+        "narration": "Your nephew proves a far more credible candidate, and the transaction draws less scrutiny. He enters the sacred college with real theological credentials and genuine piety — which may prove a liability when the time comes for political maneuvering. You have gained a foothold in the Church's highest councils, though your nephew's inconvenient conscience may complicate matters when you need his vote most."
+      }
+    ]
+  },
+  {
+    "id": "REL_011",
+    "category": "religious",
+    "title": "The Borgia Feast",
+    "description": "Pope Alexander VI — Rodrigo Borgia himself — invites you to a banquet at the Vatican. The invitation is as dangerous as it is prestigious. The Borgias are notorious for eliminating rivals through poisoned wine, and three minor lords have died after attending similar dinners in the past year. But refusing the Pope's hospitality would be a diplomatic catastrophe.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Attend the banquet with a food taster and your best men concealed nearby.",
+        "statChanges": { "influence": 10, "militaryPower": -5, "wealth": -5, "churchStanding": 8 },
+        "narration": "You dine with the serpent and survive. Alexander is charming, erudite, and terrifying in equal measure. Your food taster earns his wages — testing every course with trembling hands. By evening's end, you have secured papal favor and a trade concession, though the deployment of your guards has thinned your garrison back home. You leave Rome alive, which is, in Borgia Italy, its own kind of victory."
+      },
+      {
+        "id": "b",
+        "text": "Decline with a fabricated illness, sending lavish gifts and profuse apologies instead.",
+        "statChanges": { "influence": -8, "militaryPower": 0, "wealth": -8, "churchStanding": -3 },
+        "narration": "Your 'illness' fools no one. Alexander's smile tightens when he reads your letter, and Cesare Borgia makes a pointed remark about cowardly lords at his next public appearance. Your expensive gifts soften the blow somewhat, but the message is clear: you fear the Pope. In the ruthless calculus of Italian politics, fear displayed is weakness confessed."
+      },
+      {
+        "id": "c",
+        "text": "Attend and use the opportunity to forge a secret alliance with other nervous guests against Borgia overreach.",
+        "statChanges": { "influence": 12, "militaryPower": 5, "wealth": -3, "churchStanding": -10 },
+        "narration": "Between courses of quail and conspiracy, you whisper with three other lords who share your unease. By dessert, the framework of a defensive alliance exists — fragile, deniable, but real. Alexander suspects nothing, or perhaps suspects everything and is amused. Your churchStanding suffers as Rome's spies eventually piece together the outlines of your plotting, but you now have allies who share your interest in surviving the Borgia papacy."
+      }
+    ]
+  },
+  {
+    "id": "REL_012",
+    "category": "religious",
+    "title": "The Inquisitor's Arrival",
+    "description": "A Dominican inquisitor has arrived in your territory with a papal mandate and a hunger for heretics. He has already arrested a Jewish physician who served your court, a merchant accused of secret Muslim practices, and a widow whose neighbors call her a witch. Your subjects look to you for protection, but the Inquisition answers only to Rome.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Cooperate fully with the Inquisition and provide soldiers to assist in further arrests.",
+        "statChanges": { "influence": -8, "militaryPower": 5, "wealth": -5, "churchStanding": 12 },
+        "narration": "Your soldiers drag the accused from their homes while their families wail in the streets. The inquisitor is delighted with your zeal, and Rome marks you as a faithful son of the Church. But your Jewish physicians and Muslim merchants — the most skilled professionals in your territory — begin fleeing to more tolerant cities. The economic cost of piety mounts with every departing cart."
+      },
+      {
+        "id": "b",
+        "text": "Assert your secular jurisdiction and demand the inquisitor submit all cases to your court first.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": 0, "churchStanding": -12 },
+        "narration": "The inquisitor sputters with outrage as you calmly cite centuries of precedent for secular oversight of ecclesiastical tribunals. Your legal scholars are better than his. The accused are transferred to your custody, where they will receive something resembling justice. But Rome views your intervention as an intolerable challenge to Church authority, and the word 'obstruction' appears in papal correspondence about your territory."
+      },
+      {
+        "id": "c",
+        "text": "Privately arrange for the accused to escape while publicly expressing regret at the 'security lapse.'",
+        "statChanges": { "influence": 5, "militaryPower": -3, "wealth": -5, "churchStanding": -8 },
+        "narration": "The prison doors are mysteriously unlocked one night, the guards mysteriously absent. The accused vanish into the countryside with gold in their pockets and your seal on their safe-conduct passes. The inquisitor suspects you but cannot prove it. Your reputation among the persecuted minorities soars, ensuring their continued service and loyalty, but the Church's suspicion deepens like a wound that will not heal."
+      },
+      {
+        "id": "d",
+        "text": "Sacrifice the widow to the Inquisition but personally intervene to save the physician and merchant.",
+        "statChanges": { "influence": 3, "militaryPower": 0, "wealth": 3, "churchStanding": -5 },
+        "narration": "The widow burns while the physician and merchant are quietly released on 'insufficient evidence.' It is a cold, pragmatic calculus — the widow has no economic value, while the other two are essential to your court's functioning. The inquisitor accepts the compromise with a knowing look. You have learned to speak the Inquisition's real language: not faith, but negotiation."
+      }
+    ]
+  },
+  {
+    "id": "REL_013",
+    "category": "religious",
+    "title": "The Council's Call",
+    "description": "Reformist cardinals are calling for an ecumenical council to address the Church's corruption — simony, clerical concubinage, absentee bishops, and the sale of offices. The Pope opposes the council, fearing it will strip his authority. Both sides seek your support, and your decision will influence whether Christendom is reformed or whether the status quo, with all its profitable corruption, endures.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Support the reformist council and pledge your territory as a meeting place.",
+        "statChanges": { "influence": 12, "militaryPower": -5, "wealth": -8, "churchStanding": 10 },
+        "narration": "Your city becomes the center of Christendom's great debate. Cardinals, theologians, and princes descend upon your territory in a whirlwind of ecclesiastical politics. The prestige is extraordinary, but so are the costs — housing, feeding, and protecting hundreds of churchmen while the Pope's agents attempt sabotage at every turn. You have chosen the side of reform, and the reformers will remember — but so will Rome."
+      },
+      {
+        "id": "b",
+        "text": "Side with the Pope and help suppress the council movement in exchange for papal favors.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 10, "churchStanding": -8 },
+        "narration": "The Pope rewards your loyalty with benefices, trade privileges, and a warm letter praising your wisdom. The council movement falters without your support. But the reformers curse your name, and history — that most unforgiving of judges — may remember you as the man who could have healed the Church and chose gold instead."
+      },
+      {
+        "id": "c",
+        "text": "Remain publicly neutral while privately extracting concessions from both sides.",
+        "statChanges": { "influence": 8, "militaryPower": 0, "wealth": 8, "churchStanding": -5 },
+        "narration": "You become the fulcrum on which the balance tips — and you charge handsomely for the privilege of tilting you. The Pope sends gifts, the reformers send promises, and you collect from both while committing to neither. It is masterful fence-sitting, though both sides eventually realize you are playing them. When the crisis resolves, you may find you have no friends left — only debtors and creditors."
+      }
+    ]
+  },
+  {
+    "id": "REL_014",
+    "category": "religious",
+    "title": "The Antipope's Emissary",
+    "description": "A cloaked figure arrives at your court under cover of darkness. He represents a group of dissident cardinals who are prepared to elect their own pope — a man sympathetic to the French crown and hostile to the current Borgia papacy. They seek your military support and diplomatic recognition. The reward, if they succeed, would be enormous. The punishment, if they fail, would be annihilation.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Pledge your support to the antipope faction and commit troops to their cause.",
+        "statChanges": { "influence": 15, "militaryPower": -12, "wealth": -5, "churchStanding": -15 },
+        "narration": "You have wagered everything on the greatest gamble in Christendom. Your troops march north to join the dissident cardinals, and for a brief, intoxicating moment, you stand at the center of a potential revolution. If the antipope prevails, you will be the most powerful lord in Italy. If he fails, your name will be synonymous with schism and treason against God's appointed vicar. The dice are thrown."
+      },
+      {
+        "id": "b",
+        "text": "Refuse and immediately report the conspiracy to the current Pope.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 8, "churchStanding": 15 },
+        "narration": "Your loyalty is rewarded with lavish papal gratitude. The dissident cardinals are arrested, the conspiracy shattered. You are hailed as a defender of Church unity, and the papal treasury opens its coffers to you. But you have made mortal enemies of the French crown and every cardinal who dreamed of reform through revolution. They will not forget your betrayal, and French armies are very, very large."
+      },
+      {
+        "id": "c",
+        "text": "Keep the emissary's visit secret and wait to see which side gains momentum before committing.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": 0, "churchStanding": -5 },
+        "narration": "You smile, offer wine, and promise nothing. The emissary departs uncertain whether you are friend or foe — which is precisely your intention. In the weeks that follow, you watch the conspiracy develop with the detached interest of a man studying a chess game he may or may not join. It is the safest play, though both sides will eventually demand an answer, and 'maybe' has a limited shelf life."
+      },
+      {
+        "id": "d",
+        "text": "Offer to mediate between the dissidents and the current Pope, positioning yourself as indispensable to both.",
+        "statChanges": { "influence": 10, "militaryPower": 0, "wealth": -3, "churchStanding": 5 },
+        "narration": "You send careful letters to both sides, presenting yourself as the only man who can prevent schism. It is an audacious role — peacemaker between factions who would happily destroy each other. The Pope grudgingly accepts your mediation, the dissidents cautiously welcome it, and for a season you are the most important diplomat in Italy. The strain is immense, the costs mounting, and one misstep will see both sides turn on you simultaneously."
+      }
+    ]
+  },
+  {
+    "id": "REL_015",
+    "category": "religious",
+    "title": "The Confession of Power",
+    "description": "Your personal confessor — a Franciscan friar who has heard your darkest secrets for twenty years — has been offered a bishopric by a rival lord. If he accepts, every sin you have whispered through the confessional screen could become political ammunition. The seal of confession is sacred, but sacred things have a way of becoming negotiable when a mitre is involved.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Offer the confessor a larger bishopric from your own territories to ensure his continued loyalty.",
+        "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -10, "churchStanding": -5 },
+        "narration": "The friar accepts with the smooth grace of a man who has been expecting this offer. He is now a bishop — your bishop — with a comfortable palace and a generous stipend. Your secrets remain locked behind his teeth, sealed now by self-interest as much as by sacrament. But you have learned a terrible lesson: your most intimate spiritual relationship was always, at its core, a transaction."
+      },
+      {
+        "id": "b",
+        "text": "Let him go and trust in the inviolability of the confessional seal.",
+        "statChanges": { "influence": -10, "militaryPower": 0, "wealth": 0, "churchStanding": 12 },
+        "narration": "The friar departs with your blessing and, you pray, with his vows intact. For months you sleep poorly, wondering what stories might drift from his new diocese to your rival's ears. But the seal holds — or appears to. Your willingness to trust in the sacrament earns you respect among the clergy, even as your political advisors age visibly from the stress of your idealism."
+      },
+      {
+        "id": "c",
+        "text": "Arrange for the confessor to suffer an unfortunate accident before he can leave your service.",
+        "statChanges": { "influence": 3, "militaryPower": 5, "wealth": 0, "churchStanding": -15 },
+        "narration": "The friar's horse throws him on a mountain road. A tragedy, everyone agrees — the path was treacherous, the weather poor. Your secrets die with him on the cold stones of the Apennine pass. You attend the funeral Mass with appropriate grief and a heart heavy with something far worse than sorrow. Your confessor's replacement, a young Dominican, notes that you seem reluctant to make your first confession. He has no idea why."
+      },
+      {
+        "id": "d",
+        "text": "Preemptively confess your worst secrets to the Pope directly, neutralizing any leverage the confessor holds.",
+        "statChanges": { "influence": -5, "militaryPower": 0, "wealth": -8, "churchStanding": 8 },
+        "narration": "You kneel before the papal throne and lay bare two decades of sin. The Pope listens with the practiced patience of a man who has heard far worse. Your penance is severe but survivable — donations to three monasteries and a pilgrimage your knees will not enjoy. But the confessor's knowledge is now worthless as a weapon, and the Pope, who now holds your secrets himself, finds you a more useful — and controllable — servant than before."
+      }
+    ]
+  }
+]
