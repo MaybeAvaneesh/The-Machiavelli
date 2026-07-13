@@ -38,4 +38,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# raw source images — not served by the app (public/scenes + public/maps are)
+/src/images
 next-env.d.ts
