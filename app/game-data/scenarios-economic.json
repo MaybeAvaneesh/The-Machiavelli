@@ -4,6 +4,7 @@
     "category": "economic",
     "title": "The Medici Ledger",
     "description": "A courier arrives bearing sealed documents from the Medici bank in Rome. Their Florence branch teeters on insolvency after a series of bad loans to minor nobility. You are offered a chance to acquire their debts at a fraction of their face value — a move that could make you the creditor of half the Tuscan aristocracy.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -36,6 +37,7 @@
     "category": "economic",
     "title": "Silk and Subterfuge",
     "description": "The Florentine silk guild, the Arte della Seta, approaches you with a proposition. They seek a patron to fund an expedition to acquire new dyeing techniques from Constantinople. The silks produced would rival those of Venice, but the Venetian Senate has spies everywhere, and they will not tolerate competition lightly.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -62,6 +64,7 @@
     "category": "economic",
     "title": "The Papal Tithe",
     "description": "Pope Julius has declared a new tithe to fund the construction of St. Peter's Basilica. As a prominent figure, you are expected to contribute generously. The papal legate watches you with sharp eyes, calculating your wealth against your piety. Meanwhile, your own treasury could use every florin for the coming season.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -94,6 +97,7 @@
     "category": "economic",
     "title": "Venetian Galley Auction",
     "description": "The Republic of Venice holds its annual auction of galley routes — the right to operate trade convoys to specific ports in the Levant. A route to Alexandria has opened, promising access to the spice trade. But the bidding will be fierce, and the Ottomans have been raiding Venetian shipping with increasing boldness.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -120,6 +124,7 @@
     "category": "economic",
     "title": "The Debased Ducat",
     "description": "Your mint master confides that a neighboring state has been secretly debasing its coinage — mixing copper into silver ducats. Their cheaper currency is flooding your markets, undercutting your merchants. Your own treasury holds thousands of honest ducats that now buy less than they should.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -152,6 +157,7 @@
     "category": "economic",
     "title": "The Wool Guild's Revolt",
     "description": "The Ciompi — the lowest wool workers of Florence — are organizing again. They demand higher wages and representation in the guild councils. The Arte della Lana, the great wool guild, begs you to intervene. Cloth production has halted. The warehouses sit full of raw English wool with no one to card or spin it.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -178,6 +184,7 @@
     "category": "economic",
     "title": "Spice from the Cape",
     "description": "Stunning news from Lisbon: Portuguese navigators have rounded the Cape of Africa and reached the spice markets of India directly. The Venetian monopoly on eastern spices, maintained for centuries through Alexandria, now faces an existential threat. Venetian spice prices have already begun to fall.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -210,6 +217,7 @@
     "category": "economic",
     "title": "The Alum Monopoly",
     "description": "Deposits of alum — essential for dyeing cloth — have been discovered at Tolfa in the Papal States. The Pope declares a monopoly and offers exclusive distribution rights. Alum has long been imported from Ottoman lands at great expense. Whoever controls the Tolfa supply controls the entire European textile industry's costs.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -236,6 +244,7 @@
     "category": "economic",
     "title": "The Condottiere's Invoice",
     "description": "Your hired captain, a condottiere of some renown, presents his quarterly invoice — and it is double what was agreed. He claims his men fought harder than expected and deserve hazard pay. His company of 800 lances currently camps outside your city walls. Refusing payment while armed men idle at your gates is a delicate matter.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -268,6 +277,7 @@
     "category": "economic",
     "title": "The Fugger Connection",
     "description": "Jakob Fugger, the wealthiest banker in Europe, sends an emissary proposing a financial alliance. The Fugger bank controls silver mines in Tyrol and copper in Hungary. An alliance would give you access to northern European capital markets — but it would also mean entangling yourself with the politics of the Holy Roman Empire.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -294,6 +304,7 @@
     "category": "economic",
     "title": "The Salt Tax",
     "description": "Your territories include salt flats that supply half the region. The current tax on salt is modest, but your advisors calculate that tripling it would fill your war chest in a single season. Salt is a necessity — the people have no choice but to pay. But salt taxes have sparked revolts before, and the memory of the Pazzi conspiracy reminds you that even the powerful can be dragged through the streets.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -320,6 +331,7 @@
     "category": "economic",
     "title": "The Ottoman Embargo",
     "description": "Sultan Bayezid II has imposed an embargo on all trade with Italian states in retaliation for Venetian raids on Ottoman shipping. Your warehouses hold goods destined for Constantinople — silks, glassware, and armor components. The embargo may last months, or it may last years. Your capital is locked in cargo that rots or rusts.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -352,6 +364,7 @@
     "category": "economic",
     "title": "The Dowry Gambit",
     "description": "A marriage alliance is proposed between your house and the daughter of a wealthy Genoese shipping magnate. The dowry offered is extraordinary — three galleys, a warehouse in Genoa, and 40,000 florins. But the bride's family demands that you break your existing betrothal to a minor Roman noblewoman whose uncle sits in the College of Cardinals.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -378,6 +391,7 @@
     "category": "economic",
     "title": "Counterfeit Letters of Credit",
     "description": "Your agents intercept a cache of forged letters of credit bearing the seal of the Bardi banking house. Someone is using counterfeit paper to extract gold from banks across Tuscany. You could expose the scheme — or you could use the knowledge. The forger is skilled enough that his work has fooled experienced bankers for months.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -404,6 +418,7 @@
     "category": "economic",
     "title": "The New World Speculation",
     "description": "Rumors swirl through the counting houses of Seville and Genoa: a navigator in Spanish service claims to have found lands across the western ocean. Most dismiss it as fantasy, but Genoese bankers are quietly buying shares in future expeditions. The Spanish crown offers foreign investors a chance to participate — at considerable risk and considerable potential reward.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -436,6 +451,7 @@
     "category": "economic",
     "title": "The Guild Master's Bribe",
     "description": "The master of the bankers' guild offers you a seat on the guild council — in exchange for using your influence to block a proposed law that would cap interest rates. The law is popular with the people and supported by Franciscan preachers who rail against usury. The guild seat would give you control over who may lend money in Florence.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -462,6 +478,7 @@
     "category": "economic",
     "title": "Plague and Profit",
     "description": "Plague has struck the Lombardy plains. Milan's workshops stand empty, its trade routes abandoned. Milanese cloth, metalwork, and arms production has collapsed. Your own territories remain — for now — untouched. Your merchants could fill the void left by Milan's paralysis, but trading near plague zones risks bringing the contagion home.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -494,6 +511,7 @@
     "category": "economic",
     "title": "The Monte delle Doti",
     "description": "Florence's dowry fund — the Monte delle Doti — is failing. Families deposit gold at a daughter's birth and expect a substantial return when she marries. But decades of mismanagement have left the fund insolvent. Hundreds of families face ruin if their daughters cannot marry with proper dowries. The Signoria quietly asks if you can help restructure the fund.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -520,6 +538,7 @@
     "category": "economic",
     "title": "The Arsenal's Demand",
     "description": "Venice's great Arsenal — the largest industrial complex in Europe — needs timber. Vast quantities of oak and pine for galley construction. Your territories include forests that could supply the Arsenal for years. The Venetian offer is generous, but stripping your forests would leave your lands vulnerable to erosion and your people without fuel and building material.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -552,6 +571,7 @@
     "category": "economic",
     "title": "The Indulgence Market",
     "description": "A papal agent arrives offering you an exclusive franchise to sell indulgences in your territory. The faithful pay gold to reduce their time in purgatory — and the Church splits the proceeds with its franchisees. The Dominican order protests that the sale cheapens salvation, but the Pope needs funds for his wars in the Romagna. The profits are enormous, the moral cost incalculable.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",

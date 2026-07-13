@@ -21,6 +21,13 @@ interface ScenarioView {
   title: string;
   description: string;
   choices: ChoiceOption[];
+  city?: string;
+}
+
+export interface WorldView {
+  relationships: Record<string, string>;
+  flags: Record<string, boolean>;
+  counters: Record<string, number>;
 }
 
 interface Character {
@@ -61,6 +68,7 @@ export interface GameView {
   lastLuckRoll: LuckRoll | null;
   statHistory: StatBlock[];
   perkUsesRemaining: Record<string, number>;
+  world?: WorldView;
 }
 
 type GamePhase = "menu" | "playing" | "narrating" | "dead" | "victory";

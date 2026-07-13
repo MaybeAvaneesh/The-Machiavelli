@@ -7,12 +7,12 @@ interface ProgressBarProps {
 
 export function ProgressBar({ round, maxRounds }: ProgressBarProps) {
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1">
       <div className="flex justify-between items-center text-[9px] text-[#8a7e6a] uppercase tracking-widest font-heading">
         <span>Campaign</span>
         <span>{round} of {maxRounds}</span>
       </div>
-      <div className="flex gap-1">
+      <div className="flex gap-0.5">
         {Array.from({ length: maxRounds }, (_, i) => {
           const roundNum = i + 1;
           const completed = roundNum < round;
@@ -21,12 +21,12 @@ export function ProgressBar({ round, maxRounds }: ProgressBarProps) {
           return (
             <div
               key={i}
-              className={`h-1 flex-1 rounded-full transition-all duration-500 ${
+              className={`flex-1 retro-pip rounded-sm ${
                 completed
-                  ? "bg-[#c9a84c]"
+                  ? "retro-pip-done"
                   : current
-                    ? "bg-[#c9a84c]/60 animate-pulse"
-                    : "bg-[#2a2318]"
+                    ? "retro-pip-current animate-retro-blink"
+                    : "retro-pip-empty"
               }`}
             />
           );
