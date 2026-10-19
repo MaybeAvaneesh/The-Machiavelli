@@ -11,10 +11,44 @@ const STAT_LABELS: Record<StatKey, string> = {
   churchStanding: "Church Standing",
 };
 
+const NARRATION_TIMEOUT_MS = 10000;
+const MAX_NARRATION_CHARS = 320;
+
 function getClient(): Mistral | null {
-  const key = process.env.MISTRAL_API_KEY;
+  const key = process.env.MISTRAL_API_KEY?.trim();
   if (!key) return null;
-  return new Mistral({ apiKey: key });
+  return new Mistral({
+    apiKey: key,
+    timeoutMs: NARRATION_TIMEOUT_MS,
+    // Free-tier keys hit 429s easily: retry briefly (honours Retry-After) before falling back.
+    retryConfig: {
+      strategy: "backoff",
+      backoff: { initialInterval: 800, maxInterval: 2500, exponent: 1.6, maxElapsedTime: 5000 },
+      retryConnectionErrors: true,
+    },
+    ...(process.env.MISTRAL_SERVER_URL ? { serverURL: process.env.MISTRAL_SERVER_URL } : {}),
+  });
+}
+
+// Mistral deltas can be a plain string or an array of content chunks
+// (text, thinking, references). Keep only the visible text.
+function deltaText(content: unknown): string {
+  if (typeof content === "string") return content;
+  if (Array.isArray(content)) {
+    return content
+      .map((c) => (c && typeof c === "object" && (c as { type?: string }).type === "text"
+        ? String((c as { text?: unknown }).text ?? "")
+        : ""))
+      .join("");
+  }
+  return "";
+}
+
+async function* streamFallback(text: string): AsyncGenerator<string> {
+  for (const word of text.split(" ")) {
+    yield word + " ";
+    await new Promise((r) => setTimeout(r, 30));
+  }
 }
 
 function buildNarrationPrompt(
@@ -85,34 +119,61 @@ export async function* streamNarration(
   state: GameState,
   choiceId: string,
   appliedChanges: StatBlock,
-  firedConsequences: DeferredConsequence[] = []
+  firedConsequences: DeferredConsequence[] = [],
+  onProviderFailure?: (reason: string) => void
 ): AsyncGenerator<string> {
-  const client = getClient();
+  const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
+  const fallback = choice?.narration || "The wheels of history turn onward.";
 
+  const client = getClient();
   if (!client) {
-    const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
-    const fallback = choice?.narration || "The wheels of history turn onward.";
-    const words = fallback.split(" ");
-    for (const word of words) {
-      yield word + " ";
-      await new Promise((r) => setTimeout(r, 30));
-    }
+    yield* streamFallback(fallback);
     return;
   }
 
   const prompt = buildNarrationPrompt(state, choiceId, appliedChanges, firedConsequences);
+  let emitted = "";
+  let failure: string | null = null;
+  let held = ""; // trailing quote/markdown, released only if more text follows
 
-  const stream = await client.chat.stream({
-    model: process.env.MISTRAL_MODEL || "mistral-large-latest",
-    messages: [{ role: "user", content: prompt }],
-    maxTokens: 120,
-  });
+  try {
+    const stream = await client.chat.stream({
+      model: process.env.MISTRAL_MODEL?.trim() || "mistral-large-latest",
+      messages: [{ role: "user", content: prompt }],
+      maxTokens: 160,
+      temperature: 0.8,
+    });
 
-  for await (const event of stream) {
-    const delta = event.data?.choices?.[0]?.delta?.content;
-    if (typeof delta === "string") {
-      yield delta;
+    for await (const event of stream) {
+      let text = deltaText(event.data?.choices?.[0]?.delta?.content);
+      if (!text) continue;
+      // Drop a leading quote or markdown the model sometimes opens with.
+      if (!emitted) text = text.replace(/^\s*["“*_]+/, "");
+      text = held + text;
+      const tail = text.match(/["”*_]+\s*$/);
+      held = tail ? tail[0] : "";
+      if (held) text = text.slice(0, -held.length);
+      if (emitted.length + text.length > MAX_NARRATION_CHARS) {
+        text = text.slice(0, Math.max(0, MAX_NARRATION_CHARS - emitted.length));
+      }
+      if (text) {
+        emitted += text;
+        yield text;
+      }
+      if (emitted.length >= MAX_NARRATION_CHARS) break;
     }
+  } catch (err) {
+    failure = (err as Error)?.message ?? String(err);
+    console.error("[narration] Mistral request failed:", failure);
+  }
+
+  // Nothing usable came back (bad key, rate limit, timeout, empty reply): use the written line.
+  if (!emitted.trim()) {
+    onProviderFailure?.(failure ?? "empty response");
+    yield* streamFallback(fallback);
+  } else if (failure) {
+    // Stream broke partway through: keep what arrived, still tell the player.
+    onProviderFailure?.(failure);
   }
 }
 

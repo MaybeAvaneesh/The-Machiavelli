@@ -24,6 +24,19 @@ const CATEGORY_LABELS: Record<string, string> = {
   crisis: "Crisis",
 };
 
+type Tier = "calm" | "conflict" | "crisis";
+
+// Map each scenario category to an emotional-register tier that drives the
+// OliveBorder palette: calm (green+gold), conflict (steel+crimson),
+// crisis (charred red-black).
+const CATEGORY_TIERS: Record<string, Tier> = {
+  political: "calm",
+  economic: "calm",
+  religious: "calm",
+  military: "conflict",
+  crisis: "crisis",
+};
+
 interface ScenarioCardProps {
   scenario: Scenario;
   round: number;
@@ -40,7 +53,7 @@ export function ScenarioCard({
   disabled,
 }: ScenarioCardProps) {
   const label = CATEGORY_LABELS[scenario.category] || scenario.category;
-  const isCrisis = scenario.category === "crisis";
+  const tier: Tier = CATEGORY_TIERS[scenario.category] || "calm";
 
   return (
     <div className="space-y-3 animate-fade-in">
@@ -53,7 +66,7 @@ export function ScenarioCard({
         </span>
       </div>
 
-      <OliveBorder variant={isCrisis ? "crisis" : "default"}>
+      <OliveBorder variant={tier}>
         <div className="parchment-card rounded-lg overflow-hidden">
           <SceneImage category={scenario.category} scenarioId={scenario.id} />
           <div className="p-4 -mt-4 relative">

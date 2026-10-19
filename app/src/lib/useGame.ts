@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 
 interface StatBlock {
   [key: string]: number;
@@ -71,6 +71,9 @@ export interface GameView {
   world?: WorldView;
 }
 
+const NARRATION_TOAST =
+  "Live narration is unavailable right now. Showing the written chronicle instead.";
+
 type GamePhase = "menu" | "playing" | "narrating" | "dead" | "victory";
 
 export function useGame() {
@@ -80,6 +83,19 @@ export function useGame() {
   const [narration, setNarration] = useState("");
   const [appliedChanges, setAppliedChanges] = useState<StatBlock | null>(null);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showToast = useCallback((message: string) => {
+    setToast(message);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 6000);
+  }, []);
+
+  const dismissToast = useCallback(() => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast(null);
+  }, []);
 
   const startGame = useCallback(async (characterId?: number) => {
     setLoading(true);
@@ -119,8 +135,13 @@ export function useGame() {
           body: JSON.stringify({ gameState: internalState, choiceId }),
         });
 
-        const reader = res.body?.getReader();
-        if (!reader) return;
+        const reader = res.ok ? res.body?.getReader() : undefined;
+        if (!reader) {
+          setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
+          showToast(NARRATION_TOAST);
+          return;
+        }
+        let gotText = false;
 
         const decoder = new TextDecoder();
         let buffer = "";
@@ -148,7 +169,18 @@ export function useGame() {
                 setInternalState(event._internal);
               }
               if (event.type === "narration_chunk") {
+                gotText = true;
                 setNarration((prev) => prev + event.text);
+              }
+              if (event.type === "narration_unavailable") {
+                showToast(NARRATION_TOAST);
+              }
+              if (event.type === "error") {
+                showToast(NARRATION_TOAST);
+                if (!gotText) {
+                  gotText = true;
+                  setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
+                }
               }
               if (event.type === "death") {
                 setNarration((prev) => prev + "\n\n" + event.text);
@@ -161,11 +193,18 @@ export function useGame() {
             }
           }
         }
+        if (!gotText) {
+          setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
+        }
+      } catch {
+        // Network drop mid-stream: never leave the player without a Continue button.
+        setNarration((prev) => prev || "The chronicler's ink has run dry. Fortune turns regardless.");
+        showToast(NARRATION_TOAST);
       } finally {
         setLoading(false);
       }
     },
-    [internalState]
+    [internalState, showToast]
   );
 
   const continueAfterNarration = useCallback(() => {
@@ -197,5 +236,7 @@ export function useGame() {
     makeChoice,
     continueAfterNarration,
     resetGame,
+    toast,
+    dismissToast,
   };
 }

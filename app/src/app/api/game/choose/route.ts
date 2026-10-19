@@ -3,6 +3,10 @@ import { applyChoice, rollLuck, visibleChoices } from "@/lib/engine";
 import { streamNarration, getDeathNarration } from "@/lib/narration";
 import type { GameState, StatBlock, DeferredConsequence } from "@/lib/types";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -83,7 +87,11 @@ export async function POST(request: NextRequest) {
             narrationState,
             choiceId,
             appliedChanges,
-            firedConsequences
+            firedConsequences,
+            () =>
+              controller.enqueue(
+                encoder.encode(`data: ${JSON.stringify({ type: "narration_unavailable" })}\n\n`)
+              )
           )) {
             controller.enqueue(
               encoder.encode(
@@ -119,7 +127,8 @@ export async function POST(request: NextRequest) {
     return new Response(stream, {
       headers: {
         "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
         Connection: "keep-alive",
       },
     });

@@ -8,6 +8,7 @@ import { NarrationPanel } from "@/components/NarrationPanel";
 import { GameOverScreen } from "@/components/GameOverScreen";
 import { ProgressBar } from "@/components/ProgressBar";
 import { MapPanel } from "@/components/MapPanel";
+import { Toast } from "@/components/Toast";
 
 export default function Home() {
   const {
@@ -20,6 +21,8 @@ export default function Home() {
     makeChoice,
     continueAfterNarration,
     resetGame,
+    toast,
+    dismissToast,
   } = useGame();
 
   const showGame = (phase === "playing" || phase === "narrating") && game && game.currentScenario;
@@ -88,6 +91,7 @@ export default function Home() {
           />
         )}
       </div>
+      <Toast message={toast} onDismiss={dismissToast} />
     </div>
   );
 }

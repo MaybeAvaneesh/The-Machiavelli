@@ -1,0 +1,17 @@
+diff --git a/app/src/lib/narration.ts b/app/src/lib/narration.ts
+index 65f1a54..2c481a9 100644
+--- a/app/src/lib/narration.ts
++++ b/app/src/lib/narration.ts
+@@ -20,6 +20,12 @@ function getClient(): Mistral | null {
+   return new Mistral({
+     apiKey: key,
+     timeoutMs: NARRATION_TIMEOUT_MS,
++    // Free-tier keys hit 429s easily: retry briefly (honours Retry-After) before falling back.
++    retryConfig: {
++      strategy: "backoff",
++      backoff: { initialInterval: 800, maxInterval: 2500, exponent: 1.6, maxElapsedTime: 5000 },
++      retryConnectionErrors: true,
++    },
+     ...(process.env.MISTRAL_SERVER_URL ? { serverURL: process.env.MISTRAL_SERVER_URL } : {}),
+   });
+ }

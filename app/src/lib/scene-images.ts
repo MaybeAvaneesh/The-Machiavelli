@@ -109,10 +109,14 @@ const SCENE_IMAGES: Record<string, string[]> = {
   ],
 };
 
-export function getSceneImage(category: string, scenarioId: string): string[] {
+// Deterministically pick a SINGLE hero painting per scenario. A lone painting
+// reads far better than two crammed side-by-side, and the hash keeps a given
+// scenario locked to the same image across every render.
+export function getSceneImage(category: string, scenarioId: string): string {
   const images = SCENE_IMAGES[category] || SCENE_IMAGES.political;
-  const hash = scenarioId.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
+  const hash = scenarioId
+    .split("")
+    .reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
   const idx = hash % images.length;
-  const idx2 = (hash + 7) % images.length;
-  return idx === idx2 ? [images[idx]] : [images[idx], images[idx2]];
+  return images[idx];
 }
