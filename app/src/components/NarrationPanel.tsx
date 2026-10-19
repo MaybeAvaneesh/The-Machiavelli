@@ -15,38 +15,39 @@ export function NarrationPanel({
 }: NarrationPanelProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/80" />
 
       <div className="relative max-w-lg w-full animate-modal-in">
-        <div className="parchment-card rounded-xl overflow-hidden">
-          {/* Decorative header */}
-          <div className="h-1 bg-gradient-to-r from-transparent via-[#c9a84c]/50 to-transparent" />
+        <div className="scroll-bg rounded-lg overflow-hidden">
+          {/* Top scroll roll */}
+          <div className="h-3 bg-gradient-to-b from-[#4a3a20] to-[#2a2218]" />
 
           <div className="p-6 space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#6b5a30]/40" />
-              <span className="text-[9px] font-heading uppercase tracking-[0.2em] text-[#c9a84c]">
+            <div className="flex items-center justify-center gap-3">
+              <div className="h-0.5 flex-1 bg-[#4a3a20]" />
+              <span className="text-[10px] font-heading uppercase tracking-[0.25em] text-[#c9a84c]"
+                style={{ textShadow: "0 0 8px rgba(201,168,76,0.3)" }}>
                 {isStreaming ? "The Chronicler Writes" : "Chronicle"}
               </span>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#6b5a30]/40" />
+              <div className="h-0.5 flex-1 bg-[#4a3a20]" />
             </div>
 
             <p className="text-[#e8dcc8] leading-relaxed font-body text-lg text-center whitespace-pre-wrap min-h-[60px]">
               {narration}
               {isStreaming && (
-                <span className="inline-block w-0.5 h-5 bg-[#c9a84c] animate-pulse ml-0.5 align-text-bottom" />
+                <span className="inline-block w-1 h-5 bg-[#c9a84c] animate-retro-blink ml-0.5 align-text-bottom" />
               )}
             </p>
 
             {!isStreaming && narration && (
               <>
-                <div className="divider" />
+                <div className="h-0.5 bg-[#4a3a20]" />
                 <button
                   onClick={onContinue}
-                  className={`w-full py-3 rounded-lg font-heading text-sm tracking-wide transition-all duration-200 cursor-pointer ${
+                  className={`w-full py-3 rounded font-heading text-sm tracking-wide cursor-pointer retro-btn ${
                     isDead
-                      ? "bg-[#2a0a0a] border border-[#8b2020]/50 text-[#8b2020] hover:bg-[#3a1010]"
-                      : "parchment-card-light hover:border-[#c9a84c]/40 text-[#c9a84c]"
+                      ? "!border-[#6b2020] text-[#cc4444]"
+                      : "text-[#c9a84c]"
                   }`}
                 >
                   {isDead ? "See Your Fate" : "Continue"}
@@ -55,8 +56,8 @@ export function NarrationPanel({
             )}
           </div>
 
-          {/* Decorative footer */}
-          <div className="h-1 bg-gradient-to-r from-transparent via-[#c9a84c]/30 to-transparent" />
+          {/* Bottom scroll roll */}
+          <div className="h-3 bg-gradient-to-t from-[#4a3a20] to-[#2a2218]" />
         </div>
       </div>
     </div>

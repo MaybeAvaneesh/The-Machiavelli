@@ -1,5 +1,5 @@
 import { Mistral } from "@mistralai/mistralai";
-import type { GameState, StatBlock } from "./types";
+import type { GameState, StatBlock, DeferredConsequence } from "./types";
 import gameConfig from "../../game-data/game-config.json";
 
 type StatKey = "influence" | "militaryPower" | "wealth" | "churchStanding";
@@ -20,7 +20,8 @@ function getClient(): Mistral | null {
 function buildNarrationPrompt(
   state: GameState,
   choiceId: string,
-  appliedChanges: StatBlock
+  appliedChanges: StatBlock,
+  firedConsequences: DeferredConsequence[] = []
 ): string {
   const scenario = state.scenarioHistory.length > 0
     ? `Round ${state.round - 1} of ${state.maxRounds}`
@@ -43,6 +44,17 @@ function buildNarrationPrompt(
     ? `Luck roll: ${state.lastLuckRoll.total} (${state.lastLuckRoll.band})`
     : "";
 
+  const relationships = Object.entries(state.world?.relationships ?? {});
+  const relationshipLine = relationships.length
+    ? `\nRELATIONSHIPS: ${relationships.map(([k, v]) => `${k} (${v})`).join(", ")}`
+    : "";
+
+  const firedLine = firedConsequences.length
+    ? `\n\nDELAYED CONSEQUENCES NOW STRIKING (the fruit of a past choice — the narration MUST make this the payoff of something the player did earlier):\n${firedConsequences
+        .map((c) => `- ${c.reason}`)
+        .join("\n")}`
+    : "";
+
   return `You are the narrator of "The Machiavelli," a historical RPG set in Renaissance Italy (1450-1550).
 
 CHARACTER: ${state.character.name} — ${state.character.title}
@@ -52,7 +64,7 @@ Downside: ${state.character.downside.name} — ${state.character.downside.descri
 
 CURRENT STATE (${scenario}):
 ${statSummary}
-${luckDesc}
+${luckDesc}${relationshipLine}${firedLine}
 
 ${state.alive ? "" : `DEATH/EXILE: The character has ${state.deathCause?.includes("ceiling") ? "been assassinated/overthrown (stat too high)" : "been exiled/collapsed (stat too low)"}.`}
 
@@ -62,6 +74,7 @@ Base narration hint: "${choice?.narration || ""}"
 Write a narration of what happens. STRICT RULES:
 - MAXIMUM 280 CHARACTERS. This is a hard limit — count carefully
 - Write in second person ("You...")
+- If the choice raised some stats and lowered others, the narration MUST convey BOTH — the gain and the cost in the same breath (e.g. "your coffers swell, but the cardinals whisper of heresy")
 - Be historically vivid — reference real places and Renaissance dynamics
 - Be Machiavellian in tone — cynical, pragmatic, dark wit
 - Do NOT mention game mechanics, stat numbers, or dice rolls
@@ -71,7 +84,8 @@ Write a narration of what happens. STRICT RULES:
 export async function* streamNarration(
   state: GameState,
   choiceId: string,
-  appliedChanges: StatBlock
+  appliedChanges: StatBlock,
+  firedConsequences: DeferredConsequence[] = []
 ): AsyncGenerator<string> {
   const client = getClient();
 
@@ -86,7 +100,7 @@ export async function* streamNarration(
     return;
   }
 
-  const prompt = buildNarrationPrompt(state, choiceId, appliedChanges);
+  const prompt = buildNarrationPrompt(state, choiceId, appliedChanges, firedConsequences);
 
   const stream = await client.chat.stream({
     model: process.env.MISTRAL_MODEL || "mistral-large-latest",

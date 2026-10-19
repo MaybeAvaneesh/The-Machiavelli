@@ -8,6 +8,72 @@ export interface StatBlock {
 
 export type StatKey = keyof StatBlock;
 
+export type RelationshipLevel =
+  | "hostile"
+  | "wary"
+  | "neutral"
+  | "allied"
+  | "loyal";
+
+export const RELATIONSHIP_ORDER: RelationshipLevel[] = [
+  "hostile",
+  "wary",
+  "neutral",
+  "allied",
+  "loyal",
+];
+
+export interface WorldState {
+  relationships: Record<string, RelationshipLevel>;
+  flags: Record<string, boolean>;
+  counters: Record<string, number>;
+}
+
+export interface WorldEffects {
+  setFlags?: Record<string, boolean>;
+  setRelationships?: Record<string, RelationshipLevel>;
+  adjustCounters?: Record<string, number>;
+}
+
+export interface ScheduledConsequence {
+  id: string;
+  inRounds: number;
+  reason: string;
+  statChanges?: Partial<StatBlock>;
+  effects?: WorldEffects;
+}
+
+export interface ChoiceEffects extends WorldEffects {
+  schedule?: ScheduledConsequence[];
+}
+
+export interface DeferredConsequence {
+  id: string;
+  triggerRound: number;
+  reason: string;
+  statChanges?: Partial<StatBlock>;
+  effects?: WorldEffects;
+}
+
+export type Precondition =
+  | { type: "flag"; key: string; equals?: boolean }
+  | {
+      type: "relationship";
+      key: string;
+      is?: RelationshipLevel;
+      atLeast?: RelationshipLevel;
+      atMost?: RelationshipLevel;
+    }
+  | { type: "counter"; key: string; gte?: number; lte?: number }
+  | { type: "stat"; key: StatKey; gte?: number; lte?: number }
+  | { type: "round"; gte?: number; lte?: number };
+
+export interface GameAction {
+  round: number;
+  choiceId: string;
+  luck: LuckRoll;
+}
+
 export interface CharacterPerkEffect {
   type: string;
   [key: string]: unknown;
@@ -37,6 +103,8 @@ export interface Choice {
   text: string;
   statChanges: StatBlock;
   narration: string;
+  effects?: ChoiceEffects;
+  requires?: Precondition[];
 }
 
 export interface Scenario {
@@ -45,6 +113,9 @@ export interface Scenario {
   title: string;
   description: string;
   choices: Choice[];
+  preconditions?: Precondition[];
+  priority?: number;
+  city?: string;
 }
 
 export interface Award {
@@ -79,4 +150,7 @@ export interface GameState {
   currentScenario: Scenario | null;
   lastLuckRoll: LuckRoll | null;
   awards: Award[];
+  world: WorldState;
+  deferred: DeferredConsequence[];
+  actionLog: GameAction[];
 }

@@ -4,6 +4,7 @@
     "category": "crisis",
     "title": "The French Deluge",
     "description": "King Charles VIII of France has crossed the Alps with thirty thousand men and the most fearsome artillery train Europe has ever seen. City after city opens its gates rather than face bombardment. His army marches south toward Naples — and your territory lies directly in its path. The old alliances are crumbling. No one is coming to save you.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -36,6 +37,7 @@
     "category": "crisis",
     "title": "The Black Tide Returns",
     "description": "Plague has come again. It arrived with a Genoese merchant ship three weeks ago, and already the death carts cannot keep pace. Your physicians are fleeing. Your laborers are dying. The streets smell of vinegar and burning juniper, but nothing stops the contagion. You must decide how to govern a city that is devouring itself.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -68,6 +70,7 @@
     "category": "crisis",
     "title": "The Sack of Holy Rome",
     "description": "The unthinkable has happened. Imperial landsknechts, unpaid and mutinous, have sacked Rome itself. The Pope cowers in Castel Sant'Angelo while German and Spanish soldiers desecrate churches, murder priests, and loot treasuries that took centuries to fill. The center of Christendom is in flames. Every power in Italy must now recalculate — the old order is dead.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -94,6 +97,7 @@
     "category": "crisis",
     "title": "The Pazzi Shadow",
     "description": "Your spymaster bursts into your chambers at midnight with blood on his hands. He has uncovered a conspiracy — a rival family, backed by foreign money and possibly papal agents, plans to murder you during High Mass next Sunday. The assassins are already in the city. You have six days to act, and you do not know how deep the rot goes.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -126,6 +130,7 @@
     "category": "crisis",
     "title": "The Arno in Fury",
     "description": "Three weeks of relentless rain have swollen the Arno beyond anything in living memory. The river has burst its banks in the night, and floodwater races through the lower city. Warehouses full of wool, grain, and silk are submerged. Bridges crack and groan. People cling to rooftops while the water rises. Your treasury sits in a ground-floor vault that is filling with mud.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -152,6 +157,7 @@
     "category": "crisis",
     "title": "The Ottoman Sails",
     "description": "Ottoman raiders have appeared off the coast with a fleet of war galleys. They have already sacked Otranto and are burning their way up the Adriatic. Coastal towns are emptying as terrified peasants flee inland. Your port — the source of a third of your revenue — lies exposed. The Venetian fleet is nowhere to be seen, and the Pope's calls for a crusade ring hollow.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -178,6 +184,7 @@
     "category": "crisis",
     "title": "The Bankers' Ruin",
     "description": "The great banking house that holds your debts and manages your foreign exchange has collapsed overnight. Rumors of fraud, overextended loans to the English crown, and a run on deposits have brought it down. Your letters of credit are worthless. Foreign payments have frozen. Merchants are rioting in the exchange, and your creditors are already circling like wolves.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -210,6 +217,7 @@
     "category": "crisis",
     "title": "The Bread Riots",
     "description": "A failed harvest has emptied the granaries, and the price of bread has tripled in a month. The wool workers — always the first to starve, always the first to fight — have taken to the streets with clubs and torches. They have killed a grain merchant and are marching on the Palazzo. Your guard captain asks whether to use steel. The mob is at the gates, and they are hungry enough to die.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -242,6 +250,7 @@
     "category": "crisis",
     "title": "The Condottiere's Betrayal",
     "description": "Your hired captain — the condottiere who commands the bulk of your military forces — has turned his coat. He has been offered a richer contract by your neighbor and is marching his company away with your weapons, your horses, and your battle plans. Worse, his scouts know every weakness in your defenses. You are naked before your enemies.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -268,6 +277,7 @@
     "category": "crisis",
     "title": "The Papal Interdict",
     "description": "The Pope has placed your city under interdict. No Mass may be said, no sacraments given, no Christian burial performed within your walls. The cause is political — you defied papal authority over a territorial dispute — but the effect is spiritual terror. Your people believe their babies will die unbaptized and their dead will wander in limbo. The churches are locked. The bells are silent.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -294,6 +304,7 @@
     "category": "crisis",
     "title": "The Mercenary Scourge",
     "description": "A disbanded mercenary company — three thousand hardened soldiers with no employer, no pay, and no conscience — has descended on your countryside like a swarm of locusts. They burn farms, sack villages, and hold travelers for ransom. They are too strong to ignore and too numerous to easily destroy. Their captain sends word: pay them to leave, or they will take what they want.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -320,6 +331,7 @@
     "category": "crisis",
     "title": "The Heresy Tribunal",
     "description": "Dominican inquisitors have arrived in your city, claiming authority from the Pope to root out heresy. They have already arrested several of your most prominent humanist scholars — men whose work brings prestige and whose patronage brings you influence. The inquisitors demand you surrender more names. Refusing risks being branded a protector of heretics. Complying means destroying your intellectual court.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -346,6 +358,7 @@
     "category": "crisis",
     "title": "The Succession Crisis",
     "description": "Your heir is dead — killed in a hunting accident that may not have been an accident. You have no legitimate successor, and every faction in the city is already maneuvering to fill the vacuum. Your brother claims blood right. The council of elders claims the right of election. A neighboring lord claims your territory through a marriage pact three generations old. If you do not resolve this now, civil war will resolve it for you.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -378,6 +391,7 @@
     "category": "crisis",
     "title": "The Sweating Sickness",
     "description": "A new plague sweeps through your territory — not the Black Death, but something faster and stranger. Men fall ill at breakfast and are dead by supper. It strikes the wealthy harder than the poor, killing merchants and nobles in their fine houses while the slums are oddly spared. Your court physician has fled. Three of your advisors died yesterday. The city teeters on the edge of ungovernable panic.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -404,6 +418,7 @@
     "category": "crisis",
     "title": "The League of Wolves",
     "description": "Your three nearest neighbors have formed a secret league against you. Your ambassador in Ferrara intercepted the treaty — signed, sealed, and devastating. They plan a coordinated invasion from three directions within the month. Alone, you can hold against one. Against three, you will be dismembered. The hourglass is running, and the wolves are circling.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",

@@ -4,6 +4,7 @@
     "category": "religious",
     "title": "The Conclave's Whisper",
     "description": "Pope Innocent VIII lies on his deathbed, and the sacred college stirs with ambition. You receive word that Cardinal Rodrigo Borgia is buying votes outright — mules laden with silver have been seen entering the palaces of wavering cardinals. A sympathetic cardinal offers to swing three votes your way, but only if you pledge to grant him the Bishopric of Valencia and turn a blind eye to Borgia's maneuvers.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -30,6 +31,7 @@
     "category": "religious",
     "title": "The Bonfire Prophet",
     "description": "Fra Girolamo Savonarola thunders from the pulpit of San Marco in Florence, denouncing the corruption of Rome and the vanity of the Medici. His apocalyptic sermons have turned the populace into a frenzy — bonfires of vanities consume artworks, mirrors, and silks in the piazzas. You must decide how to respond as his influence swells like a fever through northern Italy.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -62,6 +64,7 @@
     "category": "religious",
     "title": "The Price of Absolution",
     "description": "A papal legate arrives at your court bearing a most profitable proposal: the Pope wishes to sell indulgences throughout your territories to fund the construction of the new St. Peter's Basilica. You would receive a generous commission on every sin forgiven. The parchments are already printed — all they need is your seal and the tears of the penitent.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -88,6 +91,7 @@
     "category": "religious",
     "title": "The Heretic's Trial",
     "description": "The Inquisition has dragged a prominent humanist scholar before your court, accused of denying the real presence of Christ in the Eucharist. His writings on natural philosophy have made him beloved among the educated classes, but his theological musings have attracted the wrong kind of attention. The inquisitor demands you preside over the trial and deliver a verdict.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -120,6 +124,7 @@
     "category": "religious",
     "title": "The Relic of San Gennaro",
     "description": "A Neapolitan merchant offers to sell you what he claims is the authentic finger bone of San Gennaro, complete with a dubious but impressive-looking papal certification. Relics draw pilgrims, and pilgrims bring gold. Your cathedral currently houses nothing more notable than a splinter of the True Cross — which half the churches in Italy also claim to possess.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -146,6 +151,7 @@
     "category": "religious",
     "title": "The Bishop's Appointment",
     "description": "The Bishop of your principal city has died, and the question of his successor has become a battlefield. Rome favors a cardinal's nephew — a lazy, debauched youth whose sole qualification is his bloodline. Your own candidate is a capable administrator who happens to be your cousin. The local clergy support a third man, a genuinely devout Franciscan who would be utterly useless politically.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -178,6 +184,7 @@
     "category": "religious",
     "title": "Luther's Shadow",
     "description": "Disturbing reports arrive from the north. A German monk named Martin Luther has nailed ninety-five theses to a church door in Wittenberg, denouncing indulgences and papal authority. His ideas are spreading through the printing presses like wildfire. Already, merchants in your territory are circulating translated copies, and your younger clergy are reading them with dangerous enthusiasm.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -204,6 +211,7 @@
     "category": "religious",
     "title": "The Monastery's Fortune",
     "description": "The Benedictine monastery of Santa Maria della Grazia sits on your richest farmland, its monks growing fat on vintages that should be filling your granaries. The abbot is old and the order's discipline has decayed — the brothers are more familiar with wine than with vespers. A reform-minded bishop suggests dissolving the monastery and redistributing its lands, while the abbot offers you a share of their vintage in exchange for protection.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -230,6 +238,7 @@
     "category": "religious",
     "title": "The Excommunication Gambit",
     "description": "A letter arrives bearing the papal seal. His Holiness is 'considering' your excommunication over a territorial dispute with the Papal States. The threat is almost certainly a bluff — the Pope needs your military support against the French — but excommunication would cut you off from the sacraments, release your vassals from their oaths, and invite every ambitious neighbor to carve up your lands with the Church's blessing.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -262,6 +271,7 @@
     "category": "religious",
     "title": "The Cardinal's Hat",
     "description": "An opportunity arises to place your younger son in the College of Cardinals. He is fourteen years old, barely literate, and far more interested in hunting than in theology. But a cardinal's hat would give your family a voice in every future conclave and access to ecclesiastical revenues that dwarf most secular incomes. The going rate, you are told, is considerable.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -288,6 +298,7 @@
     "category": "religious",
     "title": "The Borgia Feast",
     "description": "Pope Alexander VI — Rodrigo Borgia himself — invites you to a banquet at the Vatican. The invitation is as dangerous as it is prestigious. The Borgias are notorious for eliminating rivals through poisoned wine, and three minor lords have died after attending similar dinners in the past year. But refusing the Pope's hospitality would be a diplomatic catastrophe.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -314,6 +325,7 @@
     "category": "religious",
     "title": "The Inquisitor's Arrival",
     "description": "A Dominican inquisitor has arrived in your territory with a papal mandate and a hunger for heretics. He has already arrested a Jewish physician who served your court, a merchant accused of secret Muslim practices, and a widow whose neighbors call her a witch. Your subjects look to you for protection, but the Inquisition answers only to Rome.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -346,6 +358,7 @@
     "category": "religious",
     "title": "The Council's Call",
     "description": "Reformist cardinals are calling for an ecumenical council to address the Church's corruption — simony, clerical concubinage, absentee bishops, and the sale of offices. The Pope opposes the council, fearing it will strip his authority. Both sides seek your support, and your decision will influence whether Christendom is reformed or whether the status quo, with all its profitable corruption, endures.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -372,6 +385,7 @@
     "category": "religious",
     "title": "The Antipope's Emissary",
     "description": "A cloaked figure arrives at your court under cover of darkness. He represents a group of dissident cardinals who are prepared to elect their own pope — a man sympathetic to the French crown and hostile to the current Borgia papacy. They seek your military support and diplomatic recognition. The reward, if they succeed, would be enormous. The punishment, if they fail, would be annihilation.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -404,6 +418,7 @@
     "category": "religious",
     "title": "The Confession of Power",
     "description": "Your personal confessor — a Franciscan friar who has heard your darkest secrets for twenty years — has been offered a bishopric by a rival lord. If he accepts, every sin you have whispered through the confessional screen could become political ammunition. The seal of confession is sacred, but sacred things have a way of becoming negotiable when a mitre is involved.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",

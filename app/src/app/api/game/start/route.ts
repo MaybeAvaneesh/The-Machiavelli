@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createGameState } from "@/lib/engine";
+import { createGameState, visibleChoices } from "@/lib/engine";
 
 export async function POST(request: Request) {
   try {
@@ -23,13 +23,15 @@ export async function POST(request: Request) {
               category: state.currentScenario.category,
               title: state.currentScenario.title,
               description: state.currentScenario.description,
-              choices: state.currentScenario.choices.map((c) => ({
+              city: state.currentScenario.city,
+              choices: visibleChoices(state.currentScenario, state).map((c) => ({
                 id: c.id,
                 text: c.text,
               })),
             }
           : null,
         perkUsesRemaining: state.perkUsesRemaining,
+        world: state.world,
       },
       _internal: state,
     });

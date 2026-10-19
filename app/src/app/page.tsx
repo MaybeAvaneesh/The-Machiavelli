@@ -7,6 +7,7 @@ import { StatPanel } from "@/components/StatBar";
 import { NarrationPanel } from "@/components/NarrationPanel";
 import { GameOverScreen } from "@/components/GameOverScreen";
 import { ProgressBar } from "@/components/ProgressBar";
+import { MapPanel } from "@/components/MapPanel";
 
 export default function Home() {
   const {
@@ -24,7 +25,7 @@ export default function Home() {
   const showGame = (phase === "playing" || phase === "narrating") && game && game.currentScenario;
 
   return (
-    <div className="min-h-screen bg-[#12100e]">
+    <div className="min-h-screen bg-[#0a0806]">
       <div className="max-w-xl mx-auto px-4 py-8">
         {phase === "menu" && (
           <CharacterSelect
@@ -51,6 +52,11 @@ export default function Home() {
             </div>
 
             <ProgressBar round={game.round} maxRounds={game.maxRounds} />
+            <MapPanel
+              category={game.currentScenario!.category}
+              city={game.currentScenario!.city}
+              relationships={game.world?.relationships}
+            />
             <StatPanel stats={game.stats} changes={appliedChanges} />
 
             <ScenarioCard

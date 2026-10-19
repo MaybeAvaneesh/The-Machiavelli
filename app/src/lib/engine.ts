@@ -1,4 +1,18 @@
-import type { GameState, StatBlock, LuckRoll, Character, Scenario, Award } from "./types";
+import type {
+  GameState,
+  StatBlock,
+  LuckRoll,
+  Character,
+  Scenario,
+  Choice,
+  Award,
+  WorldState,
+  WorldEffects,
+  ChoiceEffects,
+  DeferredConsequence,
+  Precondition,
+} from "./types";
+import { RELATIONSHIP_ORDER } from "./types";
 import { getCharacter, getRandomCharacter, selectScenariosForGame, getAwards } from "./game-data";
 import gameConfig from "../../game-data/game-config.json";
 
@@ -56,6 +70,9 @@ export function createGameState(characterId?: number): GameState {
     currentScenario: scenarios[0],
     lastLuckRoll: null,
     awards: [],
+    world: { relationships: {}, flags: {}, counters: {} },
+    deferred: [],
+    actionLog: [],
   };
 
   if (character.perk.effect.type === "roundOneBonus") {
@@ -70,15 +87,34 @@ export function createGameState(characterId?: number): GameState {
 
 export function applyChoice(
   state: GameState & { _scenarios?: Scenario[] },
-  choiceId: string
-): GameState & { _scenarios?: Scenario[]; appliedChanges?: StatBlock } {
+  choiceId: string,
+  luck: LuckRoll
+): GameState & {
+  _scenarios?: Scenario[];
+  appliedChanges?: StatBlock;
+  firedConsequences?: DeferredConsequence[];
+} {
   if (!state.currentScenario || !state.alive) return state;
 
   const choice = state.currentScenario.choices.find((c) => c.id === choiceId);
   if (!choice) throw new Error(`Choice ${choiceId} not found`);
 
-  const luck = rollLuck();
-  const newState = { ...state, stats: { ...state.stats }, lastLuckRoll: luck };
+  const prevWorld = state.world ?? { relationships: {}, flags: {}, counters: {} };
+  const newState = {
+    ...state,
+    stats: { ...state.stats },
+    scenarioHistory: [...state.scenarioHistory],
+    statHistory: [...state.statHistory],
+    perkUsesRemaining: { ...state.perkUsesRemaining },
+    world: {
+      relationships: { ...prevWorld.relationships },
+      flags: { ...prevWorld.flags },
+      counters: { ...prevWorld.counters },
+    },
+    deferred: [...(state.deferred ?? [])],
+    actionLog: [...(state.actionLog ?? [])],
+    lastLuckRoll: luck,
+  };
 
   const baseChanges = { ...choice.statChanges };
   const appliedChanges: StatBlock = { influence: 0, militaryPower: 0, wealth: 0, churchStanding: 0 };
@@ -94,6 +130,9 @@ export function applyChoice(
     newState.stats[key] = clampStat(newState.stats[key] + change);
   }
 
+  applyWorldEffects(newState.world, choice.effects);
+  scheduleConsequences(newState, choice.effects, state.round);
+
   applyPerRoundEffects(newState);
   applyConditionalEffects(newState);
 
@@ -108,11 +147,15 @@ export function applyChoice(
     newState.dangerZoneHistory++;
   }
 
+  newState.scenarioHistory.push(state.currentScenario.id);
+  newState.actionLog.push({ round: state.round, choiceId, luck });
+  newState.round++;
+
+  const firedConsequences = fireDueConsequences(newState);
+
   checkDeathTriggers(newState);
 
-  newState.scenarioHistory.push(state.currentScenario.id);
   newState.statHistory.push({ ...newState.stats });
-  newState.round++;
 
   if (newState.round <= newState.maxRounds && newState.alive && newState._scenarios) {
     const idx = newState.round - 1;
@@ -124,7 +167,104 @@ export function applyChoice(
     }
   }
 
-  return { ...newState, appliedChanges };
+  return { ...newState, appliedChanges, firedConsequences };
+}
+
+function applyWorldEffects(world: WorldState, effects?: WorldEffects): void {
+  if (!effects) return;
+  if (effects.setFlags) {
+    for (const [key, value] of Object.entries(effects.setFlags)) {
+      world.flags[key] = value;
+    }
+  }
+  if (effects.setRelationships) {
+    for (const [key, value] of Object.entries(effects.setRelationships)) {
+      world.relationships[key] = value;
+    }
+  }
+  if (effects.adjustCounters) {
+    for (const [key, delta] of Object.entries(effects.adjustCounters)) {
+      world.counters[key] = (world.counters[key] ?? 0) + delta;
+    }
+  }
+}
+
+function scheduleConsequences(
+  state: GameState,
+  effects: ChoiceEffects | undefined,
+  currentRound: number
+): void {
+  if (!effects?.schedule) return;
+  for (const s of effects.schedule) {
+    state.deferred.push({
+      id: s.id,
+      triggerRound: currentRound + s.inRounds,
+      reason: s.reason,
+      statChanges: s.statChanges,
+      effects: s.effects,
+    });
+  }
+}
+
+function fireDueConsequences(state: GameState): DeferredConsequence[] {
+  const due = state.deferred.filter((d) => d.triggerRound <= state.round);
+  state.deferred = state.deferred.filter((d) => d.triggerRound > state.round);
+
+  for (const c of due) {
+    if (c.statChanges) {
+      for (const key of STAT_KEYS) {
+        const delta = c.statChanges[key];
+        if (delta) state.stats[key] = clampStat(state.stats[key] + delta);
+      }
+    }
+    applyWorldEffects(state.world, c.effects);
+  }
+
+  return due;
+}
+
+export function evaluatePrecondition(p: Precondition, state: GameState): boolean {
+  const world = state.world ?? { relationships: {}, flags: {}, counters: {} };
+  switch (p.type) {
+    case "flag":
+      return (world.flags[p.key] ?? false) === (p.equals ?? true);
+    case "relationship": {
+      const current = world.relationships[p.key] ?? "neutral";
+      const idx = RELATIONSHIP_ORDER.indexOf(current);
+      if (p.is && current !== p.is) return false;
+      if (p.atLeast && idx < RELATIONSHIP_ORDER.indexOf(p.atLeast)) return false;
+      if (p.atMost && idx > RELATIONSHIP_ORDER.indexOf(p.atMost)) return false;
+      return true;
+    }
+    case "counter": {
+      const v = world.counters[p.key] ?? 0;
+      if (p.gte !== undefined && v < p.gte) return false;
+      if (p.lte !== undefined && v > p.lte) return false;
+      return true;
+    }
+    case "stat": {
+      const v = state.stats[p.key];
+      if (p.gte !== undefined && v < p.gte) return false;
+      if (p.lte !== undefined && v > p.lte) return false;
+      return true;
+    }
+    case "round": {
+      if (p.gte !== undefined && state.round < p.gte) return false;
+      if (p.lte !== undefined && state.round > p.lte) return false;
+      return true;
+    }
+  }
+}
+
+export function isEligible(scenario: Scenario, state: GameState): boolean {
+  if (!scenario.preconditions || scenario.preconditions.length === 0) return true;
+  return scenario.preconditions.every((p) => evaluatePrecondition(p, state));
+}
+
+export function visibleChoices(scenario: Scenario, state: GameState): Choice[] {
+  return scenario.choices.filter(
+    (c) => !c.requires || c.requires.every((p) => evaluatePrecondition(p, state))
+  );
 }
 
 function applyPerkModifiers(

@@ -4,6 +4,7 @@
     "category": "military",
     "title": "The Condottiere's Price",
     "description": "A famed condottiere, freshly dismissed from Venetian service, arrives at your gates with three thousand seasoned mercenaries. He offers his company's swords — but his price is ruinous, and his loyalty is famously negotiable. Your rivals are already courting him.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -36,6 +37,7 @@
     "category": "military",
     "title": "The French Descend",
     "description": "Charles VIII of France has crossed the Alps with thirty thousand men and artillery that can shatter castle walls in hours. The great powers of Italy scramble to respond. You must decide where your state stands before the iron tide reaches your borders.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -62,6 +64,7 @@
     "category": "military",
     "title": "Fornovo's Aftermath",
     "description": "The Battle of Fornovo has ended in bloody confusion. The French claim victory, the League claims the same. Thousands lie dead in the Taro valley, and the retreating French have left behind plunder, prisoners, and a shattered reputation for Italian arms. You must decide how to press your advantage — or conceal your losses.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -88,6 +91,7 @@
     "category": "military",
     "title": "The Siege of the Citadel",
     "description": "Your forces have surrounded a rebel citadel that refuses to submit. The garrison is small but the walls are thick, and your artillery is making slow progress. Winter approaches, and disease creeps through your camp. Every day the siege continues costs you men and money.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -120,6 +124,7 @@
     "category": "military",
     "title": "Mercenary Betrayal at Midnight",
     "description": "Your hired Swiss pikemen have been approached by your enemy with a counter-offer of double pay. Your spymaster brings word that their captain plans to switch sides on the eve of battle. You have hours to act before dawn breaks and the armies clash.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -146,6 +151,7 @@
     "category": "military",
     "title": "The New Artillery",
     "description": "A Venetian gunfounder offers to sell you a battery of the newest bronze cannons — weapons that can reduce medieval walls to rubble in days. The cost is enormous, and accepting would signal to your neighbors that you are preparing for war. Refusing means your fortifications may become obsolete overnight.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -178,6 +184,7 @@
     "category": "military",
     "title": "The Borgia's March",
     "description": "Cesare Borgia's army is cutting through the Romagna like a scythe, toppling petty lords and absorbing their territories with papal blessing. His forces approach your borders. He sends a courteous letter requesting free passage through your lands — a request backed by ten thousand soldiers and his father the Pope.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -204,6 +211,7 @@
     "category": "military",
     "title": "The Sack Approaches",
     "description": "Imperial troops — unpaid, underfed, and ungovernable — are marching south through Italy, leaving a trail of devastation. Their nominal commander has lost control. The mutinous army seeks plunder, not orders, and your city lies in their path. There is no negotiating with a mob.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -230,6 +238,7 @@
     "category": "military",
     "title": "The Disputed Fortress",
     "description": "A strategic fortress on the border between your territory and a rival city-state has been claimed by both sides for generations. Its current castellan has died without an heir, and both you and your rival have dispatched troops to secure it. Whoever holds the fortress controls the mountain pass — and the trade route through it.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -262,6 +271,7 @@
     "category": "military",
     "title": "Naval Ambitions",
     "description": "Ottoman corsairs have been raiding the southern Italian coast with impunity, disrupting your trade and terrifying coastal towns. Venice and Genoa dominate the seas, but neither will protect your shipping lanes without a steep price. You could build your own fleet — or find another way.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -288,6 +298,7 @@
     "category": "military",
     "title": "The Stradiots' Offer",
     "description": "A band of Albanian stradiots — light cavalry renowned for their ferocity and scouting ability — has deserted Venetian service after a pay dispute. Their captain offers you five hundred horsemen, battle-hardened and desperate. Venice demands you return them. Keeping them means angering the Republic; refusing means losing a rare military asset.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -314,6 +325,7 @@
     "category": "military",
     "title": "The Gunpowder Plot",
     "description": "Your spymaster has uncovered a conspiracy: a group of disgruntled nobles plan to seize your powder magazine during the feast of San Giovanni, blow open the city gates, and admit an invading force from a rival state. You have the names, the date, and the plan. The feast is in three days.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -340,6 +352,7 @@
     "category": "military",
     "title": "The Spanish Tercio",
     "description": "Spain's Gran Capitan, Gonzalo de Cordoba, has arrived in southern Italy with his terrifying tercios — disciplined formations of pike and shot that have revolutionized warfare. He seeks allies among the Italian states for the coming war against France. His friendship means Spanish protection; his enmity means Spanish steel.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -366,6 +379,7 @@
     "category": "military",
     "title": "The Fortress Architect",
     "description": "The brilliant military architect who designed Cesena's impregnable trace italienne fortifications is available for hire. His star-shaped bastions with angled walls can withstand the new artillery. But his services require years of construction, mountains of earth, and a fortune in stone. Meanwhile, your current walls are medieval — magnificent, and fatally obsolete.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -392,6 +406,7 @@
     "category": "military",
     "title": "Blood in the Romagna",
     "description": "Two neighboring lords in the Romagna have erupted into open war, and both demand your intervention on their side. One controls your grain supply; the other guards the road to Rome. Staying neutral risks angering both. Choosing a side means making a permanent enemy of the other. The fighting is already spilling across your borders.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -424,6 +439,7 @@
     "category": "military",
     "title": "The Mutiny",
     "description": "Your soldiers have not been paid in three months. What began as grumbling has become open defiance — your garrison at the northern pass has refused orders and elected their own captain. They demand back pay, plunder rights, and the dismissal of your marshal. If you give in, your authority is broken. If you refuse, you may face your own army.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -450,6 +466,7 @@
     "category": "military",
     "title": "The River Crossing",
     "description": "Your rival's army is encamped on the far side of the Adige, blocking your advance into disputed territory. The river is swollen with spring rains, the bridges are held, and your scouts report the enemy outnumbers you. A direct assault across the river would be suicide. But every day you delay, your rival fortifies his position.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -476,6 +493,7 @@
     "category": "military",
     "title": "The Prisoner Prince",
     "description": "After a skirmish near Ravenna, your forces have captured the youngest son of a powerful duke. The boy is barely sixteen, frightened, and worth a king's ransom. His father sends frantic emissaries offering peace, gold, and territorial concessions. But keeping the boy gives you leverage over one of the most dangerous men in Italy.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -502,6 +520,7 @@
     "category": "military",
     "title": "Fire Over the Adriatic",
     "description": "Venetian galleys have blockaded your port, strangling your maritime trade in retaliation for a customs dispute. Your merchants are ruined, your warehouses rot with unsold goods, and the Doge refuses all negotiation. Venice's navy is invincible at sea. But Venice has enemies on land, and the blockade stretches their fleet thin.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -534,6 +553,7 @@
     "category": "military",
     "title": "The Last Stand at the Pass",
     "description": "A vastly superior French army is pouring through the Alpine passes into northern Italy. You hold the last defensible position — a narrow mountain pass where your small force could delay the advance for days, perhaps weeks. But holding the pass means sacrificing your best troops in a fight they cannot win. Retreating preserves your army but opens all of Lombardy to invasion.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",

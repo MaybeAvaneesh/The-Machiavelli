@@ -4,6 +4,7 @@
     "category": "political",
     "title": "The Pazzi Conspiracy's Shadow",
     "description": "You receive word that a rival family, emboldened by papal backing, plots to assassinate the leading family of your city during High Mass. The conspirators have approached you, seeking your support — or at least your silence. The Pope himself has blessed the endeavor, and the King of Naples stands ready to march if the plot succeeds.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -36,6 +37,7 @@
     "category": "political",
     "title": "The French Descend",
     "description": "Charles VIII of France has crossed the Alps with 25,000 men, claiming the throne of Naples. Italian states collapse before him like wheat before a scythe. Your city lies in his path, and envoys arrive demanding free passage, provisions, and a declaration of alliance against Naples and the Pope.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -62,6 +64,7 @@
     "category": "political",
     "title": "The Council of Ten",
     "description": "You have been appointed to your republic's most feared governing body — the secret council that oversees state security. Your first case: a popular senator is accused of treasonous correspondence with Milan. The evidence is compelling but was obtained by torturing his servant. The public adores the senator.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -94,24 +97,57 @@
     "category": "political",
     "title": "The Borgia Marriage",
     "description": "Pope Alexander VI proposes a marriage alliance between your house and the Borgia family. His daughter Lucrezia, recently widowed under suspicious circumstances, would wed your eldest son. The match would bring enormous papal favor but tie your fortunes to the most hated family in Italy.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
         "text": "Accept the match eagerly and celebrate the alliance.",
         "statChanges": { "influence": 5, "militaryPower": 5, "wealth": 10, "churchStanding": 15 },
-        "narration": "The wedding is magnificent, and papal gold flows into your coffers. Alexander is generous to his new kin. But every court in Italy now views you as a Borgia creature, and Cesare's growing power casts a shadow over your autonomy. When the Borgia star falls — and it will — you may fall with it."
+        "narration": "The wedding is magnificent, and papal gold flows into your coffers. Alexander is generous to his new kin. But every court in Italy now views you as a Borgia creature, and Cesare's growing power casts a shadow over your autonomy. When the Borgia star falls — and it will — you may fall with it.",
+        "effects": {
+          "setRelationships": { "borgia": "allied" },
+          "setFlags": { "borgia_alliance": true },
+          "schedule": [
+            {
+              "id": "borgia_star_falls",
+              "inRounds": 4,
+              "reason": "the Borgia alliance you sealed by marriage now drags your house down as Cesare's fortunes collapse and Alexander lies dead",
+              "statChanges": { "influence": -10, "churchStanding": -12 }
+            }
+          ]
+        }
       },
       {
         "id": "b",
         "text": "Politely decline, citing a prior betrothal arrangement.",
         "statChanges": { "influence": 5, "militaryPower": 0, "wealth": -5, "churchStanding": -15 },
-        "narration": "The Pope's smile does not reach his eyes. He accepts your excuse with a grace that terrifies you. Within months, papal tax collectors arrive with new assessments, and your bishop suddenly discovers irregularities in your family's benefices. The Borgia do not forget slights."
+        "narration": "The Pope's smile does not reach his eyes. He accepts your excuse with a grace that terrifies you. Within months, papal tax collectors arrive with new assessments, and your bishop suddenly discovers irregularities in your family's benefices. The Borgia do not forget slights.",
+        "effects": {
+          "setRelationships": { "borgia": "hostile" },
+          "setFlags": { "snubbed_borgia_wedding": true },
+          "adjustCounters": { "borgia_slights": 1 }
+        }
       },
       {
         "id": "c",
         "text": "Counter-propose a lesser match — your niece instead of your son.",
         "statChanges": { "influence": -5, "militaryPower": 0, "wealth": 5, "churchStanding": 5 },
-        "narration": "Alexander considers and, after weeks of negotiation, accepts. The lesser match preserves your heir's freedom while maintaining a connection to papal power. But the Borgia know they were given second best, and Lucrezia's new husband — a minor lordling — may not survive long."
+        "narration": "Alexander considers and, after weeks of negotiation, accepts. The lesser match preserves your heir's freedom while maintaining a connection to papal power. But the Borgia know they were given second best, and Lucrezia's new husband — a minor lordling — may not survive long.",
+        "effects": {
+          "setRelationships": { "borgia": "wary" },
+          "adjustCounters": { "borgia_slights": 1 }
+        }
+      },
+      {
+        "id": "d",
+        "text": "Turn the tables — demand Cesare himself kneel and offer HIS daughter to your heir.",
+        "statChanges": { "influence": 12, "militaryPower": 8, "wealth": 0, "churchStanding": -5 },
+        "narration": "Rome gasps. You have made the Borgia supplicant — a breathtaking reversal that awes every prince who hears of it. But hubris is the shortest road to the grave, and Cesare's smile as he agrees is that of a man already planning your funeral.",
+        "requires": [{ "type": "stat", "key": "influence", "gte": 70 }],
+        "effects": {
+          "setRelationships": { "borgia": "wary" },
+          "setFlags": { "humbled_the_borgia": true }
+        }
       }
     ]
   },
@@ -120,6 +156,7 @@
     "category": "political",
     "title": "The Bonfire of Vanities",
     "description": "A fanatical Dominican friar has seized control of your city's politics, preaching apocalyptic sermons that draw thousands. He demands a purge of luxury, gambling, and usury. The mob follows him. The merchant class begs you to act. The Pope wants him silenced but lacks the will to move openly.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -152,6 +189,7 @@
     "category": "political",
     "title": "The Condottiere's Price",
     "description": "Your hired captain-general, a celebrated condottiere, has won a decisive victory against your rivals. Now he demands a lordship, a permanent command, and a seat on your governing council. His army is encamped outside your walls, and his veterans are loyal to him alone. Refusal risks the very army that protects you.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -178,6 +216,7 @@
     "category": "political",
     "title": "The Papal Conclave",
     "description": "The Pope is dead, and the Sacred College gathers to elect his successor. Your family's cardinal is a candidate, but two other factions — one backed by Spain, one by France — hold more votes. Bribery, threats, and secret promises fill the corridors of the Vatican. A papacy would transform your family's fortunes forever.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -210,6 +249,7 @@
     "category": "political",
     "title": "The Venetian Interdict",
     "description": "Venice has defied the Pope by taxing Church properties and trying clergymen in secular courts. The Holy Father has placed the entire republic under interdict — no sacraments, no masses, no Christian burial. As a Venetian patrician, you must decide where your loyalty lies: with the republic that gave you power, or the Church that commands your soul.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -236,6 +276,7 @@
     "category": "political",
     "title": "The Sforza Succession",
     "description": "The Duke of Milan has died without a clear heir, and three claimants tear at the duchy like dogs over a carcass. Your city-state borders Milan, and whichever faction wins will shape your security for a generation. Each claimant's envoys sit in your antechamber, waiting for your answer.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -268,6 +309,7 @@
     "category": "political",
     "title": "The Guelph Revival",
     "description": "Old factional divisions thought buried for decades have resurfaced in your city. A charismatic nobleman revives the Guelph banner, rallying papal loyalists against your Ghibelline-leaning government. Street brawls erupt nightly, and the guilds are splitting along ancient fault lines. The Pope watches with undisguised interest.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -294,6 +336,7 @@
     "category": "political",
     "title": "The League of Venice",
     "description": "The Italian states have formed a Holy League to expel the French from the peninsula. You are invited to join, but the League's members — Venice, Milan, the Pope, Spain, the Emperor — are natural rivals who will surely turn on each other once the common enemy retreats. Your contribution would be expected in gold and soldiers.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -320,6 +363,7 @@
     "category": "political",
     "title": "The Florentine Exile",
     "description": "You have been exiled from your city after a change in government. You sit in a rented villa in Bologna, plotting your return. Your agents report that the new regime is unstable, the people restless, and your former allies await a signal. But exile has depleted your resources, and every month diminishes your relevance.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -352,6 +396,7 @@
     "category": "political",
     "title": "The Spanish Viceroy",
     "description": "Spain has conquered the Kingdom of Naples and installed a viceroy who demands your submission. His army is overwhelming, his king's treasury bottomless. Resistance seems futile, but submission means becoming a vassal of a foreign crown. Other Italian lords watch to see what you will do — your choice may set a precedent.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -378,6 +423,7 @@
     "category": "political",
     "title": "The Assassin's Report",
     "description": "Your spymaster brings troubling news: a rival lord has hired an assassin to eliminate you. The killer is already in your city, identity unknown. Your spymaster offers three courses of action, each with its own risks. Meanwhile, you must continue to appear in public — a lord who hides is a lord who has already lost.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -410,6 +456,7 @@
     "category": "political",
     "title": "The Grain Famine",
     "description": "A failed harvest has left your city starving. Grain prices triple in a week, and bread riots erupt in the poorer quarters. Your granaries hold emergency reserves — enough for the city or enough to sell at enormous profit to neighboring states who are also short. The mob is at the gates of your palazzo.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -436,6 +483,7 @@
     "category": "political",
     "title": "The Emperor's Demand",
     "description": "The Holy Roman Emperor has reasserted his ancient claim of suzerainty over northern Italy. His herald arrives demanding feudal homage, an annual tribute, and the right to quarter imperial troops in your territory. Behind the herald stands the shadow of the largest army in Christendom. Other Italian lords are quietly paying.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -468,6 +516,7 @@
     "category": "political",
     "title": "The Doge's Succession",
     "description": "The ancient Doge of your republic is dying, and the Great Council must elect his successor. Two candidates dominate: a war hero who promises expansion into the terraferma, and a merchant prince who advocates peace and trade. Your vote — and your faction's votes — will determine the outcome. Both candidates have made you promises.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -494,6 +543,7 @@
     "category": "political",
     "title": "The Treaty of Lodi's Collapse",
     "description": "The decades-long peace between the five great powers of Italy is crumbling. Milan provokes Florence, Venice eyes Ferrara, Naples threatens Rome. You have benefited enormously from the peace — your trade routes depend on it. But the old order is dying, and those who cling to it may be swept away with it.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -520,6 +570,7 @@
     "category": "political",
     "title": "The Mercenary Betrayal",
     "description": "Your condottiere captain has switched sides mid-campaign, taking his entire company over to your enemy in exchange for a lordship. Your army, now halved, faces annihilation. The battle is tomorrow, and there is no time to hire replacements. Every option before you is terrible.",
+    "city": "milan",
     "choices": [
       {
         "id": "a",
@@ -546,6 +597,7 @@
     "category": "political",
     "title": "The Guild Uprising",
     "description": "The lesser guilds of your city — wool carders, dyers, bakers — have risen in revolt, demanding representation on the governing council. They have seized the Palazzo della Signoria and hold the city's grain stores. The major guilds and patrician families look to you for leadership. The rebels have numbers; you have arms and legitimacy.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -572,6 +624,7 @@
     "category": "political",
     "title": "The Poisoned Chalice",
     "description": "You are appointed governor of a newly conquered territory — a poisoned honor. The locals despise you, the previous governor was murdered, and the court rivals who arranged your appointment expect you to fail. Your predecessor's body was found in a ditch. The local barons have already refused to pay taxes.",
+    "city": "naples",
     "choices": [
       {
         "id": "a",
@@ -604,6 +657,7 @@
     "category": "political",
     "title": "The War of Ferrara",
     "description": "Venice has attacked Ferrara, and the Pope has called on all Italian states to check Venetian expansion. Your city-state must choose sides in a war that will reshape the balance of power in northern Italy. Venice offers trade concessions; the Pope threatens excommunication. The Este of Ferrara are your distant kin by marriage.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -630,6 +684,7 @@
     "category": "political",
     "title": "The Borgian Storm",
     "description": "Cesare Borgia's army is cutting a bloody swath through the Romagna, deposing petty lords one by one with papal blessing. Your small lordship lies in his path. Cesare's reputation is terrifying — those who resist are massacred; those who submit are absorbed. His father the Pope provides spiritual legitimacy for every conquest. There are no good options.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -662,6 +717,7 @@
     "category": "political",
     "title": "The Salt Tax Rebellion",
     "description": "Your treasury demands new revenue, and your advisors propose a tax on salt — essential, inescapable, and universally hated. The peasants of your territory are already restive after a poor harvest, and the last lord who imposed a salt tax was dragged through the streets behind a horse. But without new revenue, you cannot pay your soldiers.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -688,6 +744,7 @@
     "category": "political",
     "title": "The Cardinal's Ultimatum",
     "description": "A powerful cardinal-legate arrives in your city with a papal demand: you must surrender a prominent heretic scholar whom you have been sheltering. The scholar's writings have attracted thinkers and prestige to your court, and expelling him would diminish your reputation as a patron of learning. But defying the Inquisition invites catastrophe.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -714,6 +771,7 @@
     "category": "political",
     "title": "The Disputed Inheritance",
     "description": "Your lord and patron has died, and you discover that his will names you regent for his infant heir — but a rival branch of the family produces a second will, naming their candidate instead. Both documents bear the dead lord's seal. The army is split, the treasury locked, and two factions glare at each other across the council chamber.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -746,6 +804,7 @@
     "category": "political",
     "title": "The Ottoman Shadow",
     "description": "Ottoman corsairs have raided your coastal territories, carrying off hundreds into slavery. The Sultan's fleet grows bolder each year, and your navy is inadequate to defend the coastline. The Pope calls for a crusade, but no one wants to pay for it. Your people demand protection you cannot provide.",
+    "city": "venice",
     "choices": [
       {
         "id": "a",
@@ -772,6 +831,7 @@
     "category": "political",
     "title": "The Sack Approaches",
     "description": "An unpaid imperial army — 34,000 Landsknechts and Spanish veterans — marches south through Italy, leaderless and starving, seeking plunder. No city can withstand them, and their path leads through your territory toward Rome. The Pope begs for help. The Emperor claims he cannot control his own troops. Destruction approaches like a plague.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
@@ -804,6 +864,7 @@
     "category": "political",
     "title": "The Printing Press Crisis",
     "description": "A printer in your city has published a pamphlet savagely mocking the Pope, the Emperor, and the King of France — all by name, with obscene woodcut illustrations. The pamphlet has spread across Italy before you can suppress it. Furious ambassadors from all three powers demand the printer's head. The printer claims he serves truth and liberty.",
+    "city": "florence",
     "choices": [
       {
         "id": "a",
@@ -830,6 +891,7 @@
     "category": "political",
     "title": "The Final Gambit",
     "description": "Your rivals have formed a coalition to destroy you. Three neighboring lords, backed by a foreign power and blessed by a hostile Pope, prepare to march. Your allies have been bought off or intimidated. You stand alone, outnumbered and outspent. This may be your last decision as a free lord. Every option risks everything.",
+    "city": "rome",
     "choices": [
       {
         "id": "a",
