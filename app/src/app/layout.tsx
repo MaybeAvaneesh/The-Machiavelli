@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
-import { Cinzel, EB_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const cinzel = Cinzel({
+// Fonts are bundled locally (from @fontsource, SIL OFL) so builds never
+// depend on fetching from Google Fonts, which fails intermittently on Vercel.
+const cinzel = localFont({
   variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  src: [
+    { path: "./fonts/cinzel-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/cinzel-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/cinzel-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/cinzel-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const garamond = EB_Garamond({
+const garamond = localFont({
   variable: "--font-garamond",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  src: [
+    { path: "./fonts/eb-garamond-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/eb-garamond-latin-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/eb-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/eb-garamond-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/eb-garamond-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {
