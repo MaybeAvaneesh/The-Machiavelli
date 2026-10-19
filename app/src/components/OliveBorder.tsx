@@ -1,17 +1,54 @@
 "use client";
 
+type Tier = "calm" | "conflict" | "crisis";
+
+// Back-compat: "default" maps to the calm tier.
+type OliveVariant = Tier | "default";
+
 interface OliveBorderProps {
   children: React.ReactNode;
-  variant?: "default" | "crisis";
+  variant?: OliveVariant;
 }
 
+interface Palette {
+  stem: string;
+  leaf: string;
+  leafDark: string;
+  olive: string;
+  thorn: string;
+  highlight: string;
+}
+
+const PALETTES: Record<Tier, Palette> = {
+  calm: {
+    stem: "#4a5020",
+    leaf: "#5a7030",
+    leafDark: "#3a4a18",
+    olive: "#2a3a10",
+    thorn: "#8a9040",
+    highlight: "#b8c848",
+  },
+  conflict: {
+    stem: "#3f3a44",
+    leaf: "#565060",
+    leafDark: "#2a2630",
+    olive: "#241f26",
+    thorn: "#9a4a4a",
+    highlight: "#c06a6a",
+  },
+  crisis: {
+    stem: "#5a1a1a",
+    leaf: "#7a2222",
+    leafDark: "#3a0e0e",
+    olive: "#2a0808",
+    thorn: "#aa3030",
+    highlight: "#cc4444",
+  },
+};
+
 export function OliveBorder({ children, variant = "default" }: OliveBorderProps) {
-  const stem = variant === "crisis" ? "#5a1a1a" : "#4a5020";
-  const leaf = variant === "crisis" ? "#7a2222" : "#5a7030";
-  const leafDark = variant === "crisis" ? "#3a0e0e" : "#3a4a18";
-  const olive = variant === "crisis" ? "#2a0808" : "#2a3a10";
-  const thorn = variant === "crisis" ? "#aa3030" : "#8a9040";
-  const highlight = variant === "crisis" ? "#cc4444" : "#b8c848";
+  const tier: Tier = variant === "default" ? "calm" : variant;
+  const { stem, leaf, leafDark, olive, thorn, highlight } = PALETTES[tier];
 
   return (
     <div className="relative p-1.5">
@@ -25,89 +62,99 @@ export function OliveBorder({ children, variant = "default" }: OliveBorderProps)
 
       {/* Top pixel vine */}
       <svg viewBox="0 0 200 10" className="absolute -top-1 left-2 right-2 h-3 z-10" preserveAspectRatio="none">
-        {/* Stem - chunky pixels */}
+        {/* Woven double stem */}
         <rect x="0" y="4" width="200" height="2" fill={stem} />
-        <rect x="10" y="3" width="20" height="2" fill={stem} />
-        <rect x="60" y="5" width="15" height="2" fill={stem} />
-        <rect x="110" y="3" width="25" height="2" fill={stem} />
-        <rect x="160" y="5" width="20" height="2" fill={stem} />
-        {/* Pixel leaves */}
-        {[15, 45, 75, 105, 135, 165].map((x, i) => (
+        <rect x="0" y="6" width="200" height="1" fill={leafDark} />
+        {[0, 25, 50, 75, 100, 125, 150, 175].map((x, i) => (
+          <rect key={`ts${i}`} x={x} y={i % 2 === 0 ? 3 : 5} width="25" height="2" fill={stem} />
+        ))}
+        {/* Pixel leaves (chunky, alternating sides, denser) */}
+        {[6, 20, 34, 48, 62, 76, 90, 104, 118, 132, 146, 160, 174, 188].map((x, i) => (
           <g key={`tl${i}`}>
             <rect x={x} y={i % 2 === 0 ? 0 : 6} width="6" height="4" fill={leaf} />
-            <rect x={x + 2} y={i % 2 === 0 ? 1 : 7} width="2" height="2" fill={highlight} opacity="0.6" />
+            <rect x={x + 5} y={i % 2 === 0 ? 1 : 7} width="2" height="2" fill={leafDark} />
+            <rect x={x + 1} y={i % 2 === 0 ? 1 : 7} width="2" height="1" fill={highlight} opacity="0.6" />
           </g>
         ))}
         {/* Pixel olives */}
-        {[30, 90, 150].map((x, i) => (
+        {[14, 42, 70, 98, 126, 154, 182].map((x, i) => (
           <g key={`to${i}`}>
             <rect x={x} y={i % 2 === 0 ? 1 : 6} width="4" height="3" fill={olive} />
-            <rect x={x + 1} y={i % 2 === 0 ? 1 : 6} width="2" height="1" fill={highlight} opacity="0.3" />
+            <rect x={x + 1} y={i % 2 === 0 ? 1 : 6} width="1" height="1" fill={highlight} opacity="0.4" />
           </g>
         ))}
-        {/* Pixel thorns */}
-        {[22, 52, 82, 120, 148, 178].map((x, i) => (
-          <rect key={`tt${i}`} x={x} y={i % 2 === 0 ? 2 : 6} width="1" height="3" fill={thorn} />
+        {/* Pixel thorns (regular, both directions) */}
+        {[10, 24, 38, 52, 66, 80, 94, 108, 122, 136, 150, 164, 178, 192].map((x, i) => (
+          <rect key={`tt${i}`} x={x} y={i % 2 === 0 ? 1 : 6} width="1" height="3" fill={thorn} />
         ))}
       </svg>
 
       {/* Bottom pixel vine */}
       <svg viewBox="0 0 200 10" className="absolute -bottom-1 left-2 right-2 h-3 z-10" preserveAspectRatio="none">
         <rect x="0" y="4" width="200" height="2" fill={stem} />
-        <rect x="20" y="5" width="18" height="2" fill={stem} />
-        <rect x="80" y="3" width="15" height="2" fill={stem} />
-        <rect x="140" y="5" width="22" height="2" fill={stem} />
-        {[10, 40, 70, 100, 130, 160, 190].map((x, i) => (
+        <rect x="0" y="3" width="200" height="1" fill={leafDark} />
+        {[0, 25, 50, 75, 100, 125, 150, 175].map((x, i) => (
+          <rect key={`bs${i}`} x={x} y={i % 2 === 0 ? 5 : 3} width="25" height="2" fill={stem} />
+        ))}
+        {[6, 20, 34, 48, 62, 76, 90, 104, 118, 132, 146, 160, 174, 188].map((x, i) => (
           <g key={`bl${i}`}>
             <rect x={x} y={i % 2 === 0 ? 6 : 0} width="6" height="4" fill={leaf} />
             <rect x={x + 1} y={i % 2 === 0 ? 7 : 1} width="3" height="2" fill={leafDark} />
+            <rect x={x + 2} y={i % 2 === 0 ? 7 : 1} width="1" height="1" fill={highlight} opacity="0.5" />
           </g>
         ))}
-        {[55, 115, 175].map((x, i) => (
-          <rect key={`bo${i}`} x={x} y={i % 2 === 0 ? 6 : 1} width="4" height="3" fill={olive} />
+        {[14, 42, 70, 98, 126, 154, 182].map((x, i) => (
+          <g key={`bo${i}`}>
+            <rect x={x} y={i % 2 === 0 ? 6 : 1} width="4" height="3" fill={olive} />
+            <rect x={x + 1} y={i % 2 === 0 ? 6 : 1} width="1" height="1" fill={highlight} opacity="0.4" />
+          </g>
         ))}
-        {[25, 65, 95, 135, 165].map((x, i) => (
-          <rect key={`bt${i}`} x={x} y={i % 2 === 0 ? 6 : 2} width="1" height="3" fill={thorn} />
+        {[10, 24, 38, 52, 66, 80, 94, 108, 122, 136, 150, 164, 178, 192].map((x, i) => (
+          <rect key={`bt${i}`} x={x} y={i % 2 === 0 ? 6 : 1} width="1" height="3" fill={thorn} />
         ))}
       </svg>
 
       {/* Left pixel vine */}
       <svg viewBox="0 0 10 200" className="absolute top-2 -left-1 bottom-2 w-3 z-10" preserveAspectRatio="none">
         <rect x="4" y="0" width="2" height="200" fill={stem} />
-        <rect x="3" y="15" width="2" height="18" fill={stem} />
-        <rect x="5" y="70" width="2" height="15" fill={stem} />
-        <rect x="3" y="130" width="2" height="20" fill={stem} />
-        {[10, 40, 70, 100, 130, 160, 190].map((y, i) => (
+        <rect x="6" y="0" width="1" height="200" fill={leafDark} />
+        {[0, 25, 50, 75, 100, 125, 150, 175].map((y, i) => (
+          <rect key={`ls${i}`} x={i % 2 === 0 ? 3 : 5} y={y} width="2" height="25" fill={stem} />
+        ))}
+        {[6, 20, 34, 48, 62, 76, 90, 104, 118, 132, 146, 160, 174, 188].map((y, i) => (
           <g key={`ll${i}`}>
             <rect x={i % 2 === 0 ? 0 : 6} y={y} width="4" height="6" fill={leaf} />
-            <rect x={i % 2 === 0 ? 1 : 7} y={y + 2} width="2" height="2" fill={highlight} opacity="0.5" />
+            <rect x={i % 2 === 0 ? 0 : 6} y={y + 5} width="2" height="2" fill={leafDark} />
+            <rect x={i % 2 === 0 ? 1 : 7} y={y + 1} width="1" height="2" fill={highlight} opacity="0.5" />
           </g>
         ))}
-        {[55, 115, 175].map((y, i) => (
+        {[14, 42, 70, 98, 126, 154, 182].map((y, i) => (
           <rect key={`lo${i}`} x={i % 2 === 0 ? 1 : 6} y={y} width="3" height="4" fill={olive} />
         ))}
-        {[25, 85, 145].map((y, i) => (
-          <rect key={`lt${i}`} x={i % 2 === 0 ? 2 : 6} y={y} width="3" height="1" fill={thorn} />
+        {[10, 24, 38, 52, 66, 80, 94, 108, 122, 136, 150, 164, 178, 192].map((y, i) => (
+          <rect key={`lt${i}`} x={i % 2 === 0 ? 1 : 6} y={y} width="3" height="1" fill={thorn} />
         ))}
       </svg>
 
       {/* Right pixel vine */}
       <svg viewBox="0 0 10 200" className="absolute top-2 -right-1 bottom-2 w-3 z-10" preserveAspectRatio="none">
         <rect x="4" y="0" width="2" height="200" fill={stem} />
-        <rect x="5" y="25" width="2" height="20" fill={stem} />
-        <rect x="3" y="90" width="2" height="15" fill={stem} />
-        <rect x="5" y="150" width="2" height="18" fill={stem} />
-        {[15, 45, 75, 105, 135, 165].map((y, i) => (
+        <rect x="3" y="0" width="1" height="200" fill={leafDark} />
+        {[0, 25, 50, 75, 100, 125, 150, 175].map((y, i) => (
+          <rect key={`rs${i}`} x={i % 2 === 0 ? 5 : 3} y={y} width="2" height="25" fill={stem} />
+        ))}
+        {[6, 20, 34, 48, 62, 76, 90, 104, 118, 132, 146, 160, 174, 188].map((y, i) => (
           <g key={`rl${i}`}>
             <rect x={i % 2 === 0 ? 6 : 0} y={y} width="4" height="6" fill={leaf} />
-            <rect x={i % 2 === 0 ? 7 : 1} y={y + 1} width="2" height="3" fill={leafDark} />
+            <rect x={i % 2 === 0 ? 8 : 2} y={y + 5} width="2" height="2" fill={leafDark} />
+            <rect x={i % 2 === 0 ? 7 : 1} y={y + 1} width="1" height="2" fill={highlight} opacity="0.5" />
           </g>
         ))}
-        {[35, 95, 155].map((y, i) => (
+        {[14, 42, 70, 98, 126, 154, 182].map((y, i) => (
           <rect key={`ro${i}`} x={i % 2 === 0 ? 6 : 1} y={y} width="3" height="4" fill={olive} />
         ))}
-        {[60, 120, 180].map((y, i) => (
-          <rect key={`rt${i}`} x={i % 2 === 0 ? 6 : 2} y={y} width="3" height="1" fill={thorn} />
+        {[10, 24, 38, 52, 66, 80, 94, 108, 122, 136, 150, 164, 178, 192].map((y, i) => (
+          <rect key={`rt${i}`} x={i % 2 === 0 ? 6 : 1} y={y} width="3" height="1" fill={thorn} />
         ))}
       </svg>
 

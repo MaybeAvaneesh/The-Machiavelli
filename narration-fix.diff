@@ -1,0 +1,337 @@
+diff --git a/app/src/app/api/game/choose/route.ts b/app/src/app/api/game/choose/route.ts
+index 1ee2994..e85d3df 100644
+--- a/app/src/app/api/game/choose/route.ts
++++ b/app/src/app/api/game/choose/route.ts
+@@ -3,6 +3,10 @@ import { applyChoice, rollLuck, visibleChoices } from "@/lib/engine";
+ import { streamNarration, getDeathNarration } from "@/lib/narration";
+ import type { GameState, StatBlock, DeferredConsequence } from "@/lib/types";
+ 
++export const runtime = "nodejs";
++export const dynamic = "force-dynamic";
++export const maxDuration = 30;
++
+ export async function POST(request: NextRequest) {
+   try {
+     const body = await request.json();
+@@ -83,7 +87,11 @@ export async function POST(request: NextRequest) {
+             narrationState,
+             choiceId,
+             appliedChanges,
+-            firedConsequences
++            firedConsequences,
++            () =>
++              controller.enqueue(
++                encoder.encode(`data: ${JSON.stringify({ type: "narration_unavailable" })}\n\n`)
++              )
+           )) {
+             controller.enqueue(
+               encoder.encode(
+@@ -119,7 +127,8 @@ export async function POST(request: NextRequest) {
+     return new Response(stream, {
+       headers: {
+         "Content-Type": "text/event-stream",
+-        "Cache-Control": "no-cache",
++        "Cache-Control": "no-cache, no-transform",
++        "X-Accel-Buffering": "no",
+         Connection: "keep-alive",
+       },
+     });
+diff --git a/app/src/app/page.tsx b/app/src/app/page.tsx
+index 1bf75ba..684f532 100644
+--- a/app/src/app/page.tsx
++++ b/app/src/app/page.tsx
+@@ -8,6 +8,7 @@ import { NarrationPanel } from "@/components/NarrationPanel";
+ import { GameOverScreen } from "@/components/GameOverScreen";
+ import { ProgressBar } from "@/components/ProgressBar";
+ import { MapPanel } from "@/components/MapPanel";
++import { Toast } from "@/components/Toast";
+ 
+ export default function Home() {
+   const {
+@@ -20,6 +21,8 @@ export default function Home() {
+     makeChoice,
+     continueAfterNarration,
+     resetGame,
++    toast,
++    dismissToast,
+   } = useGame();
+ 
+   const showGame = (phase === "playing" || phase === "narrating") && game && game.currentScenario;
+@@ -88,6 +91,7 @@ export default function Home() {
+           />
+         )}
+       </div>
++      <Toast message={toast} onDismiss={dismissToast} />
+     </div>
+   );
+ }
+diff --git a/app/src/components/Toast.tsx b/app/src/components/Toast.tsx
+new file mode 100644
+index 0000000..4546f5d
+--- /dev/null
++++ b/app/src/components/Toast.tsx
+@@ -0,0 +1,31 @@
++"use client";
++
++interface ToastProps {
++  message: string | null;
++  onDismiss: () => void;
++}
++
++export function Toast({ message, onDismiss }: ToastProps) {
++  if (!message) return null;
++  return (
++    <div
++      role="status"
++      aria-live="polite"
++      className="fixed left-1/2 -translate-x-1/2 z-[60] w-[calc(100%-2rem)] max-w-md animate-modal-in"
++      style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))" }}
++    >
++      <div className="flex items-start gap-3 rounded-md border border-[#6b5a30] bg-[#1a140c]/95 px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur">
++        <span aria-hidden className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#c9a84c]" />
++        <p className="flex-1 text-sm leading-snug text-[#e8dcc8] font-body">{message}</p>
++        <button
++          type="button"
++          onClick={onDismiss}
++          aria-label="Dismiss"
++          className="-mr-1 px-1 text-lg leading-none text-[#8a7e6a] hover:text-[#e8dcc8] cursor-pointer"
++        >
++          ×
++        </button>
++      </div>
++    </div>
++  );
++}
+diff --git a/app/src/lib/narration.ts b/app/src/lib/narration.ts
+index ebc1e5c..65f1a54 100644
+--- a/app/src/lib/narration.ts
++++ b/app/src/lib/narration.ts
+@@ -11,10 +11,38 @@ const STAT_LABELS: Record<StatKey, string> = {
+   churchStanding: "Church Standing",
+ };
+ 
++const NARRATION_TIMEOUT_MS = 10000;
++const MAX_NARRATION_CHARS = 320;
++
+ function getClient(): Mistral | null {
+-  const key = process.env.MISTRAL_API_KEY;
++  const key = process.env.MISTRAL_API_KEY?.trim();
+   if (!key) return null;
+-  return new Mistral({ apiKey: key });
++  return new Mistral({
++    apiKey: key,
++    timeoutMs: NARRATION_TIMEOUT_MS,
++    ...(process.env.MISTRAL_SERVER_URL ? { serverURL: process.env.MISTRAL_SERVER_URL } : {}),
++  });
++}
++
++// Mistral deltas can be a plain string or an array of content chunks
++// (text, thinking, references). Keep only the visible text.
++function deltaText(content: unknown): string {
++  if (typeof content === "string") return content;
++  if (Array.isArray(content)) {
++    return content
++      .map((c) => (c && typeof c === "object" && (c as { type?: string }).type === "text"
++        ? String((c as { text?: unknown }).text ?? "")
++        : ""))
++      .join("");
++  }
++  return "";
++}
++
++async function* streamFallback(text: string): AsyncGenerator<string> {
++  for (const word of text.split(" ")) {
++    yield word + " ";
++    await new Promise((r) => setTimeout(r, 30));
++  }
+ }
+ 
+ function buildNarrationPrompt(
+@@ -85,34 +113,61 @@ export async function* streamNarration(
+   state: GameState,
+   choiceId: string,
+   appliedChanges: StatBlock,
+-  firedConsequences: DeferredConsequence[] = []
++  firedConsequences: DeferredConsequence[] = [],
++  onProviderFailure?: (reason: string) => void
+ ): AsyncGenerator<string> {
+-  const client = getClient();
++  const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
++  const fallback = choice?.narration || "The wheels of history turn onward.";
+ 
++  const client = getClient();
+   if (!client) {
+-    const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
+-    const fallback = choice?.narration || "The wheels of history turn onward.";
+-    const words = fallback.split(" ");
+-    for (const word of words) {
+-      yield word + " ";
+-      await new Promise((r) => setTimeout(r, 30));
+-    }
++    yield* streamFallback(fallback);
+     return;
+   }
+ 
+   const prompt = buildNarrationPrompt(state, choiceId, appliedChanges, firedConsequences);
+-
+-  const stream = await client.chat.stream({
+-    model: process.env.MISTRAL_MODEL || "mistral-large-latest",
+-    messages: [{ role: "user", content: prompt }],
+-    maxTokens: 120,
+-  });
+-
+-  for await (const event of stream) {
+-    const delta = event.data?.choices?.[0]?.delta?.content;
+-    if (typeof delta === "string") {
+-      yield delta;
++  let emitted = "";
++  let failure: string | null = null;
++  let held = ""; // trailing quote/markdown, released only if more text follows
++
++  try {
++    const stream = await client.chat.stream({
++      model: process.env.MISTRAL_MODEL?.trim() || "mistral-large-latest",
++      messages: [{ role: "user", content: prompt }],
++      maxTokens: 160,
++      temperature: 0.8,
++    });
++
++    for await (const event of stream) {
++      let text = deltaText(event.data?.choices?.[0]?.delta?.content);
++      if (!text) continue;
++      // Drop a leading quote or markdown the model sometimes opens with.
++      if (!emitted) text = text.replace(/^\s*["“*_]+/, "");
++      text = held + text;
++      const tail = text.match(/["”*_]+\s*$/);
++      held = tail ? tail[0] : "";
++      if (held) text = text.slice(0, -held.length);
++      if (emitted.length + text.length > MAX_NARRATION_CHARS) {
++        text = text.slice(0, Math.max(0, MAX_NARRATION_CHARS - emitted.length));
++      }
++      if (text) {
++        emitted += text;
++        yield text;
++      }
++      if (emitted.length >= MAX_NARRATION_CHARS) break;
+     }
++  } catch (err) {
++    failure = (err as Error)?.message ?? String(err);
++    console.error("[narration] Mistral request failed:", failure);
++  }
++
++  // Nothing usable came back (bad key, rate limit, timeout, empty reply): use the written line.
++  if (!emitted.trim()) {
++    onProviderFailure?.(failure ?? "empty response");
++    yield* streamFallback(fallback);
++  } else if (failure) {
++    // Stream broke partway through: keep what arrived, still tell the player.
++    onProviderFailure?.(failure);
+   }
+ }
+ 
+diff --git a/app/src/lib/useGame.ts b/app/src/lib/useGame.ts
+index 44bc161..959526d 100644
+--- a/app/src/lib/useGame.ts
++++ b/app/src/lib/useGame.ts
+@@ -1,6 +1,6 @@
+ "use client";
+ 
+-import { useState, useCallback } from "react";
++import { useState, useCallback, useRef } from "react";
+ 
+ interface StatBlock {
+   [key: string]: number;
+@@ -71,6 +71,9 @@ export interface GameView {
+   world?: WorldView;
+ }
+ 
++const NARRATION_TOAST =
++  "Live narration is unavailable right now. Showing the written chronicle instead.";
++
+ type GamePhase = "menu" | "playing" | "narrating" | "dead" | "victory";
+ 
+ export function useGame() {
+@@ -80,6 +83,19 @@ export function useGame() {
+   const [narration, setNarration] = useState("");
+   const [appliedChanges, setAppliedChanges] = useState<StatBlock | null>(null);
+   const [loading, setLoading] = useState(false);
++  const [toast, setToast] = useState<string | null>(null);
++  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
++
++  const showToast = useCallback((message: string) => {
++    setToast(message);
++    if (toastTimer.current) clearTimeout(toastTimer.current);
++    toastTimer.current = setTimeout(() => setToast(null), 6000);
++  }, []);
++
++  const dismissToast = useCallback(() => {
++    if (toastTimer.current) clearTimeout(toastTimer.current);
++    setToast(null);
++  }, []);
+ 
+   const startGame = useCallback(async (characterId?: number) => {
+     setLoading(true);
+@@ -119,8 +135,13 @@ export function useGame() {
+           body: JSON.stringify({ gameState: internalState, choiceId }),
+         });
+ 
+-        const reader = res.body?.getReader();
+-        if (!reader) return;
++        const reader = res.ok ? res.body?.getReader() : undefined;
++        if (!reader) {
++          setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
++          showToast(NARRATION_TOAST);
++          return;
++        }
++        let gotText = false;
+ 
+         const decoder = new TextDecoder();
+         let buffer = "";
+@@ -148,8 +169,19 @@ export function useGame() {
+                 setInternalState(event._internal);
+               }
+               if (event.type === "narration_chunk") {
++                gotText = true;
+                 setNarration((prev) => prev + event.text);
+               }
++              if (event.type === "narration_unavailable") {
++                showToast(NARRATION_TOAST);
++              }
++              if (event.type === "error") {
++                showToast(NARRATION_TOAST);
++                if (!gotText) {
++                  gotText = true;
++                  setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
++                }
++              }
+               if (event.type === "death") {
+                 setNarration((prev) => prev + "\n\n" + event.text);
+               }
+@@ -161,11 +193,18 @@ export function useGame() {
+             }
+           }
+         }
++        if (!gotText) {
++          setNarration("The chronicler's ink has run dry. Fortune turns regardless.");
++        }
++      } catch {
++        // Network drop mid-stream: never leave the player without a Continue button.
++        setNarration((prev) => prev || "The chronicler's ink has run dry. Fortune turns regardless.");
++        showToast(NARRATION_TOAST);
+       } finally {
+         setLoading(false);
+       }
+     },
+-    [internalState]
++    [internalState, showToast]
+   );
+ 
+   const continueAfterNarration = useCallback(() => {
+@@ -197,5 +236,7 @@ export function useGame() {
+     makeChoice,
+     continueAfterNarration,
+     resetGame,
++    toast,
++    dismissToast,
+   };
+ }

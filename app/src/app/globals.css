@@ -299,3 +299,39 @@ body::after {
     rgba(0, 0, 0, 0.04) 6px
   );
 }
+
+/* === SCENE IMAGE: cohesive candlelit tone + Ken Burns === */
+
+/* Base treatment on the painting itself: retro contrast, pulled-back
+   saturation, and a warm sepia lean so ~100 disparate museum works settle
+   into the same candlelit/parchment world. */
+.scene-toned {
+  image-rendering: auto;
+  filter: contrast(1.12) saturate(0.8) brightness(0.92) sepia(0.18);
+}
+
+/* Semi-transparent gold/amber wash blended over the image. multiply deepens
+   the browns toward #0a0806 while the gold (#c9a84c) unifies the highlights —
+   unify without muddying, so the subject stays legible. */
+.scene-wash {
+  background: linear-gradient(
+    160deg,
+    rgba(201, 168, 76, 0.22) 0%,
+    rgba(90, 60, 25, 0.28) 55%,
+    rgba(10, 8, 6, 0.42) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+@keyframes scene-kenburns {
+  from { transform: scale(1.06) translate3d(-1.2%, -0.8%, 0); }
+  to   { transform: scale(1.13) translate3d(1.2%, 0.8%, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene-kenburns {
+    transform-origin: center;
+    will-change: transform;
+    animation: scene-kenburns 28s ease-in-out infinite alternate;
+  }
+}
