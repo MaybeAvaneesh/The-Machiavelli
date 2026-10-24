@@ -172,6 +172,11 @@ export function useGame() {
                 gotText = true;
                 setNarration((prev) => prev + event.text);
               }
+              if (event.type === "narration_fallback") {
+                const from = (event.from as string[]).join(" and ");
+                console.warn(`[narration] ${from} failed (${event.reason}); ${event.to} narrated instead.`);
+                showToast(`${from} is unavailable right now (${event.reason}). ${event.to} is narrating instead.`);
+              }
               if (event.type === "narration_unavailable") {
                 showToast(NARRATION_TOAST);
               }

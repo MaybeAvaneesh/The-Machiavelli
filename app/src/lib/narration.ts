@@ -1,48 +1,41 @@
-import { Mistral } from "@mistralai/mistralai";
 import type { GameState, StatBlock, DeferredConsequence } from "./types";
 import gameConfig from "../../game-data/game-config.json";
+import { getProviders } from "./llm/providers";
+import { ProviderError, streamChat, type ChatMessage } from "./llm/stream";
+
+export interface NarrationFallback {
+  /** Providers that failed before this one, e.g. ["Groq"]. */
+  from: string[];
+  /** Provider that ended up writing the chronicle. */
+  to: string;
+  /** Short, player-safe reason, e.g. "HTTP 429" or "timed out". */
+  reason: string;
+}
+
+/** Short reason for the client; the full error stays in the server log. */
+function shortReason(err: unknown): string {
+  if (err instanceof ProviderError) return err.status ? `HTTP ${err.status}` : err.message.replace(/^[^:]+:\s*/, "");
+  return "unexpected error";
+}
+
+const log = (msg: string) => console.log(`[narration] ${msg}`);
 
 type StatKey = "influence" | "militaryPower" | "wealth" | "churchStanding";
 
 const STAT_LABELS: Record<StatKey, string> = {
   influence: "Influence",
-  militaryPower: "Military Power",
+  militaryPower: "Military",
   wealth: "Wealth",
-  churchStanding: "Church Standing",
+  churchStanding: "Church",
 };
 
-const NARRATION_TIMEOUT_MS = 10000;
 const MAX_NARRATION_CHARS = 320;
+const DANGER_HIGH = 86;
+const DANGER_LOW = 14;
 
-function getClient(): Mistral | null {
-  const key = process.env.MISTRAL_API_KEY?.trim();
-  if (!key) return null;
-  return new Mistral({
-    apiKey: key,
-    timeoutMs: NARRATION_TIMEOUT_MS,
-    // Free-tier keys hit 429s easily: retry briefly (honours Retry-After) before falling back.
-    retryConfig: {
-      strategy: "backoff",
-      backoff: { initialInterval: 800, maxInterval: 2500, exponent: 1.6, maxElapsedTime: 5000 },
-      retryConnectionErrors: true,
-    },
-    ...(process.env.MISTRAL_SERVER_URL ? { serverURL: process.env.MISTRAL_SERVER_URL } : {}),
-  });
-}
-
-// Mistral deltas can be a plain string or an array of content chunks
-// (text, thinking, references). Keep only the visible text.
-function deltaText(content: unknown): string {
-  if (typeof content === "string") return content;
-  if (Array.isArray(content)) {
-    return content
-      .map((c) => (c && typeof c === "object" && (c as { type?: string }).type === "text"
-        ? String((c as { text?: unknown }).text ?? "")
-        : ""))
-      .join("");
-  }
-  return "";
-}
+// Static instructions go in the system message, so providers that cache
+// prompt prefixes only bill the short, per-turn user message in full.
+const SYSTEM_PROMPT = `You narrate "The Machiavelli", a Renaissance Italy RPG (1450-1550). Reply with 1-2 sentences, max 280 characters, second person, cynical Machiavellian wit, vivid real places. If a stat rose and another fell, show the gain and the cost together. A DELAYED line must land as the payoff of an earlier choice. Never mention stats, numbers, dice or game mechanics. No quotes or markdown.`;
 
 async function* streamFallback(text: string): AsyncGenerator<string> {
   for (const word of text.split(" ")) {
@@ -51,68 +44,79 @@ async function* streamFallback(text: string): AsyncGenerator<string> {
   }
 }
 
-function buildNarrationPrompt(
+/** First sentence only: the hint steers the model without paying for the whole line. */
+function firstSentence(text: string): string {
+  const match = text.match(/^.*?[.!?](\s|$)/);
+  return (match ? match[0] : text).trim();
+}
+
+export function buildNarrationMessages(
   state: GameState,
   choiceId: string,
   appliedChanges: StatBlock,
   firedConsequences: DeferredConsequence[] = []
-): string {
-  const scenario = state.scenarioHistory.length > 0
-    ? `Round ${state.round - 1} of ${state.maxRounds}`
-    : `Round 1 of ${state.maxRounds}`;
+): ChatMessage[] {
+  const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
 
-  const choice = state.currentScenario
-    ? state.currentScenario.choices.find((c) => c.id === choiceId)
-    : null;
-
-  const statSummary = Object.entries(state.stats)
-    .map(([k, v]) => {
-      const change = appliedChanges[k as StatKey];
-      const arrow = change > 0 ? `+${change}` : change < 0 ? `${change}` : "—";
-      const danger = v >= 86 ? " [DANGER: NEAR CEILING]" : v <= 14 ? " [DANGER: NEAR FLOOR]" : "";
-      return `${STAT_LABELS[k as StatKey]}: ${v}${danger} (${arrow})`;
+  // Only what changed or is in danger: that's what the narration should react to.
+  const stats = (Object.keys(STAT_LABELS) as StatKey[])
+    .map((k) => {
+      const v = state.stats[k];
+      const d = appliedChanges[k] ?? 0;
+      const danger = v >= DANGER_HIGH ? " near-tyranny" : v <= DANGER_LOW ? " near-ruin" : "";
+      if (!d && !danger) return null;
+      return `${STAT_LABELS[k]} ${d > 0 ? "+" : ""}${d || "±0"}${danger}`;
     })
-    .join("\n");
+    .filter(Boolean)
+    .join(", ");
 
-  const luckDesc = state.lastLuckRoll
-    ? `Luck roll: ${state.lastLuckRoll.total} (${state.lastLuckRoll.band})`
-    : "";
+  const relationships = Object.entries(state.world?.relationships ?? {})
+    .map(([k, v]) => `${k}:${v}`)
+    .join(", ");
 
-  const relationships = Object.entries(state.world?.relationships ?? {});
-  const relationshipLine = relationships.length
-    ? `\nRELATIONSHIPS: ${relationships.map(([k, v]) => `${k} (${v})`).join(", ")}`
-    : "";
+  const lines = [
+    `You: ${state.character.name}, ${state.character.title} (perk: ${state.character.perk.name}).`,
+    `Chose: ${choice?.text ?? "unknown"}`,
+    choice?.narration ? `Hint: ${firstSentence(choice.narration)}` : "",
+    stats ? `Effects: ${stats}` : "",
+    state.lastLuckRoll ? `Fortune: ${state.lastLuckRoll.band}` : "",
+    relationships ? `Relations: ${relationships}` : "",
+    ...firedConsequences.map((c) => `DELAYED: ${c.reason}`),
+    state.alive
+      ? ""
+      : `FATE: ${state.deathCause?.includes("ceiling") ? "assassinated or overthrown" : "exiled or collapsed"}.`,
+  ].filter(Boolean);
 
-  const firedLine = firedConsequences.length
-    ? `\n\nDELAYED CONSEQUENCES NOW STRIKING (the fruit of a past choice — the narration MUST make this the payoff of something the player did earlier):\n${firedConsequences
-        .map((c) => `- ${c.reason}`)
-        .join("\n")}`
-    : "";
+  return [
+    { role: "system", content: SYSTEM_PROMPT },
+    { role: "user", content: lines.join("\n") },
+  ];
+}
 
-  return `You are the narrator of "The Machiavelli," a historical RPG set in Renaissance Italy (1450-1550).
-
-CHARACTER: ${state.character.name} — ${state.character.title}
-${state.character.description}
-Perk: ${state.character.perk.name} — ${state.character.perk.description}
-Downside: ${state.character.downside.name} — ${state.character.downside.description}
-
-CURRENT STATE (${scenario}):
-${statSummary}
-${luckDesc}${relationshipLine}${firedLine}
-
-${state.alive ? "" : `DEATH/EXILE: The character has ${state.deathCause?.includes("ceiling") ? "been assassinated/overthrown (stat too high)" : "been exiled/collapsed (stat too low)"}.`}
-
-The player chose: "${choice?.text || "unknown"}"
-Base narration hint: "${choice?.narration || ""}"
-
-Write a narration of what happens. STRICT RULES:
-- MAXIMUM 280 CHARACTERS. This is a hard limit — count carefully
-- Write in second person ("You...")
-- If the choice raised some stats and lowered others, the narration MUST convey BOTH — the gain and the cost in the same breath (e.g. "your coffers swell, but the cardinals whisper of heresy")
-- Be historically vivid — reference real places and Renaissance dynamics
-- Be Machiavellian in tone — cynical, pragmatic, dark wit
-- Do NOT mention game mechanics, stat numbers, or dice rolls
-- 1-2 sentences ONLY. Think of it as a dispatch from a Renaissance chronicler`;
+/**
+ * Cleans a stream of model text: strips opening quotes/markdown, holds back
+ * trailing ones until more text arrives, and caps total length.
+ */
+async function* clean(source: AsyncGenerator<string>, onText: (t: string) => void) {
+  let emitted = "";
+  let held = "";
+  for await (const raw of source) {
+    let text = raw;
+    if (!emitted) text = text.replace(/^\s*["“*_]+/, "");
+    text = held + text;
+    const tail = text.match(/["”*_]+\s*$/);
+    held = tail ? tail[0] : "";
+    if (held) text = text.slice(0, -held.length);
+    if (emitted.length + text.length > MAX_NARRATION_CHARS) {
+      text = text.slice(0, Math.max(0, MAX_NARRATION_CHARS - emitted.length));
+    }
+    if (text) {
+      emitted += text;
+      onText(text);
+      yield text;
+    }
+    if (emitted.length >= MAX_NARRATION_CHARS) break;
+  }
 }
 
 export async function* streamNarration(
@@ -120,61 +124,79 @@ export async function* streamNarration(
   choiceId: string,
   appliedChanges: StatBlock,
   firedConsequences: DeferredConsequence[] = [],
-  onProviderFailure?: (reason: string) => void
+  onProviderFailure?: (reason: string) => void,
+  onFallback?: (info: NarrationFallback) => void
 ): AsyncGenerator<string> {
   const choice = state.currentScenario?.choices.find((c) => c.id === choiceId);
   const fallback = choice?.narration || "The wheels of history turn onward.";
 
-  const client = getClient();
-  if (!client) {
+  const providers = getProviders();
+  if (providers.length === 0) {
+    log("no provider keys set, using the written line");
     yield* streamFallback(fallback);
     return;
   }
 
-  const prompt = buildNarrationPrompt(state, choiceId, appliedChanges, firedConsequences);
-  let emitted = "";
-  let failure: string | null = null;
-  let held = ""; // trailing quote/markdown, released only if more text follows
+  const messages = buildNarrationMessages(state, choiceId, appliedChanges, firedConsequences);
+  const failures: string[] = [];
+  const failed: { label: string; reason: string }[] = [];
 
-  try {
-    const stream = await client.chat.stream({
-      model: process.env.MISTRAL_MODEL?.trim() || "mistral-large-latest",
-      messages: [{ role: "user", content: prompt }],
-      maxTokens: 160,
-      temperature: 0.8,
-    });
-
-    for await (const event of stream) {
-      let text = deltaText(event.data?.choices?.[0]?.delta?.content);
-      if (!text) continue;
-      // Drop a leading quote or markdown the model sometimes opens with.
-      if (!emitted) text = text.replace(/^\s*["“*_]+/, "");
-      text = held + text;
-      const tail = text.match(/["”*_]+\s*$/);
-      held = tail ? tail[0] : "";
-      if (held) text = text.slice(0, -held.length);
-      if (emitted.length + text.length > MAX_NARRATION_CHARS) {
-        text = text.slice(0, Math.max(0, MAX_NARRATION_CHARS - emitted.length));
-      }
-      if (text) {
-        emitted += text;
+  // Try each provider in order. Move on only if one fails before producing text;
+  // once words are on screen, keep them rather than restarting with another voice.
+  for (const [i, provider] of providers.entries()) {
+    const isLast = i === providers.length - 1;
+    const started = Date.now();
+    let emitted = "";
+    let firstTokenMs: number | null = null;
+    try {
+      const source = streamChat(provider, messages, {
+        maxTokens: provider.id === "groq" ? 400 : 120,
+        temperature: 0.8,
+        timeoutMs: 10000,
+        // With a backup waiting, retry a rate limit once at most; the last provider gets longer.
+        retryBudgetMs: isLast ? 4000 : 1500,
+      });
+      for await (const text of clean(source, (t) => {
+        if (firstTokenMs === null) firstTokenMs = Date.now() - started;
+        emitted += t;
+      }))
         yield text;
+      if (emitted.trim()) {
+        log(
+          `${provider.label} (${provider.model}) ok: first text ${firstTokenMs}ms, total ${Date.now() - started}ms, ${emitted.length} chars`,
+        );
+        if (failed.length) {
+          log(`served by ${provider.label} after: ${failures.join(" | ")}`);
+          onFallback?.({
+            from: failed.map((f) => f.label),
+            to: provider.label,
+            reason: failed.map((f) => `${f.label} ${f.reason}`).join(", "),
+          });
+        }
+        return;
       }
-      if (emitted.length >= MAX_NARRATION_CHARS) break;
+      failures.push(`${provider.label}: empty response`);
+      failed.push({ label: provider.label, reason: "empty response" });
+      log(`${provider.label} returned no text after ${Date.now() - started}ms, trying next`);
+    } catch (err) {
+      const message = (err as Error)?.message ?? String(err);
+      if (emitted.trim()) {
+        // Broke mid-sentence: keep what arrived, still tell the player.
+        console.error(`[narration] ${provider.label} stream broke after ${Date.now() - started}ms:`, message);
+        onProviderFailure?.(message);
+        return;
+      }
+      failures.push(message);
+      failed.push({ label: provider.label, reason: shortReason(err) });
+      console.error(
+        `[narration] ${provider.label} (${provider.model}) failed after ${Date.now() - started}ms${isLast ? "" : ", trying next"}: ${message}`,
+      );
     }
-  } catch (err) {
-    failure = (err as Error)?.message ?? String(err);
-    console.error("[narration] Mistral request failed:", failure);
   }
 
-  // Nothing usable came back (bad key, rate limit, timeout, empty reply): use the written line.
-  if (!emitted.trim()) {
-    onProviderFailure?.(failure ?? "empty response");
-    yield* streamFallback(fallback);
-  } else if (failure) {
-    // Stream broke partway through: keep what arrived, still tell the player.
-    onProviderFailure?.(failure);
-  }
+  // Every provider failed: use the written line.
+  onProviderFailure?.(failures.join(" | "));
+  yield* streamFallback(fallback);
 }
 
 export function getDeathNarration(state: GameState): string {
