@@ -91,6 +91,10 @@ export async function POST(request: NextRequest) {
             () =>
               controller.enqueue(
                 encoder.encode(`data: ${JSON.stringify({ type: "narration_unavailable" })}\n\n`)
+              ),
+            (info) =>
+              controller.enqueue(
+                encoder.encode(`data: ${JSON.stringify({ type: "narration_fallback", ...info })}\n\n`)
               )
           )) {
             controller.enqueue(

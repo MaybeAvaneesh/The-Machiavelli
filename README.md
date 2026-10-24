@@ -11,11 +11,11 @@ cd app
 npm install
 ```
 
-Create `app/.env.local` with your Mistral API key:
+Copy `app/.env.example` to `app/.env.local` and add at least one key:
 
 ```
-MISTRAL_API_KEY=your_key_here
-MISTRAL_MODEL=mistral-large-latest
+GROQ_API_KEY=your_groq_key        # primary, https://console.groq.com/keys
+MISTRAL_API_KEY=your_mistral_key  # backup, https://console.mistral.ai/api-keys
 ```
 
 Run the dev server:
@@ -26,7 +26,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-> The game works without an API key — narration falls back to pre-written text. With the key, Mistral generates unique narration streamed in real-time via SSE.
+> **Narration chain:** each round's chronicle is streamed (SSE) from the first provider in `NARRATION_PROVIDERS` (default `groq,mistral`). If it fails before writing anything (bad key, rate limit, timeout), the next one takes over. If all fail, or no keys are set, the game uses the scenario's pre-written line, and players see a toast only when a configured provider failed. Both providers use the OpenAI-compatible API, so no SDK is needed.
 
 ## How to play
 
@@ -70,7 +70,7 @@ The-Machiavelli/
 ## Tech stack
 
 - **Framework**: Next.js (App Router)
-- **AI**: Mistral API (streamed via SSE)
+- **AI**: Groq (gpt-oss-120b) with Mistral backup, OpenAI-compatible streaming via SSE
 - **Styling**: Tailwind CSS
 - **Game engine**: Server-side TypeScript (stats, luck rolls, perks, death checks)
 - **Data**: Static JSON (100 scenarios, 20 characters, 20 awards)
